@@ -1,0 +1,28 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_service_fabric_cluster.example",
+                    "mode": "managed",
+                    "type": "azapi_resource",
+                    "changes": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "type": "Microsoft.ServiceFabric/clusters/2021-06-01",
+                            "body": {
+                                "properties": {
+                                    "azureActiveDirectory": {
+                                        "tenantId": "00000000-0000-0000-0000-000000000000"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

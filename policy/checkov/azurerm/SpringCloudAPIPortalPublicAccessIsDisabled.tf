@@ -37,3 +37,12 @@ resource "azurerm_spring_cloud_api_portal" "example" {
     scope         = ["read"]
   }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

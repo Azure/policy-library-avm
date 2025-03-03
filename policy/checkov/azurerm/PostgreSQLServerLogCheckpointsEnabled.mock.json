@@ -1,0 +1,48 @@
+{
+    "mock": {
+        "default": [
+            {
+                "address": "azurerm_postgresql_configuration.log_checkpoints",
+                "mode": "managed",
+                "type": "azurerm_postgresql_configuration",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "name": "log_checkpoints",
+                        "value": "ON"
+                    }
+                }
+            },
+            {
+                "address": "azurerm_postgresql_server.example",
+                "mode": "managed",
+                "type": "azurerm_postgresql_server",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "administrator_login": "psqladmin",
+                        "version": "9.5"
+                    }
+                }
+            },
+            {
+                "address": "azurerm_resource_group.example",
+                "mode": "managed",
+                "type": "azurerm_resource_group",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "location": "westeurope",
+                        "name": "api-rg-pro"
+                    }
+                }
+            }
+        ]
+    }
+}

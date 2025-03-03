@@ -1,0 +1,31 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_kusto_cluster.example",
+                    "mode": "managed",
+                    "type": "azurerm_kusto_cluster",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "double_encryption_enabled": true
+                        }
+                    }
+                },
+                {
+                    "address": "azurerm_resource_group.example",
+                    "mode": "managed",
+                    "type": "azurerm_resource_group",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

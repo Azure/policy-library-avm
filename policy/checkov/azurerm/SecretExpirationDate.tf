@@ -50,3 +50,12 @@ resource "azurerm_key_vault_secret" "example" {
   key_vault_id = azurerm_key_vault.example.id
   expiration_date = "2024-12-31T00:00:00Z"  # Setting expiration date to comply with the policy
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+    "mock" : {
+        "default": {
+            "resource_changes": [{
+                "address": "azurerm_network_security_rule.restricted_http_access",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "changes": {
+                    "actions": ["create"],
+                    "after": {
+                        "type": "Microsoft.Network/networkSecurityGroups/securityRules/2024-05-01",
+                        "body": {
+                            "properties": {
+                                "access": "Deny",
+                                "destinationPortRange": "80"
+                            }
+                        }
+                    }
+                }
+            }]
+        }
+    }
+}

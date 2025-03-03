@@ -21,3 +21,12 @@ resource "azurerm_storage_sync" "example" {
     foo = "bar"
   }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

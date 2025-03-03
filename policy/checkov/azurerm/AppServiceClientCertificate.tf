@@ -47,3 +47,12 @@ resource "azurerm_app_service_certificate" "example" {
   pfx_blob            = filebase64("path/to/certificate.pfx")
   password            = "terraform"
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

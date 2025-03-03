@@ -48,3 +48,12 @@ resource "azurerm_automation_variable_datetime" "example" {
   value                   = "2023-10-01T00:00:00Z"
   encrypted               = true
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

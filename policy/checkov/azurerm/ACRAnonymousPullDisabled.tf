@@ -18,3 +18,12 @@ resource "azurerm_container_registry" "example" {
   admin_enabled       = false
   anonymous_pull_enabled = false  # Explicitly disabling anonymous pull
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

@@ -50,3 +50,12 @@ resource "azurerm_function_app" "example" {
     FUNCTIONS_WORKER_RUNTIME = "python"
   }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

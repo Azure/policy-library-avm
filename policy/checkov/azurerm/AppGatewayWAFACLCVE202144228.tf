@@ -45,3 +45,12 @@ resource "azurerm_web_application_firewall_policy" "example" {
     max_request_body_size_in_kb = 128
   }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

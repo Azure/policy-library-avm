@@ -16,11 +16,15 @@ resource "azurerm_kubernetes_cluster" "example" {
   resource_group_name = azurerm_resource_group.example.name
   dns_prefix          = "exampleaks"
 
+
   default_node_pool {
     name       = "default"
     node_count = 3
     vm_size    = "Standard_DS2_v2"
   }
+  # oms_agent {
+  #   log_analytics_workspace_id = azurerm_log_analytics_workspace.example
+  # }
 
   identity {
     type = "SystemAssigned"
@@ -33,4 +37,13 @@ resource "azurerm_log_analytics_workspace" "example" {
   resource_group_name = azurerm_resource_group.example.name
   sku                 = "PerGB2018"
   retention_in_days   = 30
+}
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
 }

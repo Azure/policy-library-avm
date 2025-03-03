@@ -1,0 +1,40 @@
+{
+    "mock" : {
+        "default": {
+            "resource_changes": [{
+                "address": "azurerm_network_security_group.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "changes": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.Network/networkSecurityGroups/2024-05-01",
+                        "body": {
+                            "properties": {
+                                "securityRules": [{
+                                    "name": "deny-udp-from-internet",
+                                    "properties": {
+                                        "access": "Deny",
+                                        "direction": "Inbound",
+                                        "protocol": "Udp",
+                                        "sourceAddressPrefix": "0.0.0.0/0"
+                                    }
+                                }, {
+                                    "name": "allow-udp-from-vnet",
+                                    "properties": {
+                                        "access": "Allow",
+                                        "direction": "Inbound",
+                                        "protocol": "Udp",
+                                        "sourceAddressPrefix": "VirtualNetwork"
+                                    }
+                                }]
+                            }
+                        }
+                    }
+                }
+            }]
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_security_center_subscription_pricing.example_sql_servers",
+                    "mode": "managed",
+                    "type": "azurerm_security_center_subscription_pricing",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "resource_type": "SqlServers",
+                            "tier": "Standard"
+                        }
+                    }
+                },
+                {
+                    "address": "azurerm_security_center_subscription_pricing.example_virtual_machines",
+                    "mode": "managed",
+                    "type": "azurerm_security_center_subscription_pricing",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "resource_type": "VirtualMachines",
+                            "tier": "Standard"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

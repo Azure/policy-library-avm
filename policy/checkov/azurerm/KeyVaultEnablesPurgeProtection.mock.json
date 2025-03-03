@@ -1,0 +1,31 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_key_vault.example",
+                    "mode": "managed",
+                    "type": "azurerm_key_vault",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "purge_protection_enabled": true
+                        }
+                    }
+                },
+                {
+                    "address": "azurerm_resource_group.example",
+                    "mode": "managed",
+                    "type": "azurerm_resource_group",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

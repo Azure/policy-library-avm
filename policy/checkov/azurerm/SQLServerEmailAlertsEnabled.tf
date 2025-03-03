@@ -43,3 +43,12 @@ resource "azurerm_mssql_server_security_alert_policy" "example" {
     "alerts@example.com"
   ]
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

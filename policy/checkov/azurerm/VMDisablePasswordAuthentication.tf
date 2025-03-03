@@ -61,3 +61,12 @@ resource "azurerm_linux_virtual_machine_scale_set" "example" {
     }
   }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

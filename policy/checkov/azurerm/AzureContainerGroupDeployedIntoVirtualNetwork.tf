@@ -72,3 +72,12 @@ resource "azurerm_container_group" "example" {
     environment = "testing"
   }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

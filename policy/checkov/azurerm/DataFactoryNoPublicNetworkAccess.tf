@@ -16,3 +16,12 @@ resource "azurerm_data_factory" "example" {
   resource_group_name = azurerm_resource_group.example.name
   public_network_enabled = false
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

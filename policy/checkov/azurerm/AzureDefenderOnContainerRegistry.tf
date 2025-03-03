@@ -18,3 +18,12 @@ resource "azurerm_security_center_subscription_pricing" "container_registry" {
     name = "ContainerRegistriesVulnerabilityAssessments"
   }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

@@ -28,3 +28,12 @@ resource "azurerm_postgresql_firewall_rule" "example" {
   start_ip_address    = "40.112.8.12"
   end_ip_address      = "40.112.8.12"
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

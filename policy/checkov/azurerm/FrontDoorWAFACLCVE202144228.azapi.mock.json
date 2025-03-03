@@ -1,0 +1,36 @@
+{
+    "mock" : {
+        "default": {
+            "resource_changes": [{
+                "address": "azurerm_frontdoor_firewall_policy.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "changes": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.Network/frontDoorWebApplicationFirewallPolicies/2020-04-01",
+                        "body": {
+                            "properties": {
+                                "managedRules": {
+                                    "managedRuleSets": [{
+                                        "ruleGroupOverrides": [{
+                                            "ruleGroupName": "JAVA",
+                                            "rules": [{
+                                                "action": "Block",
+                                                "enabledState": "Enabled",
+                                                "ruleId": "944240"
+                                            }]
+                                        }],
+                                        "ruleSetType": "Microsoft_DefaultRuleSet"
+                                    }]
+                                }
+                            }
+                        }
+                    }
+                }
+            }]
+        }
+    }
+}

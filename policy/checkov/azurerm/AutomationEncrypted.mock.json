@@ -1,0 +1,66 @@
+{
+    "mock": {
+        "default": [
+            {
+                "address": "azurerm_automation_account.example",
+                "mode": "managed",
+                "type": "azurerm_automation_account",
+                "change": {
+                    "actions": [
+                        "create"
+                    ]
+                }
+            },
+            {
+                "address": "azurerm_automation_variable_bool.example",
+                "mode": "managed",
+                "type": "azurerm_automation_variable_bool",
+                "change": {
+                    "actions": [
+                        "create"
+                    ]
+                }
+            },
+            {
+                "address": "azurerm_automation_variable_datetime.example",
+                "mode": "managed",
+                "type": "azurerm_automation_variable_datetime",
+                "change": {
+                    "actions": [
+                        "create"
+                    ]
+                }
+            },
+            {
+                "address": "azurerm_automation_variable_int.example",
+                "mode": "managed",
+                "type": "azurerm_automation_variable_int",
+                "change": {
+                    "actions": [
+                        "create"
+                    ]
+                }
+            },
+            {
+                "address": "azurerm_automation_variable_string.example",
+                "mode": "managed",
+                "type": "azurerm_automation_variable_string",
+                "change": {
+                    "actions": [
+                        "create"
+                    ]
+                }
+            },
+            {
+                "address": "azurerm_resource_group.example",
+                "mode": "managed",
+                "type": "azurerm_resource_group",
+                "change": {
+                    "actions": [
+                        "create"
+                    ]
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "mock" : {
+        "default": {
+            "resource_changes": [{
+                "address": "azurerm_batch_account.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "changes": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.Batch/batchAccounts/2024-07-01",
+                        "body":{
+                            "properties":{
+                                "encryption":{
+                                    "keySource":"Microsoft.Batch"
+                                }
+                            }
+                        }
+                    }
+                }
+            }]
+        }
+    }
+}

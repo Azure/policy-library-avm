@@ -1,0 +1,29 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [{
+                "address": "azurerm_network_security_rule.deny_ssh",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "changes": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.Network/networkSecurityGroups/securityRules/2024-05-01",
+                        "body": {
+                            "properties": {
+                                "access": "Deny",
+                                "destinationAddressPrefix": "*",
+                                "destinationPortRange": "*",
+                                "direction": "Inbound",
+                                "protocol": "Tcp",
+                                "sourceAddressPrefix": "10.0.0.0/24"
+                            }
+                        }
+                    }
+                }
+            }]
+        }
+    }
+}

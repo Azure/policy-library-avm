@@ -13,3 +13,12 @@ resource "azurerm_security_center_contact" "example" {
   alert_notifications = true
   alerts_to_admins    = true
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

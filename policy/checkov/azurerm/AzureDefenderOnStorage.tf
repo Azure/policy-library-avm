@@ -14,3 +14,12 @@ resource "azurerm_security_center_subscription_pricing" "example_storage" {
   tier          = "Free"
   resource_type = "StorageAccounts"
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

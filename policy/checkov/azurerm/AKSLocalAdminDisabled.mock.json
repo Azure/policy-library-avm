@@ -1,0 +1,36 @@
+{
+    "mock": {
+        "default": [
+            {
+                "address": "azurerm_kubernetes_cluster.example",
+                "mode": "managed",
+                "type": "azurerm_kubernetes_cluster",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "local_account_disabled": true,
+                        "location": "westeurope",
+                        "name": "example-aks1",
+                        "resource_group_name": "example-resources"
+                    }
+                }
+            },
+            {
+                "address": "azurerm_resource_group.example",
+                "mode": "managed",
+                "type": "azurerm_resource_group",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "location": "westeurope",
+                        "name": "example-resources"
+                    }
+                }
+            }
+        ]
+    }
+}

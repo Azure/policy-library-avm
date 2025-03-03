@@ -26,3 +26,12 @@ resource "azurerm_mssql_server_security_alert_policy" "example" {
   disabled_alerts            = []
   retention_days             = 30
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

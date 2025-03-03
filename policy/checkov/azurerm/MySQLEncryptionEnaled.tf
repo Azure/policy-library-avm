@@ -20,3 +20,12 @@ resource "azurerm_mysql_flexible_server" "example" {
   sku_name               = "B_Standard_B1s"
   zone                   = "1"
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

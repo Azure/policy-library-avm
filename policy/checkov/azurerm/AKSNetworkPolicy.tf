@@ -31,3 +31,12 @@ resource "azurerm_kubernetes_cluster" "example" {
     type = "SystemAssigned"
   }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

@@ -18,3 +18,12 @@ resource "azurerm_container_registry" "acr" {
   admin_enabled       = false
   public_network_access_enabled = false
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

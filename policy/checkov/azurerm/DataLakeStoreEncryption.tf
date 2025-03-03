@@ -41,3 +41,12 @@ resource "azurerm_storage_account_customer_managed_key" "example" {
 output "storage_account_id" {
   value = azurerm_storage_account.example.id
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

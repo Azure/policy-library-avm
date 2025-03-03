@@ -24,3 +24,12 @@ resource "azurerm_mysql_server" "example" {
   }
   public_network_access_enabled = false
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

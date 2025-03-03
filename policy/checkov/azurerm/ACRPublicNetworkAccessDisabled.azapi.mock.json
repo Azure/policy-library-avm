@@ -1,0 +1,24 @@
+{
+    "mock" : {
+        "default": {
+            "resource_changes": [{
+                "address": "azurerm_container_registry.acr",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "changes": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.ContainerRegistry/registries/2023-11-01-preview",
+                        "body": {
+                            "properties": {
+                                "publicNetworkAccess": "Disabled"
+                            }
+                        }
+                    }
+                }
+            }]
+        }
+    }
+}

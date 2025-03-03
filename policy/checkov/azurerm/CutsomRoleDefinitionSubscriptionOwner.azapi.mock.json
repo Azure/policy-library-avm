@@ -1,0 +1,29 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [{
+                "address": "azurerm_role_definition.custom_role",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "changes": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.Authorization/roleDefinitions/2022-05-01-preview",
+                        "body": {
+                            "properties": {
+                                "permissions": [{
+                                    "actions": [
+                                        "Microsoft.Resources/subscriptions/resourceGroups/read",
+                                        "Microsoft.Resources/subscriptions/resourceGroups/write"
+                                    ]
+                                }]
+                            }
+                        }
+                    }
+                }
+            }]
+        }
+    }
+}

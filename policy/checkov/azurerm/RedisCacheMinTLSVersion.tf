@@ -23,3 +23,12 @@ resource "azurerm_redis_cache" "example" {
   redis_configuration {
   }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}
