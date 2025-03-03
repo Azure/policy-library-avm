@@ -19,3 +19,12 @@ resource "azurerm_api_management" "example" {
   sku_name            = "Consumption_0"
   client_certificate_enabled = true
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

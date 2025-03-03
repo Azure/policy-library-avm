@@ -46,3 +46,12 @@ resource "azurerm_batch_account" "example" {
     env = "test"
   }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

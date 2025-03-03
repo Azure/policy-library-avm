@@ -40,3 +40,12 @@ resource "azurerm_mssql_database_extended_auditing_policy" "example" {
   retention_in_days                       = 6
   log_monitoring_enabled                  = true
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

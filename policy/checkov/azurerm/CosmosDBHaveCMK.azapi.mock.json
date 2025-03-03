@@ -1,0 +1,22 @@
+{
+    "mock" : {
+        "default": {
+            "resource_changes": [{
+                "address": "azurerm_cosmosdb_account.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "changes": {
+                    "actions": ["create"],
+                    "after": {
+                        "type": "Microsoft.DocumentDB/databaseAccounts/2024-08-15",
+                        "body": {
+                            "properties": {
+                                "keyVaultKeyUri": "https://myKeyVault.vault.azure.net/keys/myKey/00000000000000000000000000000000"
+                            }
+                        }
+                    }
+                }
+            }]
+        }
+    }
+}

@@ -50,3 +50,12 @@ resource "azurerm_key_vault_secret" "example" {
   key_vault_id = azurerm_key_vault.example.id
   content_type = "application/x-www-form-urlencoded"  # Ensuring content_type is set
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

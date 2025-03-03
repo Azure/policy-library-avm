@@ -18,3 +18,12 @@ resource "azurerm_search_service" "example" {
   
   public_network_access_enabled = false
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

@@ -43,3 +43,12 @@ resource "azurerm_windows_function_app" "example" {
 
   site_config {}
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

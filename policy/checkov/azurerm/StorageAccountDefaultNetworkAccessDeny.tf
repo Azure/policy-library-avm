@@ -31,3 +31,12 @@ resource "azurerm_storage_account_network_rules" "example" {
   ip_rules                   = []
   virtual_network_subnet_ids = []
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

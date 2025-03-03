@@ -10,3 +10,12 @@ resource "azurerm_resource_group" "example" {
   location = "West Europe"
 }
 
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

@@ -23,3 +23,12 @@ resource "azurerm_mysql_flexible_server" "example" {
   # ssl_enforcement_enabled = true
   # ssl_minimal_tls_version_enforced = "TLS1_2"
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

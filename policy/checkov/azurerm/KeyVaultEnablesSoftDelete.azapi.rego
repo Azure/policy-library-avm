@@ -1,0 +1,26 @@
+package checkov
+
+import rego.v1
+
+valid_azurerm_keyvault_soft_delete_enabled(resource) if {
+    resource.values.soft_delete_enabled == true
+}
+
+valid_azapi_keyvault_soft_delete_enabled(resource) if {
+    resource.body.properties.enableSoftDelete == true
+}
+
+deny_CKV_AZURE_111 contains reason if {
+    resource := data.utils.resource(input, "azurerm_key_vault")[_]
+    not valid_azurerm_keyvault_soft_delete_enabled(resource)
+
+    reason := sprintf("checkov/CKV_AZURE_111: Ensure that key vault enables soft delete. https://github.com/bridgecrewio/checkov/blob/main/checkov/terraform/checks/resource/azure/KeyVaultEnablesSoftDelete.py", [])
+}
+
+deny_CKV_AZURE_111_azapi contains reason if {
+    resource := data.utils.resource(input, "azapi_resource")[_]
+    resource.type == "Microsoft.KeyVault/vaults/2023-02-01"
+    not valid_azapi_keyvault_soft_delete_enabled(resource)
+
+    reason := sprintf("checkov/CKV_AZURE_111: Ensure that key vault enables soft delete. https://github.com/bridgecrewio/checkov/blob/main/checkov/terraform/checks/resource/azure/KeyVaultEnablesSoftDelete.py", [])
+}

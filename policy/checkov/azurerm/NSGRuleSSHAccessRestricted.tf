@@ -29,3 +29,12 @@ resource "azurerm_network_security_rule" "deny_ssh" {
   resource_group_name         = azurerm_resource_group.example.name
   network_security_group_name = azurerm_network_security_group.example.name
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

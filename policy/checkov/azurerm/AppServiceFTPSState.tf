@@ -39,3 +39,12 @@ resource "azurerm_linux_web_app" "example" {
     ftps_state = "Disabled"
   }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

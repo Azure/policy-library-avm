@@ -23,3 +23,12 @@ resource "azurerm_cognitive_account" "example" {
     Acceptance = "Test"
   }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

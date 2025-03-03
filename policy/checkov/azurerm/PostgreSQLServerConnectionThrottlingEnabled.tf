@@ -34,3 +34,12 @@ resource "azurerm_postgresql_configuration" "connection_throttling" {
   server_name         = azurerm_postgresql_server.example.name
   value               = "on"
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

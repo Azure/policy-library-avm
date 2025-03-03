@@ -34,3 +34,12 @@ resource "azurerm_cosmosdb_account" "example" {
     consistency_level = "Session"
   }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

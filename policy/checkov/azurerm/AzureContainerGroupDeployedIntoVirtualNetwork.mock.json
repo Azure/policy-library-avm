@@ -1,0 +1,61 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_container_group.example",
+                    "mode": "managed",
+                    "type": "azurerm_container_group",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after_unknown": {
+                            "network_profile_id": true
+                        }
+                    }
+                },
+                {
+                    "address": "azurerm_network_profile.example",
+                    "mode": "managed",
+                    "type": "azurerm_network_profile",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ]
+                    }
+                },
+                {
+                    "address": "azurerm_resource_group.example",
+                    "mode": "managed",
+                    "type": "azurerm_resource_group",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ]
+                    }
+                },
+                {
+                    "address": "azurerm_subnet.example",
+                    "mode": "managed",
+                    "type": "azurerm_subnet",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ]
+                    }
+                },
+                {
+                    "address": "azurerm_virtual_network.example",
+                    "mode": "managed",
+                    "type": "azurerm_virtual_network",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

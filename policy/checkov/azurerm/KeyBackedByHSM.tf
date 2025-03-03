@@ -33,3 +33,12 @@ resource "azurerm_key_vault_managed_hardware_security_module_key" "example" {
     azurerm_key_vault_managed_hardware_security_module.example
   ]
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

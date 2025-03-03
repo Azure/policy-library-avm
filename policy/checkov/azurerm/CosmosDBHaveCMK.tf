@@ -51,3 +51,12 @@ resource "azurerm_cosmosdb_account" "example" {
 
   key_vault_key_id = azurerm_key_vault_key.example.id
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

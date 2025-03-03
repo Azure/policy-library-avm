@@ -34,3 +34,12 @@ resource "azurerm_windows_web_app_slot" "example" {
 
   site_config {}
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

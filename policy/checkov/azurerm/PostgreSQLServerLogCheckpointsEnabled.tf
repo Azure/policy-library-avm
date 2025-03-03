@@ -34,3 +34,12 @@ resource "azurerm_postgresql_configuration" "log_checkpoints" {
   server_name         = azurerm_postgresql_server.example.name
   value               = "ON"
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

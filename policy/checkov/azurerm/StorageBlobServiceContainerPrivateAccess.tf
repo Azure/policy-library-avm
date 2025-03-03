@@ -23,3 +23,12 @@ resource "azurerm_storage_container" "example" {
   storage_account_id    = azurerm_storage_account.example.id
   container_access_type = "private"
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

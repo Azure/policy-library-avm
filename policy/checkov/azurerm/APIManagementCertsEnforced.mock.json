@@ -1,0 +1,32 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_api_management.example",
+                    "mode": "managed",
+                    "type": "azurerm_api_management",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "client_certificate_enabled": true,
+                            "sku_name": "Consumption_0"
+                        }
+                    }
+                },
+                {
+                    "address": "azurerm_resource_group.example",
+                    "mode": "managed",
+                    "type": "azurerm_resource_group",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

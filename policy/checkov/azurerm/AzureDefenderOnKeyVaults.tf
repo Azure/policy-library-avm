@@ -9,3 +9,12 @@ resource "azurerm_security_center_subscription_pricing" "keyvault_pricing" {
   tier          = "Standard"
   resource_type = "KeyVaults"
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

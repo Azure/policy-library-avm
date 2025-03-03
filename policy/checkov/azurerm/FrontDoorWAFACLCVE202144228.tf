@@ -33,3 +33,12 @@ resource "azurerm_frontdoor_firewall_policy" "example" {
     }
   }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

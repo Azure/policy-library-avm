@@ -60,3 +60,12 @@ resource "azurerm_network_watcher_flow_log" "test" {
     interval_in_minutes   = 10
   }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

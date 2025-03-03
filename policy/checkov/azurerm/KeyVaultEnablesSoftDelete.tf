@@ -21,3 +21,12 @@ resource "azurerm_key_vault" "example" {
   soft_delete_retention_days = 7
   purge_protection_enabled = true
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

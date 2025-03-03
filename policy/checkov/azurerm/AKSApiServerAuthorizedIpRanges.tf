@@ -45,3 +45,12 @@ output "kube_config" {
   value = azurerm_kubernetes_cluster.example.kube_config_raw
   sensitive = true
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

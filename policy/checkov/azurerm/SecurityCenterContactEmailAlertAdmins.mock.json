@@ -1,0 +1,21 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_security_center_contact.example",
+                    "mode": "managed",
+                    "type": "azurerm_security_center_contact",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "alerts_to_admins": true
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

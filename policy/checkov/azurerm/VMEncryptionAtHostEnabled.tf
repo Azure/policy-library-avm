@@ -50,3 +50,12 @@ resource "azurerm_virtual_network" "example" {
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

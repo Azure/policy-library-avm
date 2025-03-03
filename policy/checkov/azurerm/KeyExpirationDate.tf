@@ -72,3 +72,12 @@ resource "azurerm_key_vault_key" "generated" {
     notify_before_expiry = "P29D"
   }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

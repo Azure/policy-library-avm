@@ -47,3 +47,12 @@ resource "azurerm_linux_web_app" "example" {
     linux_fx_version = "NODE|14"
   }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

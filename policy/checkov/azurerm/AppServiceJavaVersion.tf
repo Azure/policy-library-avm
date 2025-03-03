@@ -32,3 +32,12 @@ resource "azurerm_app_service" "example" {
     java_version = "11"
   }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

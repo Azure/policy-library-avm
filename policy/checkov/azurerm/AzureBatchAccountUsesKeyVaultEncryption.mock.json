@@ -1,0 +1,77 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_batch_account.example",
+                    "mode": "managed",
+                    "type": "azurerm_batch_account",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "key_vault_reference": [
+                                {}
+                            ],
+                            "location": "westeurope",
+                            "name": "examplebatchaccount",
+                            "resource_group_name": "example-resources",
+                            "tags": {
+                                "env": "test"
+                            }
+                        }
+                    }
+                },
+                {
+                    "address": "azurerm_key_vault.example",
+                    "mode": "managed",
+                    "type": "azurerm_key_vault",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "location": "westeurope",
+                            "name": "examplekeyvault",
+                            "resource_group_name": "example-resources",
+                            "sku_name": "standard",
+                            "tenant_id": "fc2bf966-a984-438c-93b7-bc5a06fe7f0d"
+                        }
+                    }
+                },
+                {
+                    "address": "azurerm_resource_group.example",
+                    "mode": "managed",
+                    "type": "azurerm_resource_group",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "location": "westeurope",
+                            "name": "example-resources"
+                        }
+                    }
+                },
+                {
+                    "address": "azurerm_storage_account.example",
+                    "mode": "managed",
+                    "type": "azurerm_storage_account",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "account_replication_type": "LRS",
+                            "account_tier": "Standard",
+                            "location": "westeurope",
+                            "name": "examplestoracc",
+                            "resource_group_name": "example-resources"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

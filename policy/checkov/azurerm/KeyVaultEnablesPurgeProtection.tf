@@ -24,3 +24,12 @@ resource "azurerm_key_vault" "example" {
   sku_name                 = "premium"
   purge_protection_enabled = true
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

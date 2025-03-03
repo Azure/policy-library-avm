@@ -1,0 +1,27 @@
+{
+    "mock" : {
+        "default": {
+            "resource_changes": [{
+                "address": "azurerm_web_application_firewall_policy.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "changes": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/2024-05-01",
+                        "body": {
+                            "properties": {
+                                "policySettings": {
+                                    "mode": "Prevention",
+                                    "state": "Enabled"
+                                }
+                            }
+                        }
+                    }
+                }
+            }]
+        }
+    }
+}

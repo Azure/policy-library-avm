@@ -1,0 +1,1 @@
+{"mock": {"default": {"resource_changes": [{"address": "azurerm_kubernetes_cluster.example", "mode": "managed", "type": "azapi_resource", "changes": {"actions": ["create"], "after": {"type": "Microsoft.ContainerService/managedClusters/2024-05-01", "body": {"properties": {"addonProfiles": {}}}}}}]}}}

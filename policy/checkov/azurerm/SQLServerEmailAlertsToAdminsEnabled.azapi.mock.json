@@ -1,0 +1,24 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [{
+                "address": "azurerm_mssql_server_security_alert_policy.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "changes": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.Sql/servers/securityAlertPolicies/2020-11-01-preview",
+                        "body": {
+                            "properties": {
+                                "emailAccountAdmins": true
+                            }
+                        }
+                    }
+                }
+            }]
+        }
+    }
+}

@@ -47,3 +47,12 @@ resource "azurerm_windows_function_app_slot" "example_slot" {
     enable_builtin_logging = true
   }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

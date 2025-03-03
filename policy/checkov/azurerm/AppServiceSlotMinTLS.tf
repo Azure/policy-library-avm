@@ -37,3 +37,12 @@ resource "azurerm_windows_web_app_slot" "example" {
     minimum_tls_version = "1.2"
   }
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}

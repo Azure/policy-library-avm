@@ -1,0 +1,6 @@
+{
+    "mock" : {
+        "default": {
+"resource_changes":[{"address":"azurerm_data_factory.example","mode":"managed","type":"azapi_resource","changes":{"actions":["create"],"after":{"type":"Microsoft.DataFactory/factories/2018-06-01"}}}]}
+    }
+}

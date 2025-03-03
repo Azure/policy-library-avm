@@ -21,3 +21,12 @@ resource "azurerm_mysql_flexible_server" "example" {
   zone                   = "1"
   geo_redundant_backup_enabled = true
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.20.0"
+    }
+  }
+}
