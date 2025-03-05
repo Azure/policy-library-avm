@@ -1,0 +1,70 @@
+{
+  "mock": {
+    "disabled": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "changes": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "adminUserEnabled": false
+                },
+                "type": "Microsoft.ContainerRegistry/registries/2023-11-01-preview"
+              }
+            },
+            "mode": "managed",
+            "name": "res",
+            "type": "azapi_resource"
+          }
+        }
+      ]
+    },
+    "omitted": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "changes": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "type": "Microsoft.ContainerRegistry/registries/2023-11-01-preview"
+              }
+            },
+            "mode": "managed",
+            "name": "res",
+            "type": "azapi_resource"
+          }
+        }
+      ]
+    },
+    "invalid_enabled": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "changes": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "adminUserEnabled": true
+                },
+                "type": "Microsoft.ContainerRegistry/registries/2023-11-01-preview"
+              }
+            },
+            "mode": "managed",
+            "name": "res",
+            "type": "azapi_resource"
+          }
+        }
+      ]
+    }
+  }
+}
