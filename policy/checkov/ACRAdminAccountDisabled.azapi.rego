@@ -15,5 +15,5 @@ deny_CKV_AZURE_137 contains reason if {
     data.utils.is_azure_type(resource.values, "Microsoft.ContainerRegistry/registries")
     not valid_azapi_container_registry_admin_account_disabled(resource)
 
-    reason := sprintf("checkov/CKV_AZURE_137: Ensure ACR admin account is disabled %s", ["https://github.com/bridgecrewio/checkov/blob/main/checkov/terraform/checks/resource/azure/ACRAdminAccountDisabled.py"])
+    reason := sprintf("checkov/CKV_AZURE_137: Ensure ACR admin account is disabled %s: https://github.com/bridgecrewio/checkov/blob/main/checkov/terraform/checks/resource/azure/ACRAdminAccountDisabled.py", [resource.address])
 }
