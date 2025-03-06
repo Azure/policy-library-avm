@@ -3,7 +3,11 @@ package checkov
 import rego.v1
 
 valid_azurerm_service_fabric_cluster_has_active_directory(resource) if {
-    resource.values.azure_active_directory[0].tenant_id != null
+    resource.values.azure_active_directory[0].tenant_id == resource.values.azure_active_directory[0].tenant_id
+}
+
+valid_azurerm_service_fabric_cluster_has_active_directory(resource) if {
+    resource.after_unknown.azure_active_directory[0].tenant_id == resource.after_unknown.azure_active_directory[0].tenant_id
 }
 
 deny_CKV_AZURE_126 contains reason if {
