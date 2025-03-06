@@ -1,0 +1,92 @@
+{
+    "mock" : {
+        "basic": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_container_registry.example",
+                    "mode": "managed",
+                    "type": "azurerm_container_registry",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "sku": "Basic"
+                        }
+                    }
+                }
+            ]
+        },
+        "standard_without_anonymous_pull_enabled": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_container_registry.example",
+                    "mode": "managed",
+                    "type": "azurerm_container_registry",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "sku": "Standard"
+                        }
+                    }
+                }
+            ]
+        },
+        "premium_without_anonymous_pull_enabled_false": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_container_registry.example",
+                    "mode": "managed",
+                    "type": "azurerm_container_registry",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "anonymous_pull_enabled": false,
+                            "sku": "Premium"
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_standard": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_container_registry.example",
+                    "mode": "managed",
+                    "type": "azurerm_container_registry",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "anonymous_pull_enabled": true,
+                            "sku": "Standard"
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_premium": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_container_registry.example",
+                    "mode": "managed",
+                    "type": "azurerm_container_registry",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "anonymous_pull_enabled": true,
+                            "sku": "Premium"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

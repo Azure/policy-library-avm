@@ -1,0 +1,119 @@
+{
+    "mock": {
+        "basic": {
+            "resource_changes": [{
+                "address": "azurerm_container_registry.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.ContainerRegistry/registries@2023-11-01-preview",
+                        "body": {
+                            "properties": {
+                                "anonymousPullEnabled": false
+                            },
+                            "sku": {
+                                "name": "Basic"
+                            }
+                        }
+                    }
+                }
+            }]
+        },
+        "standard_without_anonymous_pull_enabled": {
+            "resource_changes": [{
+                "address": "azurerm_container_registry.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.ContainerRegistry/registries@2023-11-01-preview",
+                        "body": {
+                            "properties": {
+                                "anonymousPullEnabled": false
+                            },
+                            "sku": {
+                                "name": "Standard"
+                            }
+                        }
+                    }
+                }
+            }]
+        },
+        "premium_without_anonymous_pull_enabled_false": {
+            "resource_changes": [{
+                "address": "azurerm_container_registry.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.ContainerRegistry/registries@2023-11-01-preview",
+                        "body": {
+                            "properties": {
+                                "anonymousPullEnabled": false
+                            },
+                            "sku": {
+                                "name": "Premium"
+                            }
+                        }
+                    }
+                }
+            }]
+        },
+        "invalid_standard": {
+            "resource_changes": [{
+                "address": "azurerm_container_registry.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.ContainerRegistry/registries@2023-11-01-preview",
+                        "body": {
+                            "properties": {
+                                "anonymousPullEnabled": true
+                            },
+                            "sku": {
+                                "name": "Standard"
+                            }
+                        }
+                    }
+                }
+            }]
+        },
+        "invalid_premium": {
+            "resource_changes": [{
+                "address": "azurerm_container_registry.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.ContainerRegistry/registries@2023-11-01-preview",
+                        "body": {
+                            "properties": {
+                                "anonymousPullEnabled": true
+                            },
+                            "sku": {
+                                "name": "Premium"
+                            }
+                        }
+                    }
+                }
+            }]
+        }
+    }
+}
