@@ -1,0 +1,78 @@
+{
+    "mock" : {
+        "default": {
+            "resource_changes": [{
+                "address": "azurerm_kubernetes_cluster.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": ["create"],
+                    "after": {
+                        "type": "Microsoft.ContainerService/managedClusters@2024-05-01",
+                        "body": {
+                            "properties": {
+                                "apiServerAccessProfile": {
+                                    "enablePrivateCluster": true
+                                }
+                            }
+                        }
+                    }
+                }
+            }]
+        },
+        "invalid_false": {
+            "resource_changes": [{
+                "address": "azurerm_kubernetes_cluster.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": ["create"],
+                    "after": {
+                        "type": "Microsoft.ContainerService/managedClusters@2024-05-01",
+                        "body": {
+                            "properties": {
+                                "apiServerAccessProfile": {
+                                    "enablePrivateCluster": false
+                                }
+                            }
+                        }
+                    }
+                }
+            }]
+        },
+        "invalid_omitted": {
+            "resource_changes": [{
+                "address": "azurerm_kubernetes_cluster.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": ["create"],
+                    "after": {
+                        "type": "Microsoft.ContainerService/managedClusters@2024-05-01",
+                        "body": {
+                            "properties": {
+                                "apiServerAccessProfile": {
+                                }
+                            }
+                        }
+                    }
+                }
+            }]
+        },
+        "invalid_omitted2": {
+            "resource_changes": [{
+                "address": "azurerm_kubernetes_cluster.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": ["create"],
+                    "after": {
+                        "type": "Microsoft.ContainerService/managedClusters@2024-05-01",
+                        "body": {
+                        }
+                    }
+                }
+            }]
+        }
+    }
+}
