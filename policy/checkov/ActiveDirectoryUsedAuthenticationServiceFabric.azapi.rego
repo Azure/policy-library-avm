@@ -10,7 +10,7 @@ valid_azapi_service_fabric_cluster_has_active_directory(resource) if {
     resource.after_unknown.body.properties.azureActiveDirectory.tenantId == resource.after_unknown.body.properties.azureActiveDirectory.tenantId
 }
 
-deny_CKV_AZURE_126_azapi contains reason if {
+deny_CKV_AZURE_126 contains reason if {
     resource := data.utils.resource(input, "azapi_resource")[_]
     data.utils.is_azure_type(resource.values, "Microsoft.ServiceFabric/clusters")
     not valid_azapi_service_fabric_cluster_has_active_directory(resource)
