@@ -9,11 +9,11 @@ valid_azapi_container_registry_anonymous_pull_disabled(resource) if {
 }
 
 valid_azapi_container_registry_anonymous_pull_disabled(resource) if {
-    not resource.body.properties.anonymousPullEnabled == resource.body.properties.anonymousPullEnabled
+    not resource.values.body.properties.anonymousPullEnabled == resource.body.properties.anonymousPullEnabled
 }
 
 valid_azapi_container_registry_anonymous_pull_disabled(resource) if {
-    resource.body.properties.anonymousPullEnabled == false
+    resource.values.body.properties.anonymousPullEnabled == false
 }
 
 deny_CKV_AZURE_138 contains reason if {
