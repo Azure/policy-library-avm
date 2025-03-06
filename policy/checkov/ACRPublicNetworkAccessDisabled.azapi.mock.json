@@ -1,0 +1,63 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [{
+                "address": "azurerm_container_registry.acr",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.ContainerRegistry/registries@2023-11-01-preview",
+                        "body": {
+                            "properties": {
+                                "publicNetworkAccess": "Disabled"
+                            }
+                        }
+                    }
+                }
+            }]
+        },
+        "invalid_true": {
+            "resource_changes": [{
+                "address": "azurerm_container_registry.acr",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.ContainerRegistry/registries@2023-11-01-preview",
+                        "body": {
+                            "properties": {
+                                "publicNetworkAccess": "Enabled"
+                            }
+                        }
+                    }
+                }
+            }]
+        },
+        "invalid_omitted": {
+            "resource_changes": [{
+                "address": "azurerm_container_registry.acr",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.ContainerRegistry/registries@2023-11-01-preview",
+                        "body": {
+                            "properties": {
+                            }
+                        }
+                    }
+                }
+            }]
+        }
+    }
+}

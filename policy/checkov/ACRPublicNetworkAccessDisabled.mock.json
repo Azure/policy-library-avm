@@ -1,0 +1,54 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_container_registry.acr",
+                    "mode": "managed",
+                    "type": "azurerm_container_registry",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "public_network_access_enabled": false
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_true": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_container_registry.acr",
+                    "mode": "managed",
+                    "type": "azurerm_container_registry",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "public_network_access_enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_omitted": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_container_registry.acr",
+                    "mode": "managed",
+                    "type": "azurerm_container_registry",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
