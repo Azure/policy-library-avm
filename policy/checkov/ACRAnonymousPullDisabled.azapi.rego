@@ -4,12 +4,12 @@ package checkov
 import rego.v1
 
 valid_azapi_container_registry_anonymous_pull_disabled(resource) if {
-    resource.body.sku.name != "Standard"
-    resource.body.sku.name != "Premium"
+    resource.values.body.sku.name != "Standard"
+    resource.values.body.sku.name != "Premium"
 }
 
 valid_azapi_container_registry_anonymous_pull_disabled(resource) if {
-    not resource.values.body.properties.anonymousPullEnabled == resource.body.properties.anonymousPullEnabled
+    not resource.values.body.properties.anonymousPullEnabled == resource.values.body.properties.anonymousPullEnabled
 }
 
 valid_azapi_container_registry_anonymous_pull_disabled(resource) if {
