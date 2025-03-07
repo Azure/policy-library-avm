@@ -3,11 +3,11 @@ package checkov
 import rego.v1
 
 valid_azapi_kubernetes_cluster_logging_enabled(resource) if {
-    resource.values.properties.addonProfiles.omsagent.config.logAnalyticsWorkspaceResourceID == resource.values.properties.addonProfiles.omsagent.config.logAnalyticsWorkspaceResourceID
+    resource.values.body.properties.addonProfiles.omsagent.config.logAnalyticsWorkspaceResourceID == resource.values.body.properties.addonProfiles.omsagent.config.logAnalyticsWorkspaceResourceID
 }
 
 valid_azapi_kubernetes_cluster_logging_enabled(resource) if {
-    resource.after_unknown.properties.addonProfiles.omsagent.config.logAnalyticsWorkspaceResourceID == resource.after_unknown.properties.addonProfiles.omsagent.config.logAnalyticsWorkspaceResourceID
+    resource.after_unknown.body.properties.addonProfiles.omsagent.config.logAnalyticsWorkspaceResourceID == resource.after_unknown.body.properties.addonProfiles.omsagent.config.logAnalyticsWorkspaceResourceID
 }
 
 deny_CKV_AZURE_4 contains reason if {
