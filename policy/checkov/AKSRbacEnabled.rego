@@ -14,7 +14,5 @@ deny_CKV_AZURE_5 contains reason if {
     resource := data.utils.resource(input, "azurerm_kubernetes_cluster")[_]
     not valid_azurerm_kubernetes_cluster_rbac_enabled(resource)
 
-    reason := sprintf("checkov/CKV_AZURE_5: Ensure RBAC is enabled on AKS clusters %s", [resource.address])
-
-    reason := sprintf("%s https://github.com/bridgecrewio/checkov/blob/main/checkov/terraform/checks/resource/azure/AKSRbacEnabled.py", [reason])
+    reason := sprintf("checkov/CKV_AZURE_5: Ensure RBAC is enabled on AKS clusters %s https://github.com/bridgecrewio/checkov/blob/main/checkov/terraform/checks/resource/azure/AKSRbacEnabled.py", [resource.address])
 }
