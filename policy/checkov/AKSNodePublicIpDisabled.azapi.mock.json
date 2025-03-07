@@ -3,11 +3,11 @@
     "disabled": {
       "resource_changes": [
         {
-          "address": "azurerm_kubernetes_cluster.example",
+          "address": "azapi_resource.res",
           "mode": "managed",
           "name": "res",
           "type": "azapi_resource",
-          "changes": {
+          "change": {
             "actions": [
               "create"
             ],
@@ -21,7 +21,7 @@
                   ]
                 }
               },
-              "type": "Microsoft.ContainerService/managedClusters/2024-05-01"
+              "type": "Microsoft.ContainerService/managedClusters@2024-05-01"
             }
           }
         }
@@ -30,11 +30,11 @@
     "omitted": {
       "resource_changes": [
         {
-          "address": "azurerm_kubernetes_cluster.example",
+          "address": "azapi_resource.res",
           "mode": "managed",
           "name": "res",
           "type": "azapi_resource",
-          "changes": {
+          "change": {
             "actions": [
               "create"
             ],
@@ -47,7 +47,7 @@
                   ]
                 }
               },
-              "type": "Microsoft.ContainerService/managedClusters/2024-05-01"
+              "type": "Microsoft.ContainerService/managedClusters@2024-05-01"
             }
           }
         }
@@ -56,11 +56,11 @@
     "invalid_enabled": {
       "resource_changes": [
         {
-          "address": "azurerm_kubernetes_cluster.example",
+          "address": "azapi_resource.res",
           "mode": "managed",
           "name": "res",
           "type": "azapi_resource",
-          "changes": {
+          "change": {
             "actions": [
               "create"
             ],
@@ -74,7 +74,7 @@
                   ]
                 }
               },
-              "type": "Microsoft.ContainerService/managedClusters/2024-05-01"
+              "type": "Microsoft.ContainerService/managedClusters@2024-05-01"
             }
           }
         }

@@ -3,7 +3,7 @@ package checkov
 import rego.v1
 
 invalid_azapi_kubernetes_cluster_node_public_ip_disabled(resource) if {
-    resource.values.body.properties.agentPoolProfiles.enableNodePublicIP == true
+    resource.values.body.properties.agentPoolProfiles[_].enableNodePublicIP == true
 }
 
 deny_CKV_AZURE_143 contains reason if {
