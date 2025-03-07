@@ -1,0 +1,60 @@
+{
+  "mock": {
+    "default": {
+      "resource_changes": [
+        {
+          "address": "azurerm_key_vault_key.generated",
+          "mode": "managed",
+          "type": "azurerm_key_vault_key",
+          "name": "generated",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "expiration_date": "2024-12-31T00:00:00Z"
+            }
+          }
+        }
+      ]
+    },
+    "known_after_apply": {
+      "resource_changes": [
+        {
+          "address": "azurerm_key_vault_key.generated",
+          "mode": "managed",
+          "type": "azurerm_key_vault_key",
+          "name": "generated",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {},
+            "after_unknown": {
+                "expiration_date": true
+            }
+          }
+        }
+      ]
+    },
+    "invalid_omitted": {
+      "resource_changes": [
+        {
+          "address": "azurerm_key_vault_key.generated",
+          "mode": "managed",
+          "type": "azurerm_key_vault_key",
+          "name": "generated",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {}
+          }
+        }
+      ]
+    }
+  }
+}
