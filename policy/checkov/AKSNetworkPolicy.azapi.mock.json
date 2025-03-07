@@ -1,69 +1,75 @@
 {
-    "mock" : {
-        "default": {
-            "resource_changes": [{
-                "address": "azurerm_kubernetes_cluster.example",
-                "mode": "managed",
-                "type": "azapi_resource",
-                "change": {
-                    "actions": [
-                        "create"                        
-                    ],
-                    "after": {
-                        "type": "Microsoft.ContainerService/managedClusters@2024-05-01",
-                        "body": {
-                            "properties": {
-                                "networkProfile": {
-                                    "networkPolicy": "calico"
-                                }
-                            }
-                        }
-                    }
+  "mock": {
+    "default": {
+      "resource_changes": [
+        {
+          "address": "azurerm_kubernetes_cluster.example",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "type": "Microsoft.ContainerService/managedClusters@2024-05-01",
+              "body": {
+                "properties": {
+                  "networkProfile": {
+                    "networkPolicy": "calico"
+                  }
                 }
-            }]
-        },
-        "known_after_apply": {
-            "resource_changes": [{
-                "address": "azurerm_kubernetes_cluster.example",
-                "mode": "managed",
-                "type": "azapi_resource",
-                "change": {
-                    "actions": [
-                        "create"
-                    ],
-                    "after": {
-                        "type": "Microsoft.ContainerService/managedClusters@2024-05-01"
-                    },
-                    "after_unknown": {
-                        "body": {
-                            "properties": {
-                                "networkProfile": {
-                                    "networkPolicy": true
-                                }
-                            }
-                        }
-                    }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "known_after_apply": {
+      "resource_changes": [
+        {
+          "address": "azurerm_kubernetes_cluster.example",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "type": "Microsoft.ContainerService/managedClusters@2024-05-01"
+            },
+            "after_unknown": {
+              "body": {
+                "properties": {
+                  "networkProfile": {
+                    "networkPolicy": true
+                  }
                 }
-            }]
-        },
-        "invalid_omitted": {
-            "resource_changes": [{
-                "address": "azurerm_kubernetes_cluster.example",
-                "mode": "managed",
-                "type": "azapi_resource",
-                "change": {
-                    "actions": [
-                        "create"
-                    ],
-                    "after": {
-                        "type": "Microsoft.ContainerService/managedClusters@2024-05-01",
-                        "body": {
-                            "properties": {
-                            }
-                        }
-                    }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "invalid_omitted": {
+      "resource_changes": [
+        {
+          "address": "azurerm_kubernetes_cluster.example",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "type": "Microsoft.ContainerService/managedClusters@2024-05-01",
+              "body": {
+                "properties": {
                 }
-            }]
-        },
+              }
+            }
+          }
+        }
+      ]
     }
+  }
 }
