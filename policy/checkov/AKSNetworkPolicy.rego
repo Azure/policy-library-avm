@@ -3,7 +3,11 @@ package checkov
 import rego.v1
 
 valid_azurerm_kubernetes_cluster_has_network_policy(resource) if {
-    resource.values.network_profile[0].network_policy != null
+    resource.values.network_profile[0].network_policy == resource.values.network_profile[0].network_policy
+}
+
+valid_azurerm_kubernetes_cluster_has_network_policy(resource) if {
+    resource.after_unknown.network_profile[0].network_policy == resource.after_unknown.network_profile[0].network_policy
 }
 
 deny_CKV_AZURE_7 contains reason if {
