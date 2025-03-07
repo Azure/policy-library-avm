@@ -1,0 +1,118 @@
+{
+  "mock": {
+    "disabled": {
+      "resource_changes": [
+        {
+          "address": "azurerm_kubernetes_cluster.example",
+          "mode": "managed",
+          "type": "azurerm_kubernetes_cluster",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "default_node_pool": [
+                {
+                  "node_public_ip_enabled": false
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "disabled_v3": {
+      "resource_changes": [
+        {
+          "address": "azurerm_kubernetes_cluster.example",
+          "mode": "managed",
+          "type": "azurerm_kubernetes_cluster",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "default_node_pool": [
+                {
+                  "enable_node_public_ip": false
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "omitted": {
+      "resource_changes": [
+        {
+          "address": "azurerm_kubernetes_cluster.example",
+          "mode": "managed",
+          "type": "azurerm_kubernetes_cluster",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "default_node_pool": [
+                {
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "invalid_enabled": {
+      "resource_changes": [
+        {
+          "address": "azurerm_kubernetes_cluster.example",
+          "mode": "managed",
+          "type": "azurerm_kubernetes_cluster",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "default_node_pool": [
+                {
+                  "node_public_ip_enabled": true
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "invalid_enabled_v3": {
+      "resource_changes": [
+        {
+          "address": "azurerm_kubernetes_cluster.example",
+          "mode": "managed",
+          "type": "azurerm_kubernetes_cluster",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "default_node_pool": [
+                {
+                  "enable_node_public_ip": true
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
