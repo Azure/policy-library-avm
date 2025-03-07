@@ -1,0 +1,60 @@
+{
+    "mock": {
+        "enabled": {
+            "resource_changes": [{
+                "address": "azurerm_kusto_cluster.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.Kusto/clusters@2023-08-15",
+                        "body": {
+                            "properties": {
+                                "enableDoubleEncryption": true
+                            }
+                        }
+                    }
+                }
+            }]
+        },
+        "invalid_disabled": {
+            "resource_changes": [{
+                "address": "azurerm_kusto_cluster.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.Kusto/clusters@2023-08-15",
+                        "body": {
+                            "properties": {
+                                "enableDoubleEncryption": false
+                            }
+                        }
+                    }
+                }
+            }]
+        },
+        "invalid_omitted": {
+            "resource_changes": [{
+                "address": "azurerm_kusto_cluster.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.Kusto/clusters@2023-08-15",
+                        "body": {}
+                    }
+                }
+            }]
+        }
+    }
+}
