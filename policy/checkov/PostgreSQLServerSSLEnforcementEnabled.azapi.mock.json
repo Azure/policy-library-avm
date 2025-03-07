@@ -3,20 +3,19 @@
     "enabled": {
       "resource_changes": [
         {
-          "address": "azapi_resource.res",
+          "address": "azurerm_postgresql_server.example",
           "mode": "managed",
-          "name": "res",
           "type": "azapi_resource",
           "change": {
             "actions": [
               "create"
             ],
             "after": {
+              "type": "Microsoft.DBforPostgreSQL/servers@2017-12-01",
               "body": {
                 "properties": {
-                  "enableRBAC": true
-                },
-                "type": "Microsoft.ContainerService/managedClusters@2024-05-01"
+                  "sslEnforcement": "Enabled"
+                }
               }
             }
           }
@@ -26,21 +25,20 @@
     "invalid_disabled": {
       "resource_changes": [
         {
-          "address": "azapi_resource.res",
+          "address": "azurerm_postgresql_server.example",
           "mode": "managed",
-          "name": "res",
           "type": "azapi_resource",
           "change": {
             "actions": [
               "create"
             ],
             "after": {
+              "type": "Microsoft.DBforPostgreSQL/servers@2017-12-01",
               "body": {
                 "properties": {
-                  "enableRBAC": false
+                  "sslEnforcement": "Disabled"
                 }
-              },
-              "type": "Microsoft.ContainerService/managedClusters@2024-05-01"
+              }
             }
           }
         }
