@@ -10,5 +10,5 @@ deny_CKV_AZURE_29 contains reason if {
     resource := data.utils.resource(input, "azurerm_postgresql_server")[_]
     not valid_azurerm_postgresql_server_ssl_enforcement_enabled(resource)
 
-    reason := sprintf("checkov/CKV_AZURE_29: Ensure 'Enforce SSL connection' is set to 'ENABLED' for PostgreSQL Database Server https://github.com/bridgecrewio/checkov/blob/main/checkov/terraform/checks/resource/azure/PostgreSQLServerSSLEnforcementEnabled.py", [])
+    reason := sprintf("checkov/CKV_AZURE_29: Ensure 'Enforce SSL connection' is set to 'ENABLED' for PostgreSQL Database Server %s https://github.com/bridgecrewio/checkov/blob/main/checkov/terraform/checks/resource/azure/PostgreSQLServerSSLEnforcementEnabled.py", [resource.addrss])
 }
