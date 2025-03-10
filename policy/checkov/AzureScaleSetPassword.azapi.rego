@@ -3,7 +3,7 @@ package checkov
 import rego.v1
 
 valid_azapi_linux_virtual_machine_scale_set_password_authentication(resource) if {
-    resource.body.properties.virtualMachineProfile.osProfile.linuxConfiguration.disablePasswordAuthentication == true
+    resource.values.body.properties.virtualMachineProfile.osProfile.linuxConfiguration.disablePasswordAuthentication == true
 }
 
 deny_CKV_AZURE_49 contains reason if {
