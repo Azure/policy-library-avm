@@ -7,7 +7,7 @@ valid_azapi_security_center_kubernetes_service_subscription_pricing_configuratio
 }
 
 valid_azapi_security_center_kubernetes_service_subscription_pricing_configuration(resource) if {
-    resource.properties.pricingTier == "Standard"
+    resource.values.properties.pricingTier == "Standard"
 }
 
 deny_CKV_AZURE_85_azapi contains reason if {
