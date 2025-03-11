@@ -12,7 +12,6 @@
             "actions": [
               "create"
             ],
-            "before": null,
             "after": {
               "body": {
                 "properties": {
@@ -38,11 +37,10 @@
             "actions": [
               "create"
             ],
-            "before": null,
             "after": {
               "body": {
                 "properties": {
-                  "pricingTier": "Standard"
+                  "pricingTier": "Free"
                 }
               },
               "name": "AppServices",
@@ -64,7 +62,6 @@
             "actions": [
               "create"
             ],
-            "before": null,
             "after": {
               "body": {
                 "properties": {

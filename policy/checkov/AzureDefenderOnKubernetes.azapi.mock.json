@@ -1,0 +1,79 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azapi_resource.this",
+                    "mode": "managed",
+                    "type": "azapi_resource",
+                    "name": "this",
+                    "provider_name": "registry.terraform.io/azure/azapi",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "body": {
+                                "properties": {
+                                    "pricingTier": "Standard"
+                                }
+                            },
+                            "name": "KubernetesService",
+                            "type": "Microsoft.Security/pricings@2023-01-01"
+                        }
+                    }
+                }
+            ]
+        },
+        "not_container_registry": {
+            "resource_changes": [
+                {
+                    "address": "azapi_resource.this",
+                    "mode": "managed",
+                    "type": "azapi_resource",
+                    "name": "this",
+                    "provider_name": "registry.terraform.io/azure/azapi",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "body": {
+                                "properties": {
+                                    "pricingTier": "Free"
+                                }
+                            },
+                            "name": "AppServices",
+                            "type": "Microsoft.Security/pricings@2023-01-01"
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_free": {
+            "resource_changes": [
+                {
+                    "address": "azapi_resource.this",
+                    "mode": "managed",
+                    "type": "azapi_resource",
+                    "name": "this",
+                    "provider_name": "registry.terraform.io/azure/azapi",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "body": {
+                                "properties": {
+                                    "pricingTier": "Free"
+                                }
+                            },
+                            "name": "KubernetesService",
+                            "type": "Microsoft.Security/pricings@2023-01-01"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
