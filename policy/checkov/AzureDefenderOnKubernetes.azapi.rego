@@ -7,7 +7,7 @@ valid_azapi_security_center_kubernetes_service_subscription_pricing_configuratio
 }
 
 valid_azapi_security_center_kubernetes_service_subscription_pricing_configuration(resource) if {
-    resource.values.properties.pricingTier == "Standard"
+    resource.values.body.properties.pricingTier == "Standard"
 }
 
 deny_CKV_AZURE_85_azapi contains reason if {
@@ -15,5 +15,5 @@ deny_CKV_AZURE_85_azapi contains reason if {
     data.utils.is_azure_type(resource.values, "Microsoft.Security/pricings")
     not valid_azapi_security_center_kubernetes_service_subscription_pricing_configuration(resource)
 
-    reason := sprintf("checkov/CKV_AZURE_85: Ensure that Azure Defender is set to On for Kubernetes. https://github.com/bridgecrewio/checkov/blob/main/checkov/terraform/checks/resource/azure/AzureDefenderOnKubernetes.py")
+    reason := sprintf("checkov/CKV_AZURE_85: Ensure that Azure Defender is set to On for Kubernetes. %s https://github.com/bridgecrewio/checkov/blob/main/checkov/terraform/checks/resource/azure/AzureDefenderOnKubernetes.py", [resource.address])
 }
