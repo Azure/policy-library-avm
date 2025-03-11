@@ -42,10 +42,10 @@
             "after": {
               "body": {
                 "properties": {
-                  "pricingTier": "AppServices"
+                  "pricingTier": "Standard"
                 }
               },
-              "name": "ContainerRegistry",
+              "name": "AppServices",
               "type": "Microsoft.Security/pricings@2023-01-01"
             }
           }
