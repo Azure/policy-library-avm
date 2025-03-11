@@ -1,0 +1,26 @@
+{
+    "mock" : {
+        "default": {
+            "resource_changes": [{
+                "address": "azurerm_mysql_flexible_server.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.DBforMySQL/flexibleServers@2023-12-30",
+                        "body": {
+                            "properties": {
+                                "administratorLogin": "adminTerraform",
+                                "administratorLoginPassword": "QAZwsx123",
+                                "version": "8.0.21"
+                            }
+                        }
+                    }
+                }
+            }]
+        }
+    }
+}
