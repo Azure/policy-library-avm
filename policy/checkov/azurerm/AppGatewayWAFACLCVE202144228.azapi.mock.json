@@ -1,0 +1,48 @@
+{
+    "mock" : {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_web_application_firewall_policy.example",
+                    "mode": "managed",
+                    "type": "azapi_resource",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "type": "Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies@2024-05-01",
+                            "properties": {
+                                "managedRules": {
+                                    "managedRuleSets": [
+                                        {
+                                            "ruleSetType": "OWASP",
+                                            "ruleSetVersion": "3.2",
+                                            "ruleGroupOverrides": [
+                                                {
+                                                    "ruleGroupName": "REQUEST-920-PROTOCOL-ENFORCEMENT",
+                                                    "rules": [
+                                                        {
+                                                            "ruleId": "920300",
+                                                            "action": "Log",
+                                                            "state": "Enabled"
+                                                        },
+                                                        {
+                                                            "ruleId": "920440",
+                                                            "action": "Block",
+                                                            "state": "Enabled"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
