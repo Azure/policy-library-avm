@@ -1,0 +1,82 @@
+{
+  "mock": {
+    "default": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.this",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "this",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "body": {
+                "properties": {
+                  "pricingTier": "Standard"
+                }
+              },
+              "name": "ContainerRegistry",
+              "type": "Microsoft.Security/pricings@2023-01-01"
+            }
+          }
+        }
+      ]
+    },
+    "not_container_registry": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.this",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "this",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "body": {
+                "properties": {
+                  "pricingTier": "AppServices"
+                }
+              },
+              "name": "ContainerRegistry",
+              "type": "Microsoft.Security/pricings@2023-01-01"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_free": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.this",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "this",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "body": {
+                "properties": {
+                  "pricingTier": "Free"
+                }
+              },
+              "name": "ContainerRegistry",
+              "type": "Microsoft.Security/pricings@2023-01-01"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
