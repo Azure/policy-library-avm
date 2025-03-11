@@ -1,0 +1,63 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_security_center_subscription_pricing.container_registry",
+                    "mode": "managed",
+                    "type": "azurerm_security_center_subscription_pricing",
+                    "name": "container_registry",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "resource_type": "ContainerRegistry",
+                            "tier": "Standard"
+                        }
+                    }
+                }
+            ]
+        },
+        "not_container_registry_plan":  {
+            "resource_changes": [
+                {
+                    "address": "azurerm_security_center_subscription_pricing.container_registry",
+                    "mode": "managed",
+                    "type": "azurerm_security_center_subscription_pricing",
+                    "name": "container_registry",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "resource_type": "AppServices"
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_free": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_security_center_subscription_pricing.container_registry",
+                    "mode": "managed",
+                    "type": "azurerm_security_center_subscription_pricing",
+                    "name": "container_registry",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "resource_type": "ContainerRegistry",
+                            "tier": "Free"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
