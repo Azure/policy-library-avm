@@ -1,0 +1,56 @@
+{
+  "mock": {
+    "default": {
+      "resource_changes": [
+        {
+          "address": "azurerm_mssql_server_security_alert_policy.example",
+          "mode": "managed",
+          "type": "azurerm_mssql_server_security_alert_policy",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "email_addresses": [
+                "admin@example.com"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "known_after_apply": {
+      "resource_changes": [
+        {
+          "address": "azurerm_mssql_server_security_alert_policy.example",
+          "mode": "managed",
+          "type": "azurerm_mssql_server_security_alert_policy",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {},
+            "after_unknown": {
+              "email_addresses": true
+            }
+          }
+        }
+      ]
+    },
+    "invalid_not_set": {
+      "resource_changes": [
+        {
+          "address": "azurerm_mssql_server_security_alert_policy.example",
+          "mode": "managed",
+          "type": "azurerm_mssql_server_security_alert_policy",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {}
+          }
+        }
+      ]
+    }
+  }
+}

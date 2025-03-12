@@ -3,7 +3,11 @@ package checkov
 import rego.v1
 
 valid_azurerm_mssql_server_security_alert_policy_email_addresses(resource) if {
-    resource.values.email_addresses != null
+    resource.values.email_addresses == resource.values.email_addresses
+}
+
+valid_azurerm_mssql_server_security_alert_policy_email_addresses(resource) if {
+    resource.after_unknown.email_addresses == resource.after_unknown.email_addresses
 }
 
 deny_CKV_AZURE_26 contains reason if {

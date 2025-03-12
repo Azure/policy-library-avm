@@ -1,0 +1,63 @@
+{
+    "mock" : {
+        "default": {
+            "resource_changes": [{
+                "address": "azapi_resource.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.Sql/servers/securityAlertPolicies@2024-05-01-preview",
+                        "body": {
+                            "properties": {
+                                "emailAddresses": [
+                                    "admin@example.com"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }]
+        },
+        "known_after_apply": {
+            "resource_changes": [{
+                "address": "azapi_resource.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.Sql/servers/securityAlertPolicies@2024-05-01-preview"
+                    },
+                    "after_unknown": {
+                        "body": {
+                            "properties": {
+                                "emailAddresses": true
+                            }
+                        }
+                    }
+                }
+            }]
+        },
+        "invalid_not_set": {
+            "resource_changes": [{
+                "address": "azapi_resource.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.Sql/servers/securityAlertPolicies@2024-05-01-preview"
+                    }
+                }
+            }]
+        }
+    }
+}
