@@ -1,0 +1,75 @@
+{
+  "mock": {
+    "default": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "name": "res",
+          "type": "azapi_resource",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "url": "https://backend.com/api"
+                }
+              },
+              "type": "Microsoft.ApiManagement/service/backends@2022-08-01"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_http": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "name": "res",
+          "type": "azapi_resource",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "url": "http://backend.com/api"
+                }
+              },
+              "type": "Microsoft.ApiManagement/service/backends@2022-08-01"
+            }
+          }
+        }
+      ]
+    },
+    "known_after_apply": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "name": "res",
+          "type": "azapi_resource",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "type": "Microsoft.ApiManagement/service/backends@2022-08-01"
+            },
+            "after_unknown": {
+              "body": {
+                "properties": {
+                  "url": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
