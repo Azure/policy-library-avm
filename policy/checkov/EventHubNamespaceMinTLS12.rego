@@ -12,9 +12,9 @@ valid_azurerm_eventhub_namespace_minimum_tls_version(resource) if {
     not resource.values.minimum_tls_version == resource.values.minimum_tls_version
 }
 
-deny_CKV_AZURE_215 contains reason if {
+deny_CKV_AZURE_223 contains reason if {
     resource := data.utils.resource(input, "azurerm_eventhub_namespace")[_]
     not valid_azurerm_eventhub_namespace_minimum_tls_version(resource)
 
-    reason := sprintf("checkov/CKV_AZURE_215: Event Hub Namespace not using TLS 1.2 or greater. %s https://github.com/bridgecrewio/checkov/blob/main/checkov/terraform/checks/resource/azure/EventHubNamespaceMinTLS12.py", [resource.address])
+    reason := sprintf("checkov/CKV_AZURE_223: Event Hub Namespace not using TLS 1.2 or greater. %s https://github.com/bridgecrewio/checkov/blob/main/checkov/terraform/checks/resource/azure/EventHubNamespaceMinTLS12.py", [resource.address])
 }
