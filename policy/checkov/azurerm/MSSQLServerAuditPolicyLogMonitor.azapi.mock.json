@@ -1,0 +1,22 @@
+{
+    "mock" : {
+        "default": {
+            "resource_changes": [{
+                "address": "azurerm_mssql_database_extended_auditing_policy.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.Sql/servers/databases/extendedAuditingSettings@2023-08-01-preview",
+                        "properties": {
+                                "isAzureMonitorTargetEnabled": true
+                            }
+                    }
+                }
+            }]
+        }
+    }
+}

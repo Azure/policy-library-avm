@@ -1,0 +1,47 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_frontdoor_firewall_policy.example",
+                    "mode": "managed",
+                    "type": "azurerm_frontdoor_firewall_policy",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "managed_rule": [
+                                {
+                                    "override": [
+                                        {
+                                            "rule": [
+                                                {
+                                                    "action": "Block",
+                                                    "enabled": true,
+                                                    "rule_id": "944240"
+                                                }
+                                            ],
+                                            "rule_group_name": "JAVA"
+                                        }
+                                    ],
+                                    "type": "Microsoft_DefaultRuleSet"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "address": "azurerm_resource_group.example",
+                    "mode": "managed",
+                    "type": "azurerm_resource_group",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

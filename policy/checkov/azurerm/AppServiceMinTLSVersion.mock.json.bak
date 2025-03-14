@@ -1,0 +1,59 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_app_service.example",
+                    "mode": "managed",
+                    "type": "azurerm_app_service",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "site_config": [
+                                {
+                                    "min_tls_version": "1.2"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "address": "azurerm_linux_web_app.example",
+                    "mode": "managed",
+                    "type": "azurerm_linux_web_app",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "site_config": [
+                                {
+                                    "minimum_tls_version": "1.2"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "address": "azurerm_windows_web_app.example",
+                    "mode": "managed",
+                    "type": "azurerm_windows_web_app",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "site_config": [
+                                {
+                                    "minimum_tls_version": "1.2"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

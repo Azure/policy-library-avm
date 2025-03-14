@@ -1,0 +1,53 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_kubernetes_cluster.example",
+                    "mode": "managed",
+                    "type": "azurerm_kubernetes_cluster",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "private_cluster_enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_false": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_kubernetes_cluster.example",
+                    "mode": "managed",
+                    "type": "azurerm_kubernetes_cluster",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "private_cluster_enabled": false
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_omitted": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_kubernetes_cluster.example",
+                    "mode": "managed",
+                    "type": "azurerm_kubernetes_cluster",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {}
+                    }
+                }
+            ]
+        }
+    }
+}

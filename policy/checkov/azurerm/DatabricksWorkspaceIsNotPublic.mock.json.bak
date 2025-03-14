@@ -1,0 +1,31 @@
+{
+    "mock" : {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_databricks_workspace.example",
+                    "mode": "managed",
+                    "type": "azurerm_databricks_workspace",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "public_network_access_enabled": false
+                        }
+                    }
+                },
+                {
+                    "address": "azurerm_resource_group.example",
+                    "mode": "managed",
+                    "type": "azurerm_resource_group",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

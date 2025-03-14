@@ -1,0 +1,64 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_resource_group.example",
+                    "mode": "managed",
+                    "type": "azurerm_resource_group",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "location": "westeurope",
+                            "name": "example-rg"
+                        }
+                    }
+                },
+                {
+                    "address": "azurerm_web_application_firewall_policy.example",
+                    "mode": "managed",
+                    "type": "azurerm_web_application_firewall_policy",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "location": "westeurope",
+                            "managed_rules": [
+                                {
+                                    "managed_rule_set": [
+                                        {
+                                            "rule_group_override": [
+                                                {
+                                                    "rule_group_name": "REQUEST-920-PROTOCOL-ENFORCEMENT",
+                                                    "rule": [
+                                                        {
+                                                            "id": "920300",
+                                                            "action": "Log",
+                                                            "enabled": true
+                                                        },
+                                                        {
+                                                            "id": "920440",
+                                                            "action": "Block",
+                                                            "enabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "type": "OWASP",
+                                            "version": "3.2"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "name": "example-wafpolicy",
+                            "resource_group_name": "example-rg"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "mock" : {
+        "default": {
+            "resource_changes": [{
+                "address": "azurerm_role_definition.custom_role",
+                "mode": "managed",
+                "type": "azurerm_role_definition",
+                "change": {
+                    "actions": ["create"],
+                    "after": {
+                        "permissions": [{
+                            "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read","Microsoft.Resources/subscriptions/resourceGroups/write"]
+                        }]
+                    }
+                }
+            }]
+        }
+    }
+}

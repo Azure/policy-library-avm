@@ -1,0 +1,19 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [{
+                "address": "azurerm_security_center_contact.example",
+                "mode": "managed",
+                "type": "azurerm_security_center_contact",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "phone": "+1-555-555-5555"
+                    }
+                }
+            }]
+        }
+    }
+}

@@ -1,0 +1,51 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_cosmosdb_account.example",
+                    "mode": "managed",
+                    "type": "azurerm_cosmosdb_account",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "key_vault_key_id": null
+                        }
+                    }
+                },
+                {
+                    "address": "azurerm_key_vault.example",
+                    "mode": "managed",
+                    "type": "azurerm_key_vault",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ]
+                    }
+                },
+                {
+                    "address": "azurerm_key_vault_key.example",
+                    "mode": "managed",
+                    "type": "azurerm_key_vault_key",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ]
+                    }
+                },
+                {
+                    "address": "azurerm_resource_group.example",
+                    "mode": "managed",
+                    "type": "azurerm_resource_group",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

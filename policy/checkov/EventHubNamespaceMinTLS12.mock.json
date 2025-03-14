@@ -1,0 +1,81 @@
+{
+  "mock": {
+    "valid_1.2": {
+      "resource_changes": [
+        {
+          "address": "azurerm_eventhub_namespace.example",
+          "mode": "managed",
+          "type": "azurerm_eventhub_namespace",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "minimum_tls_version": "1.2"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_1.1": {
+      "resource_changes": [
+        {
+          "address": "azurerm_eventhub_namespace.example",
+          "mode": "managed",
+          "type": "azurerm_eventhub_namespace",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "minimum_tls_version": "1.1"
+            }
+          }
+        }
+      ]
+    },
+    "valid_omitted": {
+      "resource_changes": [
+        {
+          "address": "azurerm_eventhub_namespace.example",
+          "mode": "managed",
+          "type": "azurerm_eventhub_namespace",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+            }
+          }
+        }
+      ]
+    },
+    "invalid_known_after_apply": {
+      "resource_changes": [
+        {
+          "address": "azurerm_eventhub_namespace.example",
+          "mode": "managed",
+          "type": "azurerm_eventhub_namespace",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+            },
+            "after_unknown": {
+              "minimum_tls_version": true
+            }
+          }
+        }
+      ]
+    }
+  }
+}

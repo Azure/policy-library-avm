@@ -1,0 +1,30 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [{
+                "address": "azurerm_service_fabric_cluster.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "change": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.ServiceFabric/clusters@2021-06-01",
+                        "body":{
+                            "properties":{
+                                "fabricSettings": [{
+                                    "name": "Security",
+                                    "parameters": [{
+                                        "name": "ClusterProtectionLevel",
+                                        "value": "EncryptAndSign"
+                                    }]
+                                }]
+                            }
+                        }
+                    }
+                }
+            }]
+        }
+    }
+}

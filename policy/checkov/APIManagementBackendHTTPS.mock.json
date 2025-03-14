@@ -1,0 +1,62 @@
+{
+  "mock": {
+    "default": {
+      "resource_changes": [
+        {
+          "address": "azurerm_api_management_backend.example",
+          "mode": "managed",
+          "type": "azurerm_api_management_backend",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "url": "https://backend.com/api"
+            }
+          }
+        }
+      ]
+    },
+    "known_after_apply": {
+      "resource_changes": [
+        {
+          "address": "azurerm_api_management_backend.example",
+          "mode": "managed",
+          "type": "azurerm_api_management_backend",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {},
+            "after_unknown": {
+              "url": true
+            }
+          }
+        }
+      ]
+    },
+    "invalid_http": {
+      "resource_changes": [
+        {
+          "address": "azurerm_api_management_backend.example",
+          "mode": "managed",
+          "type": "azurerm_api_management_backend",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "url": "http://backend.com/api"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

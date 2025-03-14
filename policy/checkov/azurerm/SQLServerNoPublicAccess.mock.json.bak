@@ -1,0 +1,45 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_postgresql_firewall_rule.example",
+                    "mode": "managed",
+                    "type": "azurerm_postgresql_firewall_rule",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "end_ip_address": "40.112.8.12",
+                            "start_ip_address": "40.112.8.12"
+                        }
+                    }
+                },
+                {
+                    "address": "azurerm_postgresql_server.example",
+                    "mode": "managed",
+                    "type": "azurerm_postgresql_server",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "public_network_access_enabled": true
+                        }
+                    }
+                },
+                {
+                    "address": "azurerm_resource_group.example",
+                    "mode": "managed",
+                    "type": "azurerm_resource_group",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

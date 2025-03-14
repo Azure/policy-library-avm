@@ -1,0 +1,22 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_security_center_subscription_pricing.example",
+                    "mode": "managed",
+                    "type": "azurerm_security_center_subscription_pricing",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "resource_type": "VirtualMachines",
+                            "tier": "Standard"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

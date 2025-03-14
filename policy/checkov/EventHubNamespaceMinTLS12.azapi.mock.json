@@ -1,0 +1,72 @@
+{
+  "mock": {
+    "default": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "name": "res",
+          "type": "azapi_resource",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "minimumTlsVersion": "1.2"
+                }
+              },
+              "type": "Microsoft.EventHub/namespaces@2022-01-01-preview"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_1.1": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "name": "res",
+          "type": "azapi_resource",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "minimumTlsVersion": "1.1"
+                }
+              },
+              "type": "Microsoft.EventHub/namespaces@2022-01-01-preview"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_not_set": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "name": "res",
+          "type": "azapi_resource",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                }
+              },
+              "type": "Microsoft.EventHub/namespaces@2022-01-01-preview"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

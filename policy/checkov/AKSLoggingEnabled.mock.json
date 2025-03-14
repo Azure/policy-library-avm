@@ -1,0 +1,148 @@
+{
+    "mock": {
+        "default_enabled": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_kubernetes_cluster.example",
+                    "mode": "managed",
+                    "type": "azurerm_kubernetes_cluster",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "oms_agent": [
+                                {
+                                    "log_analytics_workspace_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "default_enabled_v2": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_kubernetes_cluster.example",
+                    "mode": "managed",
+                    "type": "azurerm_kubernetes_cluster",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "addon_profile": [
+                                {
+                                    "oms_agent": [
+                                        {
+                                            "enabled": true
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "default_known_after_apply": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_kubernetes_cluster.example",
+                    "mode": "managed",
+                    "type": "azurerm_kubernetes_cluster",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {},
+                        "after_unknown": {
+                            "oms_agent": [
+                                {
+                                    "log_analytics_workspace_id": true
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_omitted": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_kubernetes_cluster.example",
+                    "mode": "managed",
+                    "type": "azurerm_kubernetes_cluster",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {}
+                    }
+                }
+            ]
+        },
+        "invalid_omitted2": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_kubernetes_cluster.example",
+                    "mode": "managed",
+                    "type": "azurerm_kubernetes_cluster",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "oms_agent": []
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_omitted3": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_kubernetes_cluster.example",
+                    "mode": "managed",
+                    "type": "azurerm_kubernetes_cluster",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "oms_agent": [{
+
+                            }]
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_disabled_v2": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_kubernetes_cluster.example",
+                    "mode": "managed",
+                    "type": "azurerm_kubernetes_cluster",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "addon_profile": [
+                                {
+                                    "oms_agent": [
+                                        {
+                                            "enabled": false
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

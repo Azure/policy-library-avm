@@ -1,0 +1,31 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_cosmosdb_account.example",
+                    "mode": "managed",
+                    "type": "azurerm_cosmosdb_account",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "access_key_metadata_writes_enabled": false
+                        }
+                    }
+                },
+                {
+                    "address": "azurerm_resource_group.example",
+                    "mode": "managed",
+                    "type": "azurerm_resource_group",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

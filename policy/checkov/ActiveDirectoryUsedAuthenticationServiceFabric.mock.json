@@ -1,0 +1,71 @@
+{
+  "mock": {
+    "default": {
+      "resource_changes": [
+        {
+          "address": "azurerm_service_fabric_cluster.example",
+          "mode": "managed",
+          "type": "azurerm_service_fabric_cluster",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "name": "example-servicefabric",
+              "location": "westeurope",
+              "resource_group_name": "example-resources",
+              "azure_active_directory": [
+                {
+                  "tenant_id": "00000000-0000-0000-0000-000000000000"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "known_after_apply": {
+      "resource_changes": [
+        {
+          "address": "azurerm_service_fabric_cluster.example",
+          "mode": "managed",
+          "type": "azurerm_service_fabric_cluster",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+            },
+            "after_unknown": {
+              "azure_active_directory": [
+                {
+                  "tenant_id": true
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "invalid_omitted": {
+      "resource_changes": [
+        {
+          "address": "azurerm_service_fabric_cluster.example",
+          "mode": "managed",
+          "type": "azurerm_service_fabric_cluster",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "azure_active_directory": [
+                {
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

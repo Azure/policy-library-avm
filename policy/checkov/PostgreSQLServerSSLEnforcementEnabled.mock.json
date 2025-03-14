@@ -1,0 +1,38 @@
+{
+    "mock": {
+        "enabled": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_postgresql_server.example",
+                    "mode": "managed",
+                    "type": "azurerm_postgresql_server",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "ssl_enforcement_enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_disabled": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_postgresql_server.example",
+                    "mode": "managed",
+                    "type": "azurerm_postgresql_server",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "ssl_enforcement_enabled": false
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

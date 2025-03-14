@@ -1,0 +1,61 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_mssql_database.example",
+                    "mode": "managed",
+                    "type": "azurerm_mssql_database",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ]
+                    }
+                },
+                {
+                    "address": "azurerm_mssql_database_extended_auditing_policy.example",
+                    "mode": "managed",
+                    "type": "azurerm_mssql_database_extended_auditing_policy",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "log_monitoring_enabled": true
+                        }
+                    }
+                },
+                {
+                    "address": "azurerm_mssql_server.example",
+                    "mode": "managed",
+                    "type": "azurerm_mssql_server",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ]
+                    }
+                },
+                {
+                    "address": "azurerm_resource_group.example",
+                    "mode": "managed",
+                    "type": "azurerm_resource_group",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ]
+                    }
+                },
+                {
+                    "address": "azurerm_storage_account.example",
+                    "mode": "managed",
+                    "type": "azurerm_storage_account",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

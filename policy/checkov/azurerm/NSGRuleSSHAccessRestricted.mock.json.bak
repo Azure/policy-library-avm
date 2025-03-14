@@ -1,0 +1,59 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_network_security_group.example",
+                    "mode": "managed",
+                    "type": "azurerm_network_security_group",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "location": "westeurope",
+                            "name": "example-nsg",
+                            "resource_group_name": "example-resources"
+                        }
+                    }
+                },
+                {
+                    "address": "azurerm_network_security_rule.deny_ssh",
+                    "mode": "managed",
+                    "type": "azurerm_network_security_rule",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "access": "Deny",
+                            "destination_address_prefix": "*",                            
+                            "destination_port_range": "*",
+                            "direction": "Inbound",
+                            "name": "deny-ssh",
+                            "network_security_group_name": "example-nsg",
+                            "priority": 100,
+                            "protocol": "Tcp",
+                            "resource_group_name": "example-resources",
+                            "source_address_prefix": "10.0.0.0/24"
+                        }
+                    }
+                },
+                {
+                    "address": "azurerm_resource_group.example",
+                    "mode": "managed",
+                    "type": "azurerm_resource_group",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "location": "westeurope",
+                            "name": "example-resources"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

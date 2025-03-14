@@ -1,0 +1,77 @@
+{
+  "mock": {
+    "default": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "name": "res",
+          "type": "azapi_resource",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                }
+              },
+              "type": "Microsoft.Sql/servers/securityAlertPolicies@2020-11-01-preview"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_not_empty": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "name": "res",
+          "type": "azapi_resource",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "disabledAlerts": [
+                    "Unsafe_Action",
+                    "Sql_Injection"
+                  ]
+                }
+              },
+              "type": "Microsoft.Sql/servers/securityAlertPolicies@2020-11-01-preview"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_known_after_apply": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "name": "res",
+          "type": "azapi_resource",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "type": "Microsoft.Sql/servers/securityAlertPolicies@2020-11-01-preview"
+            },
+            "after_unknown": {
+              "body": {
+                "properties": {
+                  "disabledAlerts": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

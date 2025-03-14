@@ -1,0 +1,24 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [{
+                "address": "azurerm_postgresql_server.example",
+                "mode": "managed",
+                "type": "azapi_resource",
+                "changes": {
+                    "actions": [
+                        "create"
+                    ],
+                    "after": {
+                        "type": "Microsoft.DBforPostgreSQL/servers/2017-12-01",
+                        "body": {
+                            "properties": {
+                                "minimalTlsVersion": "TLS1_2"
+                            }
+                        }
+                    }
+                }
+            }]
+        }
+    }
+}
