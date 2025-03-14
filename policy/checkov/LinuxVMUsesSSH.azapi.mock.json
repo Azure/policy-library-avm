@@ -1,0 +1,216 @@
+{
+  "mock": {
+    "vm_ssh": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "name": "res",
+          "type": "azapi_resource",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "osProfile": {
+                    "linuxConfiguration": {
+                      "ssh": {
+                        "publicKeys": [
+                          {
+                            "keyData": "ssh-rsa ***"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "storageProfile": {
+                    "osType": "Linux"
+                  }
+                }
+              }
+            },
+            "type": "Microsoft.Compute/virtualMachines@2024-03-01"
+          }
+        }
+      ]
+    },
+    "vm_known_after_apply": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "name": "res",
+          "type": "azapi_resource",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "storageProfile": {
+                    "osType": "Linux"
+                  }
+                }
+              }
+            },
+            "after_unknown": {
+              "body": {
+                "properties": {
+                  "osProfile": {
+                    "linuxConfiguration": {
+                      "ssh": {
+                        "publicKeys": [
+                          {
+                            "keyData": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "type": "Microsoft.Compute/virtualMachines@2024-03-01"
+          }
+        }
+      ]
+    },
+    "invalid_vm_not_set": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "name": "res",
+          "type": "azapi_resource",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "storageProfile": {
+                    "osType": "Linux"
+                  }
+                }
+              },
+              "type": "Microsoft.Compute/virtualMachines@2024-03-01"
+            }
+          }
+        }
+      ]
+    },
+    "vmss_ssh": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "name": "res",
+          "type": "azapi_resource",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "osProfile": {
+                    "linuxConfiguration": {
+                      "ssh": {
+                        "publicKeys": [
+                          {
+                            "keyData": "ssh-rsa ***"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "storageProfile": {
+                    "osDisk": {
+                      "osType": "Linux"
+                    }
+                  }
+                }
+              }
+            },
+            "type": "Microsoft.Compute/virtualMachineScaleSets@2024-07-01"
+          }
+        }
+      ]
+    },
+    "vmss_ssh_known_after_apply": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "name": "res",
+          "type": "azapi_resource",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "storageProfile": {
+                    "osDisk": {
+                      "osType": "Linux"
+                    }
+                  }
+                }
+              }
+            },
+            "after_unknown": {
+              "body": {
+                "properties": {
+                  "osProfile": {
+                    "linuxConfiguration": {
+                      "ssh": {
+                        "publicKeys": [
+                          {
+                            "keyData": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "type": "Microsoft.Compute/virtualMachineScaleSets@2024-07-01"
+          }
+        }
+      ]
+    },
+    "invalid_vmss_not_set": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "name": "res",
+          "type": "azapi_resource",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "storageProfile": {
+                    "osDisk": {
+                      "osType": "Linux"
+                    }
+                  }
+                }
+              },
+              "type": "Microsoft.Compute/virtualMachineScaleSets@2024-07-01"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
