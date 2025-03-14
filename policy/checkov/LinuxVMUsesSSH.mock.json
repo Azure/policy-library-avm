@@ -1,0 +1,137 @@
+{
+  "mock": {
+    "vm_known_after_apply": {
+      "resource_changes": [
+        {
+          "address": "azurerm_linux_virtual_machine.example",
+          "mode": "managed",
+          "type": "azurerm_linux_virtual_machine",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+            },
+            "after_unknown": {
+              "admin_ssh_key": [
+                {
+                  "public_key": true
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "vm_ssh": {
+      "resource_changes": [
+        {
+          "address": "azurerm_linux_virtual_machine.example",
+          "mode": "managed",
+          "type": "azurerm_linux_virtual_machine",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "admin_ssh_key": [
+                {
+                  "public_key": "ssh-rsa ***"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "invalid_vm_not_set": {
+      "resource_changes": [
+        {
+          "address": "azurerm_linux_virtual_machine.example",
+          "mode": "managed",
+          "type": "azurerm_linux_virtual_machine",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+            }
+          }
+        }
+      ]
+    },
+    "vmss_ssh": {
+      "resource_changes": [
+        {
+          "address": "azurerm_linux_virtual_machine_scale_set.example",
+          "mode": "managed",
+          "type": "azurerm_linux_virtual_machine_scale_set",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "admin_ssh_key": [
+                {
+                  "public_key": "ssh-rsa ***"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "vmss_known_after_apply": {
+      "resource_changes": [
+        {
+          "address": "azurerm_linux_virtual_machine_scale_set.example",
+          "mode": "managed",
+          "type": "azurerm_linux_virtual_machine_scale_set",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+            },
+            "after_unknown": {
+              "admin_ssh_key": [
+                {
+                  "public_key": true
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "invalid_vmss_not_set": {
+      "resource_changes": [
+        {
+          "address": "azurerm_linux_virtual_machine_scale_set.example",
+          "mode": "managed",
+          "type": "azurerm_linux_virtual_machine_scale_set",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+}
