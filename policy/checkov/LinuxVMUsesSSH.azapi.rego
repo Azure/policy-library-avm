@@ -3,7 +3,7 @@ package checkov
 import rego.v1
 
 is_azapi_linux_virtual_machine(resource) {
-    resource.values.body.properties.storageProfile.osDisk.osType == "Linux"
+    resource.values.body.properties.storageProfile.osType == "Linux"
 }
 
 valid_azapi_linux_virtual_machine_use_ssh(resource) if {
