@@ -26,7 +26,9 @@
                     }
                   },
                   "storageProfile": {
-                    "osType": "Linux"
+                    "osDisk": {
+                      "osType": "Linux"
+                    }
                   }
                 }
               }
@@ -51,7 +53,9 @@
               "body": {
                 "properties": {
                   "storageProfile": {
-                    "osType": "Linux"
+                    "osDisk": {
+                      "osType": "Linux"
+                    }
                   }
                 }
               }
@@ -93,7 +97,9 @@
               "body": {
                 "properties": {
                   "storageProfile": {
-                    "osType": "Linux"
+                    "osDisk": {
+                      "osType": "Linux"
+                    }
                   }
                 }
               },
