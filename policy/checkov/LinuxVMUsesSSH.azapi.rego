@@ -2,7 +2,7 @@ package checkov
 
 import rego.v1
 
-is_azapi_linux_virtual_machine(resource) {
+is_azapi_linux_virtual_machine(resource) if {
     resource.values.body.properties.storageProfile.osType == "Linux"
 }
 
