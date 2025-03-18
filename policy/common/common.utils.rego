@@ -41,6 +41,26 @@ _resource(_input) := output if {
 	}
 }
 
+_configuration(_input) := output if {
+    _input.configuration == _input.configuration
+    output := _input.configuration
+}
+
+_configuration(_input) := output if {
+    _input.plan.configuration == _input.plan.configuration
+    output := _input.plan.configuration
+}
+
+resources_in_configuration(_input) := output if {
+    configuration := _configuration(_input)
+    output :=  {
+        resource |
+        walk(configuration, [_, value])
+        value.resources == value.resources
+        resource := value.resources[_]
+    }
+}
+
 _resource(_input) := output if {
 	_input.values.root_module == _input.values.root_module
 	root_resources := [
