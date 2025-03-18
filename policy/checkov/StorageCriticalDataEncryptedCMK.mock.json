@@ -1,0 +1,299 @@
+{
+  "mock": {
+    "root_module": {
+      "resource_changes": [
+        {
+          "address": "azurerm_storage_account.example",
+          "mode": "managed",
+          "type": "azurerm_storage_account",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+            }
+          }
+        },
+        {
+          "address": "azurerm_storage_account_customer_managed_key.example",
+          "mode": "managed",
+          "type": "azurerm_storage_account_customer_managed_key",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+            }
+          }
+        }
+      ],
+      "configuration": {
+        "root_module": {
+          "resources": [
+            {
+              "address": "azurerm_storage_account_customer_managed_key.example",
+              "mode": "managed",
+              "type": "azurerm_storage_account_customer_managed_key",
+              "name": "example",
+              "provider_config_key": "azurerm",
+              "expressions": {
+                "storage_account_id": {
+                  "references": [
+                    "azurerm_storage_account.example.id",
+                    "azurerm_storage_account.example"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "root_module_static_count_in_resource_address": {
+      "resource_changes": [
+        {
+          "address": "azurerm_storage_account.example[0]",
+          "mode": "managed",
+          "type": "azurerm_storage_account",
+          "name": "example",
+          "index": 0,
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {}
+          }
+        },
+        {
+          "address": "azurerm_storage_account_customer_managed_key.example[0]",
+          "mode": "managed",
+          "type": "azurerm_storage_account_customer_managed_key",
+          "name": "example",
+          "index": 0,
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {}
+          }
+        }
+      ],
+      "configuration": {
+        "root_module": {
+          "resources": [
+            {
+              "address": "azurerm_storage_account_customer_managed_key.example",
+              "mode": "managed",
+              "type": "azurerm_storage_account_customer_managed_key",
+              "name": "example",
+              "provider_config_key": "azurerm",
+              "expressions": {
+                "storage_account_id": {
+                  "references": [
+                    "azurerm_storage_account.example[0].id",
+                    "azurerm_storage_account.example[0]",
+                    "azurerm_storage_account.example"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "root_module_count_index_in_resource_address": {
+      "resource_changes": [
+        {
+          "address": "azurerm_storage_account.example[0]",
+          "mode": "managed",
+          "type": "azurerm_storage_account",
+          "name": "example",
+          "index": 0,
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {}
+          }
+        },
+        {
+          "address": "azurerm_storage_account_customer_managed_key.example[0]",
+          "mode": "managed",
+          "type": "azurerm_storage_account_customer_managed_key",
+          "name": "example",
+          "index": 0,
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {}
+          }
+        }
+      ],
+      "configuration": {
+        "root_module": {
+          "resources": [
+            {
+              "address": "azurerm_storage_account_customer_managed_key.example",
+              "mode": "managed",
+              "type": "azurerm_storage_account_customer_managed_key",
+              "name": "example",
+              "provider_config_key": "azurerm",
+              "expressions": {
+
+                "storage_account_id": {
+                  "references": [
+                    "azurerm_storage_account.example",
+                    "count.index"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "invalid_root_module_no_cmk": {
+      "resource_changes": [
+        {
+          "address": "azurerm_storage_account.example",
+          "mode": "managed",
+          "type": "azurerm_storage_account",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+            }
+          }
+        }
+      ]
+    },
+    "submodule": {
+      "resource_changes": [
+        {
+          "address": "module.mod2.azurerm_storage_account.example",
+          "module_address": "module.mod2",
+          "mode": "managed",
+          "type": "azurerm_storage_account",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {}
+          }
+        },
+        {
+          "address": "module.mod2.azurerm_storage_account_customer_managed_key.example",
+          "module_address": "module.mod2",
+          "mode": "managed",
+          "type": "azurerm_storage_account_customer_managed_key",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {}
+          }
+        }
+      ],
+      "configuration": {
+        "root_module": {
+          "module_calls": {
+            "mod2": {
+              "source": "./mod2",
+              "module": {
+                "resources": [
+                  {
+                    "address": "azurerm_storage_account_customer_managed_key.example",
+                    "mode": "managed",
+                    "type": "azurerm_storage_account_customer_managed_key",
+                    "name": "example",
+                    "provider_config_key": "azurerm",
+                    "expressions": {
+                      "storage_account_id": {
+                        "references": [
+                          "azurerm_storage_account.example.id",
+                          "azurerm_storage_account.example"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "resource_in_state": {
+      "values": {
+        "root_module": {
+          "child_modules": [
+            {
+              "resources": [
+                {
+                  "address": "module.mod2.azurerm_storage_account.example",
+                  "mode": "managed",
+                  "type": "azurerm_storage_account",
+                  "name": "example",
+                  "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                  "values": {
+                    "id": "/subscriptions/xxxxx/resourceGroups/xxxxx/providers/Microsoft.Storage/storageAccounts/xxxxx"
+                  }
+                },
+                {
+                  "address": "module.mod2.azurerm_storage_account_customer_managed_key.example",
+                  "mode": "managed",
+                  "type": "azurerm_storage_account_customer_managed_key",
+                  "name": "example",
+                  "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                  "schema_version": 0,
+                  "values": {
+                    "storage_account_id": "/subscriptions/xxxxx/resourceGroups/xxxxx/providers/Microsoft.Storage/storageAccounts/xxxxx"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "invalid_resource_in_state": {
+      "values": {
+        "root_module": {
+          "child_modules": [
+            {
+              "resources": [
+                {
+                  "address": "module.mod2.azurerm_storage_account.example",
+                  "mode": "managed",
+                  "type": "azurerm_storage_account",
+                  "name": "example",
+                  "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                  "values": {
+                    "id": "/subscriptions/xxxxx/resourceGroups/xxxxx/providers/Microsoft.Storage/storageAccounts/xxxxx"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

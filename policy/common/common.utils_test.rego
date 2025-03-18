@@ -341,9 +341,9 @@ test_resources_in_configuration_root_module if {
         }
     }
 
-    resources := utils.resources_in_configuration(_input)
+    resources := utils.resource_configuration(_input)
     count(resources) == 1
-    resource := resources[_]
+    resource := resources["azurerm_storage_account_customer_managed_key.example"]
     resource.address == "azurerm_storage_account_customer_managed_key.example"
     resource.type == "azurerm_storage_account_customer_managed_key"
     resource.expressions.key_name.references[0] == "azurerm_key_vault_key.example.name"
@@ -378,10 +378,10 @@ test_resources_in_configuration_module_calls if {
         }
     }
 
-    resources := utils.resources_in_configuration(_input)
+    resources := utils.resource_configuration(_input)
     count(resources) == 1
-    resource := resources[_]
-    resource.address == "azurerm_storage_account_customer_managed_key.example"
+    resource := resources["module.mod1.azurerm_storage_account_customer_managed_key.example"]
+    resource.address == "module.mod1.azurerm_storage_account_customer_managed_key.example"
     resource.type == "azurerm_storage_account_customer_managed_key"
     resource.expressions.key_vault_id.references[0] == "azurerm_key_vault.example.id"
 }
@@ -422,10 +422,10 @@ test_resources_in_configuration_nested_modules if {
         }
     }
 
-    resources := utils.resources_in_configuration(_input)
+    resources := utils.resource_configuration(_input)
     count(resources) == 1
-    resource := resources[_]
-    resource.address == "azurerm_storage_account_customer_managed_key.example"
+    resource := resources["module.mod2.module.mod1.azurerm_storage_account_customer_managed_key.example"]
+    resource.address == "module.mod2.module.mod1.azurerm_storage_account_customer_managed_key.example"
     resource.type == "azurerm_storage_account_customer_managed_key"
     resource.expressions.storage_account_id.references[0] == "azurerm_storage_account.example.id"
 }
@@ -488,7 +488,7 @@ test_resources_in_configuration_combined if {
         }
     }
 
-    resources := utils.resources_in_configuration(_input)
+    resources := utils.resource_configuration(_input)
     count(resources) == 3
 
     # Verify each resource was found
@@ -503,10 +503,10 @@ test_resources_in_configuration_combined if {
     storage.expressions.account_replication_type.constant_value == "GRS"
 
     keyvault := [r | r := resources[_]; r.type == "azurerm_key_vault"][0]
-    keyvault.address == "azurerm_key_vault.module_level"
+    keyvault.address == "module.mod1.azurerm_key_vault.module_level"
     keyvault.expressions.sku_name.constant_value == "premium"
 
     cosmosdb := [r | r := resources[_]; r.type == "azurerm_cosmosdb_account"][0]
-    cosmosdb.address == "azurerm_cosmosdb_account.nested_level"
+    cosmosdb.address == "module.mod1.module.nested_mod.azurerm_cosmosdb_account.nested_level"
     cosmosdb.expressions.offer_type.constant_value == "Standard"
 }
