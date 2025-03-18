@@ -258,3 +258,255 @@ test_get_change_after_unknown if {
     result_without_after_unknown := utils._get_change_after_unknown(input_without_after_unknown)
     result_without_after_unknown == []
 }
+
+test_resource_in_configuration_direct if {
+    _input := {
+        "configuration": {
+            "root_module": {
+                "resources": [
+                    {
+                        "address": "azurerm_cosmosdb_account.example",
+                        "mode": "managed",
+                        "type": "azurerm_cosmosdb_account",
+                        "expressions": {
+                            "backup": {
+                                "constant_value": [
+                                    {
+                                        "type": "Continuous"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    }
+    configuration := utils._configuration(_input)
+    configuration.root_module.resources[0].address == "azurerm_cosmosdb_account.example"
+    configuration.root_module.resources[0].type == "azurerm_cosmosdb_account"
+    configuration.root_module.resources[0].expressions.backup.constant_value[0].type == "Continuous"
+}
+
+test_resource_in_configuration_in_plan if {
+    _input := {
+        "plan": {
+            "configuration": {
+                "root_module": {
+                    "resources": [
+                        {
+                            "address": "azurerm_cosmosdb_account.example",
+                            "mode": "managed",
+                            "type": "azurerm_cosmosdb_account",
+                            "expressions": {
+                                "backup": {
+                                    "constant_value": [
+                                        {
+                                            "type": "Continuous"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    configuration := utils._configuration(_input)
+    configuration.root_module.resources[0].address == "azurerm_cosmosdb_account.example"
+    configuration.root_module.resources[0].type == "azurerm_cosmosdb_account"
+    configuration.root_module.resources[0].expressions.backup.constant_value[0].type == "Continuous"
+}
+
+test_resources_in_configuration_root_module if {
+    _input := {
+        "configuration": {
+            "root_module": {
+                "resources": [
+                    {
+                        "address": "azurerm_storage_account_customer_managed_key.example",
+                        "mode": "managed",
+                        "type": "azurerm_storage_account_customer_managed_key",
+                        "expressions": {
+                            "key_name": {
+                                "references": [
+                                    "azurerm_key_vault_key.example.name"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    }
+
+    resources := utils.resources_in_configuration(_input)
+    count(resources) == 1
+    resource := resources[_]
+    resource.address == "azurerm_storage_account_customer_managed_key.example"
+    resource.type == "azurerm_storage_account_customer_managed_key"
+    resource.expressions.key_name.references[0] == "azurerm_key_vault_key.example.name"
+}
+
+test_resources_in_configuration_module_calls if {
+    _input := {
+        "configuration": {
+            "root_module": {
+                "module_calls": {
+                    "mod1": {
+                        "source": "./mod1",
+                        "module": {
+                            "resources": [
+                                {
+                                    "address": "azurerm_storage_account_customer_managed_key.example",
+                                    "mode": "managed",
+                                    "type": "azurerm_storage_account_customer_managed_key",
+                                    "expressions": {
+                                        "key_vault_id": {
+                                            "references": [
+                                                "azurerm_key_vault.example.id"
+                                            ]
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    resources := utils.resources_in_configuration(_input)
+    count(resources) == 1
+    resource := resources[_]
+    resource.address == "azurerm_storage_account_customer_managed_key.example"
+    resource.type == "azurerm_storage_account_customer_managed_key"
+    resource.expressions.key_vault_id.references[0] == "azurerm_key_vault.example.id"
+}
+
+test_resources_in_configuration_nested_modules if {
+    _input := {
+        "configuration": {
+            "root_module": {
+                "module_calls": {
+                    "mod2": {
+                        "source": "./mod2",
+                        "module": {
+                            "module_calls": {
+                                "mod1": {
+                                    "source": "../mod1",
+                                    "module": {
+                                        "resources": [
+                                            {
+                                                "address": "azurerm_storage_account_customer_managed_key.example",
+                                                "mode": "managed",
+                                                "type": "azurerm_storage_account_customer_managed_key",
+                                                "expressions": {
+                                                    "storage_account_id": {
+                                                        "references": [
+                                                            "azurerm_storage_account.example.id"
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    resources := utils.resources_in_configuration(_input)
+    count(resources) == 1
+    resource := resources[_]
+    resource.address == "azurerm_storage_account_customer_managed_key.example"
+    resource.type == "azurerm_storage_account_customer_managed_key"
+    resource.expressions.storage_account_id.references[0] == "azurerm_storage_account.example.id"
+}
+
+test_resources_in_configuration_combined if {
+    _input := {
+        "configuration": {
+            "root_module": {
+                "resources": [
+                    {
+                        "address": "azurerm_storage_account.root_level",
+                        "mode": "managed",
+                        "type": "azurerm_storage_account",
+                        "expressions": {
+                            "account_replication_type": {
+                                "constant_value": "GRS"
+                            }
+                        }
+                    }
+                ],
+                "module_calls": {
+                    "mod1": {
+                        "source": "./mod1",
+                        "module": {
+                            "resources": [
+                                {
+                                    "address": "azurerm_key_vault.module_level",
+                                    "mode": "managed",
+                                    "type": "azurerm_key_vault",
+                                    "expressions": {
+                                        "sku_name": {
+                                            "constant_value": "premium"
+                                        }
+                                    }
+                                }
+                            ],
+                            "module_calls": {
+                                "nested_mod": {
+                                    "source": "./nested",
+                                    "module": {
+                                        "resources": [
+                                            {
+                                                "address": "azurerm_cosmosdb_account.nested_level",
+                                                "mode": "managed",
+                                                "type": "azurerm_cosmosdb_account",
+                                                "expressions": {
+                                                    "offer_type": {
+                                                        "constant_value": "Standard"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    resources := utils.resources_in_configuration(_input)
+    count(resources) == 3
+
+    # Verify each resource was found
+    resource_types := {r.type | r := resources[_]}
+    resource_types["azurerm_storage_account"]
+    resource_types["azurerm_key_vault"]
+    resource_types["azurerm_cosmosdb_account"]
+
+    # Verify specific details of each resource
+    storage := [r | r := resources[_]; r.type == "azurerm_storage_account"][0]
+    storage.address == "azurerm_storage_account.root_level"
+    storage.expressions.account_replication_type.constant_value == "GRS"
+
+    keyvault := [r | r := resources[_]; r.type == "azurerm_key_vault"][0]
+    keyvault.address == "azurerm_key_vault.module_level"
+    keyvault.expressions.sku_name.constant_value == "premium"
+
+    cosmosdb := [r | r := resources[_]; r.type == "azurerm_cosmosdb_account"][0]
+    cosmosdb.address == "azurerm_cosmosdb_account.nested_level"
+    cosmosdb.expressions.offer_type.constant_value == "Standard"
+}
