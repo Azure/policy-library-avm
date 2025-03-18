@@ -51,13 +51,20 @@ _configuration(_input) := output if {
     output := _input.plan.configuration
 }
 
-resources_in_configuration(_input) := output if {
+resource_configuration(_input) := output if {
     configuration := _configuration(_input)
     output :=  {
-        resource |
-        walk(configuration, [_, value])
+        address: resource |
+        walk(configuration, [path, value])
         value.resources == value.resources
-        resource := value.resources[_]
+        module_prefix := concat("", [sprintf("module.%s.", [path[i+1]]) | some i; path[i] == "module_calls"])
+        resource := {
+            "address": sprintf("%s%s", [module_prefix, value.resources[_].address]),
+            "mode": value.resources[_].mode,
+            "type": value.resources[_].type,
+            "expressions": value.resources[_].expressions,
+        }
+        address := resource.address
     }
 }
 
