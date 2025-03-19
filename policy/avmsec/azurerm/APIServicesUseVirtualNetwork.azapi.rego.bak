@@ -1,0 +1,26 @@
+package avmsec
+
+import rego.v1
+
+valid_azurerm_api_management_use_virtual_network(resource) if {
+    resource.values.virtual_network_configuration[0].subnet_id != null
+}
+
+valid_azapi_api_management_use_virtual_network(resource) if {
+    resource.properties.virtualNetworkConfiguration[0].subnetId != null
+}
+
+deny_AVM_SEC_107 contains reason if {
+    resource := data.utils.resource(input, "azurerm_api_management")[_]
+    not valid_azurerm_api_management_use_virtual_network(resource)
+
+    reason := sprintf("avmsec/AVM_SEC_107: Ensure that API management services use virtual networks %s https://github.com/bridgecrewio/checkov/blob/main/checkov/terraform/checks/resource/azure/APIServicesUseVirtualNetwork.py", [resource.address])
+}
+
+deny_AVM_SEC_107 contains reason if {
+    resource := data.utils.resource(input, "azapi_resource")[_]
+    resource.type == "Microsoft.ApiManagement/service/2022-08-01"
+    not valid_azapi_api_management_use_virtual_network(resource)
+
+    reason := sprintf("avmsec/AVM_SEC_107: Ensure that API management services use virtual networks %s https://github.com/bridgecrewio/checkov/blob/main/checkov/terraform/checks/resource/azure/APIServicesUseVirtualNetwork.py", [resource.address])
+}
