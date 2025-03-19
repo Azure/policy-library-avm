@@ -294,6 +294,54 @@
           ]
         }
       }
+    },
+    "nested_cmk_block_known_after_apply":  {
+      "resource_changes": [
+        {
+          "address": "azurerm_storage_account.example",
+          "mode": "managed",
+          "type": "azurerm_storage_account",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+            },
+            "after_unknown": {
+              "customer_managed_key": [
+                {
+                  "key_vault_key_id": true
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "nested_cmk_block":  {
+      "resource_changes": [
+        {
+          "address": "azurerm_storage_account.example",
+          "mode": "managed",
+          "type": "azurerm_storage_account",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "customer_managed_key": [
+                {
+                  "key_vault_key_id": "https://examplekvlmu7p.vault.azure.net/keys/tfex-key/4f9fe30d488d4b72b6cb0888d0edeea2"
+                }
+              ]
+            }
+          }
+        }
+      ]
     }
   }
 }
