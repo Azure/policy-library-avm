@@ -2,6 +2,7 @@ package checkov
 
 import rego.v1
 
+# For seperated `azurerm_storage_account_customer_managed_key` resource
 valid_azurerm_storage_critical_data_encrypted_cmk(resource) if {
     address_segments := split(resource.address, ".")
     local_resource_name := regex.replace(concat(".", array.slice(address_segments, count(address_segments) - 2 ,count(address_segments))), "\\[.*\\]", "")
@@ -9,6 +10,15 @@ valid_azurerm_storage_critical_data_encrypted_cmk(resource) if {
     storage_account_cmk_resource_address_without_index := regex.replace(storage_account_cmk_resource.address, "\\[.*\\]", "")
     reference := data.utils.resource_configuration(input)[storage_account_cmk_resource_address_without_index].expressions.storage_account_id.references[_]
     reference == local_resource_name
+}
+
+# For nested `customer_managed_key` block
+valid_azurerm_storage_critical_data_encrypted_cmk(resource) if {
+    resource.values.customer_managed_key[_].key_vault_key_id == resource.values.customer_managed_key[_].key_vault_key_id
+}
+
+valid_azurerm_storage_critical_data_encrypted_cmk(resource) if {
+    resource.after_unknown.customer_managed_key[_].key_vault_key_id == resource.after_unknown.customer_managed_key[_].key_vault_key_id
 }
 
 # For json exported from existing state file

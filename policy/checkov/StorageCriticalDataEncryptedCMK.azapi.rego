@@ -3,12 +3,11 @@ package checkov
 import rego.v1
 
 valid_azapi_storage_critical_data_encrypted_cmk(resource) if {
-    address_segments := split(resource.address, ".")
-    local_resource_name := regex.replace(concat(".", array.slice(address_segments, count(address_segments) - 2 ,count(address_segments))), "\\[.*\\]", "")
-    storage_account_cmk_resource := data.utils.resource(input, "azurerm_storage_account_customer_managed_key")[_]
-    storage_account_cmk_resource_address_without_index := regex.replace(storage_account_cmk_resource.address, "\\[.*\\]", "")
-    reference := data.utils.resource_configuration(input)[storage_account_cmk_resource_address_without_index].expressions.storage_account_id.references[_]
-    reference == local_resource_name
+    resource.values.body.properties.encryption.keyvaultproperties.keyname == resource.values.body.properties.encryption.keyvaultproperties.keyname
+}
+
+valid_azapi_storage_critical_data_encrypted_cmk(resource) if {
+    resource.after_unknown.body.properties.encryption.keyvaultproperties.keyname == resource.after_unknown.body.properties.encryption.keyvaultproperties.keyname
 }
 
 deny_CKV2_AZURE_1 contains reason if {

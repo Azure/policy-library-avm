@@ -1,0 +1,69 @@
+{
+  "mock": {
+    "cmk": {
+      "address": "azapi_resource.res",
+      "mode": "managed",
+      "type": "azapi_resource",
+      "name": "res",
+      "provider_name": "registry.terraform.io/azure/azapi",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "after": {
+          "body": {
+            "properties": {
+              "encryption": {
+                "keyvaultproperties": {
+                  "keyname": "tfex-key"
+                }
+              }
+            }
+          },
+          "type": "Microsoft.Storage/storageAccounts@2023-05-01"
+        }
+      }
+    },
+    "cmk_known_after_apply": {
+      "address": "azapi_resource.res",
+      "mode": "managed",
+      "type": "azapi_resource",
+      "name": "res",
+      "provider_name": "registry.terraform.io/azure/azapi",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "after": {
+          "type": "Microsoft.Storage/storageAccounts@2023-05-01"
+        },
+        "after_unknown": {
+          "body": {
+            "properties": {
+              "encryption": {
+                "keyvaultproperties": {
+                  "keyname": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "invalid_no_cmk": {
+      "address": "azapi_resource.res",
+      "mode": "managed",
+      "type": "azapi_resource",
+      "name": "res",
+      "provider_name": "registry.terraform.io/azure/azapi",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "after": {
+          "type": "Microsoft.Storage/storageAccounts@2023-05-01"
+        }
+      }
+    }
+  }
+}
