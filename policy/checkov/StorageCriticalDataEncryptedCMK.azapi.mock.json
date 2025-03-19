@@ -26,55 +26,206 @@
             }
           }
         }
-      ],
-      "cmk_known_after_apply": {
-        "resource_changes": [
-          {
-            "address": "azapi_resource.res",
-            "mode": "managed",
-            "type": "azapi_resource",
-            "name": "res",
-            "provider_name": "registry.terraform.io/azure/azapi",
-            "change": {
-              "actions": [
-                "create"
-              ],
-              "after": {
-                "type": "Microsoft.Storage/storageAccounts@2023-05-01"
-              },
-              "after_unknown": {
-                "body": {
-                  "properties": {
-                    "encryption": {
-                      "keyvaultproperties": {
-                        "keyname": true
-                      }
+      ]
+    },
+    "cmk_known_after_apply": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "type": "Microsoft.Storage/storageAccounts@2023-05-01"
+            },
+            "after_unknown": {
+              "body": {
+                "properties": {
+                  "encryption": {
+                    "keyvaultproperties": {
+                      "keyname": true
                     }
                   }
                 }
               }
             }
           }
-        ]
-      },
-      "invalid_no_cmk": {
-        "resource_changes": [
-          {
-            "address": "azapi_resource.res",
-            "mode": "managed",
-            "type": "azapi_resource",
-            "name": "res",
-            "provider_name": "registry.terraform.io/azure/azapi",
-            "change": {
-              "actions": [
-                "create"
-              ],
-              "after": {
-                "type": "Microsoft.Storage/storageAccounts@2023-05-01"
+        }
+      ]
+    },
+    "invalid_no_cmk": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "type": "Microsoft.Storage/storageAccounts@2023-05-01"
+            }
+          }
+        }
+      ]
+    },
+    "cmk_as_update_resource_known_after_apply": {
+      "resource_changes": [
+        {
+          "address": "module.mod2.azapi_resource.res",
+          "module_address": "module.mod2",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "type": "Microsoft.Storage/storageAccounts@2023-05-01"
+            }
+          }
+        },
+        {
+          "address": "module.mod2.azapi_update_resource.encryption",
+          "module_address": "module.mod2",
+          "mode": "managed",
+          "type": "azapi_update_resource",
+          "name": "encryption",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "type": "Microsoft.Storage/storageAccounts@2023-05-01"
+            },
+            "after_unknown": {
+              "body": {
+                "properties": {
+                  "encryption": {
+                    "keyvaultproperties": {
+                      "keyname": true
+                    }
+                  }
+                }
               }
             }
           }
-        ]
+        }
+      ],
+      "configuration": {
+        "root_module": {
+          "module_calls": {
+            "mod2": {
+              "source": "./mod2",
+              "module": {
+                "resources": [
+                  {
+                    "address": "azapi_update_resource.encryption",
+                    "mode": "managed",
+                    "type": "azapi_update_resource",
+                    "name": "encryption",
+                    "provider_config_key": "azapi",
+                    "expressions": {
+                      "resource_id": {
+                        "references": [
+                          "azapi_resource.res.id",
+                          "azapi_resource.res"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "cmk_as_update_resource": {
+      "resource_changes": [
+        {
+          "address": "module.mod2.azapi_resource.res",
+          "module_address": "module.mod2",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "type": "Microsoft.Storage/storageAccounts@2023-05-01"
+            }
+          }
+        },
+        {
+          "address": "module.mod2.azapi_update_resource.encryption",
+          "module_address": "module.mod2",
+          "mode": "managed",
+          "type": "azapi_update_resource",
+          "name": "encryption",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "encryption": {
+                    "keyvaultproperties": {
+                      "keyname": "xxx"
+                    }
+                  }
+                }
+              },
+              "type": "Microsoft.Storage/storageAccounts@2023-05-01"
+            }
+          }
+        }
+      ],
+      "configuration": {
+        "root_module": {
+          "module_calls": {
+            "mod2": {
+              "source": "./mod2",
+              "module": {
+                "resources": [
+                  {
+                    "address": "azapi_update_resource.encryption",
+                    "mode": "managed",
+                    "type": "azapi_update_resource",
+                    "name": "encryption",
+                    "provider_config_key": "azapi",
+                    "expressions": {
+                      "resource_id": {
+                        "references": [
+                          "azapi_resource.res.id",
+                          "azapi_resource.res"
+                        ]
+                      },
+                      "type": {
+                        "constant_value": "Microsoft.Storage/storageAccounts@2023-05-01"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
       }
     }
   }
