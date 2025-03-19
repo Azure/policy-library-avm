@@ -25,54 +25,12 @@ conftest test --all-namespaces --update git::https://github.com/Azure/policy-lib
 
 ## Supported Policies
 
-### [Azure-Proactive-Resiliency-Library-v2](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/)
+[Azure-Proactive-Resiliency-Library-v2](policy/Azure-Proactive-Resiliency-Library-v2/readme.md)
+[Azure Verified Module Security Ruleset](policy/avmsec/readme.md)
 
-* `Microsoft.Compute/virtualMachines`
+### Special Thanks
 
-`legacy_virtual_machine_not_allowed`
-[`migrate_vm_using_availability_sets_to_vmss_flex`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Compute/virtualMachines/#migrate-vms-using-availability-sets-to-vmss-flex)
-[`mission_critical_virtual_machine_should_use_premium_or_ultra_disks`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Compute/virtualMachines/#mission-critical-workloads-should-consider-using-premium-or-ultra-disks)
-[`mission_critical_virtual_machine_should_use_zone`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Compute/virtualMachines/#deploy-vms-across-availability-zones)
-
-* `Microsoft.ContainerService/managedClusters`
-
-[`configure_aks_default_node_pool_zones`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/ContainerService/managedClusters/#deploy-aks-cluster-across-availability-zones)
-
-* `Microsoft.DocumentDB/databaseAccounts`
-
-[`configure_cosmosdb_account_continuous_backup_mode`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DocumentDB/databaseAccounts/#configure-continuous-backup-mode)
-
-* `Microsoft.Network/applicationGateways`
-
-[`migrate_to_application_gateway_v2`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/applicationGateways/#migrate-to-application-gateway-v2)
-[`deploy_application_gateway_in_a_zone_redundant_configuration`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/applicationGateways/#deploy-application-gateway-in-a-zone-redundant-configuration)
-
-* `Microsoft.Network/loadBalancers`
-
-[`use_nat_gateway_instead_of_outbound_rules_for_production_load_lalancer`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/loadBalancers/#use-nat-gateway-instead-of-outbound-rules-for-production-workloads)
-[`use_resilient_load_lalancer_sku`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/loadBalancers/#use-standard-load-balancer-sku)
-
-* `Microsoft.Network/publicIPAddresses`
-
-[`public_ip_use_standard_sku_and_zone_redundant_ip`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/publicIPAddresses/#use-standard-sku-and-zone-redundant-ips-when-applicable)
-
-* `Microsoft.Network/virtualNetworkGateways`
-
-[`virtual_network_gateway_use_zone_redundant_sku`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/virtualNetworkGateways/#use-zone-redundant-expressroute-gateway-skus)
-
-* `Microsoft.DBforMySQL/flexibleServers`
-
-[`mysql_flexible_server_high_availability_mode_zone_redundant`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DBforMySQL/flexibleServers/#enable-ha-with-zone-redundancy)
-[`mysql_flexible_server_geo_redundant_backup_enabled`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DBforMySQL/flexibleServers/#configure-geo-redundant-backup-storage)
-
-* `Microsoft.DBforPostgreSQL/flexibleServers`
-
-[`postgresql_flexible_server_geo_redundant_backup_enabled`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DBforMySQL/flexibleServers/#configure-geo-redundant-backup-storage)
-[`postgresql_flexible_server_high_availability_mode_zone_redundant`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DBforPostgreSQL/flexibleServers/#enable-ha-with-zone-redundancy)
-
-* `Microsoft.Storage/storageAccounts`
-
-[`storage_accounts_are_zone_or_region_redundant`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Storage/storageAccounts/#ensure-that-storage-accounts-are-zone-or-region-redundant)
+`avmsec`(Azure Verified Module Security Ruleset) are inspired by builtin rules come from [BridgeCrew Checkov](https://github.com/bridgecrewio/checkov/).
 
 ## Apply(skip) policies
 
@@ -83,6 +41,12 @@ conftest test --all-namespaces --update git::https://github.com/Azure/policy-lib
 ```
 
 This will only apply the policies under `Azure-Proactive-Resiliency-Library-v2`.
+
+To apply `avmsec` policies:
+
+```Bash
+conftest test --all-namespaces --update git::https://github.com/Azure/policy-library-avm.git//policy/avmsec <path-to-tfplan>
+```
 
 To skip a subset of policies, you can create an exception rego file, e.g.:
 
@@ -102,9 +66,39 @@ Save it to `exception.rego`, then you can apply the exception file with the poli
 conftest test --all-namespaces --update git::https://github.com/Azure/policy-library-avm.git//policy/Azure-Proactive-Resiliency-Library-v2 -p policy -p exception.rego <path-to-tfplan>
 ```
 
+`avmsec` has four severity levels: `high`, `medium`, `low` and `info`. To apply only `high` severity policies, please compose the exception file like this:
+
+````Rego
+package avmsec
+
+import rego.v1
+
+# Skip all policies except high severity
+exception contains rules if {
+  rules = rules_below_high
+}
+````
+
+To apply `high` and `medium` severity policies, please compose the exception file like this:
+
+```Rego
+package avmsec
+
+import rego.v1
+
+# Skip all policies except high severity
+exception contains rules if {
+  rules = rules_below_medium
+}
+```
+
 ## Contribution
 
-All contribution are welcome, please follow the structure below:
+All contribution are welcome.
+
+All policies **MUST** provide both `azurerm` and `azapi` providers at best effort. Mixed use of `azurerm` and `azapi` is not considered.
+
+To contribute Azure-Proactive-Resiliency-Library-v2 rule, please follow the structure below:
 
 ```text
 .
@@ -119,7 +113,9 @@ All contribution are welcome, please follow the structure below:
 
 The policy files are grouped by ruleset, then provider. Now `azurerm` policies should be further grouped by service folder as [`terraform-provider-azurerm`](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/internal/services).
 
-All shared util code **MUST** be stored in `common` folder.
+To contribute `avmsec` rule, please put policy files for `azurerm` and `azapi` together, add `azapi` in file extension name.
+
+All shared util code **MUST** be stored in `common` folder, and must provide 100% coverage unit tests.
 
 Each rego file **MUST** has a corresponding `xxx.mock.json` file. The mock JSON file should contain a top-level key named "mock", which maps to a dictionary. This dictionary can have keys "valid" and "invalid", each mapping to another dictionary of test cases.
 

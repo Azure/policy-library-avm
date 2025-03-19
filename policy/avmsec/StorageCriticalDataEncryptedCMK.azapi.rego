@@ -29,6 +29,14 @@ valid_azapi_storage_critical_data_encrypted_cmk(resource) if {
   reference == local_resource_name
 }
 
+# For resource in state file
+valid_azapi_storage_critical_data_encrypted_cmk(resource) if {
+  update_resource := data.utils.resource(input, "azapi_update_resource")[_]
+  data.utils.is_azure_type(update_resource.values, "Microsoft.Storage/storageAccounts")
+  update_resource.values.resource_id == resource.values.id
+  valid_cmk_as_azapi_update_resource(update_resource)
+}
+
 deny_AVM_SEC_2_1 contains reason if {
     resource := data.utils.resource(input, "azapi_resource")[_]
     data.utils.is_azure_type(resource.values, "Microsoft.Storage/storageAccounts")
