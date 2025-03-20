@@ -15,6 +15,17 @@ high_severity_rules := [
 ]
 
 medium_severity_rules := [
+    "AVM_SEC_29",
+    "AVM_SEC_5",
+    "AVM_SEC_143",
+    "AVM_SEC_7",
+    "AVM_SEC_139",
+    "AVM_SEC_138",
+    "AVM_SEC_137",
+    "AVM_SEC_4",
+    "AVM_SEC_141",
+    "AVM_SEC_6",
+    "AVM_SEC_115",
 	"AVM_SEC_172",
 	"AVM_SEC_173",
 	"AVM_SEC_186",
