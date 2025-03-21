@@ -2,6 +2,9 @@ package avmsec
 
 import rego.v1
 
+# These default exceptions would be used with non-avmsec package rules, which cause all rules defined in `severity.rego` file are not available.
+default rules_below_high := []
+
 exception contains rules if {
   rules = rules_below_high
 }
