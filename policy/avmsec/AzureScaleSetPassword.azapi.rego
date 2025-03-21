@@ -7,7 +7,7 @@ valid_azapi_linux_virtual_machine_scale_set_password_authentication(resource) if
 }
 
 is_azapi_linux_virtual_machine_AVM_SEC_49(resource) if {
-    resource.values.body.properties.storageProfile.osDisk.osType == "Linux"
+    resource.values.body.properties.virtualMachineProfile.storageProfile.osDisk.osType == "Linux"
 }
 
 deny_AVM_SEC_49 contains reason if {
