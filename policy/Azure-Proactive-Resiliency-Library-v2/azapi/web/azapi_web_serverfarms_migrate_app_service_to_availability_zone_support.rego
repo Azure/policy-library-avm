@@ -7,7 +7,7 @@ valid_azapi_web_serverfarms_migrate_app_service_to_availability_zone_support(res
 }
 
 
-deny_azapi_enable_zone_redundancy_for_azure_cache_for_redis contains reason if {
+deny_azapi_web_serverfarms_migrate_app_service_to_availability_zone_support contains reason if {
     resource := data.utils.resource(input, "azapi_resource")[_]
     data.utils.is_azure_type(resource.values, "Microsoft.Web/serverfarms")
     not valid_azapi_web_serverfarms_migrate_app_service_to_availability_zone_support(resource)

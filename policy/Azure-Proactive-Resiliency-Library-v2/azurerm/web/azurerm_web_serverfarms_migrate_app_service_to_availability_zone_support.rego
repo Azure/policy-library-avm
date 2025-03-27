@@ -2,11 +2,11 @@ package Azure_Proactive_Resiliency_Library_v2
 
 import rego.v1
 
-valid_azurerm_web_serverfarms_migrate_app_service_to_availability_zone_support(resource) if {
+valid_azurerm_web_serverfarms_use_standard_or_premium_tier(resource) if {
     resource.values.zone_balancing_enabled == true
 }
 
-deny_azurerm_redis_cache_enable_zone_redundancy contains reason if {
+deny_azurerm_web_serverfarms_migrate_app_service_to_availability_zone_support contains reason if {
     resource := data.utils.resource(input, "azurerm_service_plan")[_]
     not valid_azurerm_web_serverfarms_migrate_app_service_to_availability_zone_support(resource)
 
