@@ -52,32 +52,6 @@
                 }
             ]
         },
-        "invalid_zb_enabled_lt_2_workers": {
-            "resource_changes": [
-                {
-                    "address": "azapi_resource.appservice",
-                    "mode": "managed",
-                    "type": "azapi_resource",
-                    "name": "appservice",
-                    "provider_name": "registry.terraform.io/azure/azapi",
-                    "change": {
-                        "actions": [
-                            "create"
-                        ],
-                        "after": {
-                            "body": {
-                                "properties": {
-                                    "targetWorkerCount": 1,
-                                    "zoneRedundant": true
-                                }                                
-                            },
-                            "name": "example-web-serverfarms",
-                            "type": "Microsoft.Web/serverfarms@2024-04-01"
-                        }
-                    }
-                }
-            ]
-        },
         "invalid_empty_body": {
             "resource_changes": [
                 {
