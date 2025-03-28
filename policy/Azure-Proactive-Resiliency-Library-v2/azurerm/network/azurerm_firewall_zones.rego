@@ -7,7 +7,7 @@ valid_azurerm_deploy_azure_firewall_across_multiple_availability_zones(resource)
     count(resource.values.zones) >= 2
 }
 
-deny_deploy_application_gateway_in_a_zone_redundant_configuration contains reason if {
+deny_deploy_azure_firewall_across_multiple_availability_zones contains reason if {
     resource := data.utils.resource(input, "azurerm_firewall")[_]
     not valid_azurerm_deploy_azure_firewall_across_multiple_availability_zones(resource)
 
