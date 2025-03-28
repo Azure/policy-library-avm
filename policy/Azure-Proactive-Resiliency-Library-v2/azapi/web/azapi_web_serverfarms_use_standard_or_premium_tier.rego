@@ -7,7 +7,7 @@ import rego.v1
 valid_azapi_web_serverfarms_use_standard_or_premium_tier(resource) if {
     valid_sku_types := {"premium", "standard", "isolatedv2"}
     some word in valid_sku_types
-    contains(resource.values.body.properties.sku.name, word)
+    contains(resource.values.body.sku.tier, word)
 }
 
 deny_azapi_web_serverfarms_use_standard_or_premium_tier contains reason if {
