@@ -2,9 +2,12 @@ package Azure_Proactive_Resiliency_Library_v2
 
 import rego.v1
 
+
+
 valid_azapi_web_serverfarms_use_standard_or_premium_tier(resource) if {
-    some word in {"premium", "standard", "isolatedv2"}
-    contains(resource.values.body.properties.sku.name, word)) == true
+    valid_sku_types := {"premium", "standard", "isolatedv2"}
+    some word in valid_sku_types
+    contains(resource.values.body.properties.sku.name, word)
 }
 
 deny_azapi_web_serverfarms_use_standard_or_premium_tier contains reason if {
