@@ -3,8 +3,10 @@ package Azure_Proactive_Resiliency_Library_v2
 import rego.v1
 
 valid_azurerm_web_serverfarms_use_standard_or_premium_tier(resource) if {
-    some word in {"P", "I", "S"}
-    count(contains(resource.values.body.properties.sku.name, word)) == 1
+    allowed_sku_prefixes := {"P", "I", "S"}
+    substring := allowed_sku_prefixes[_]
+    matches := contains(resource.values.body.properties.sku.name, substring))
+    count(matches) == 1
 }
 
 deny_azurerm_web_serverfarms_use_standard_or_premium_tier contains reason if {
