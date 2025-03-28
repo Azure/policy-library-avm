@@ -3,7 +3,7 @@ package Azure_Proactive_Resiliency_Library_v2
 import rego.v1
 
 valid_azurerm_web_serverfarms_use_standard_or_premium_tier(resource) if {
-    allowed_sku_prefixes := {"P", "I", "S"}
+    allowed_sku_prefixes := ["P", "I", "S"]
     substring := allowed_sku_prefixes[_]
     matches := contains(resource.values.sku_name, substring))
     count(matches) == 1

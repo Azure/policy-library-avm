@@ -4,7 +4,7 @@ import rego.v1
 
 valid_azapi_web_serverfarms_use_standard_or_premium_tier(resource) if {
     some word in {"premium", "standard", "isolatedv2"}
-    count(contains(resource.values.body.properties.sku.name, word)) == 1
+    contains(resource.values.body.properties.sku.name, word)) == true
 }
 
 deny_azapi_web_serverfarms_use_standard_or_premium_tier contains reason if {
