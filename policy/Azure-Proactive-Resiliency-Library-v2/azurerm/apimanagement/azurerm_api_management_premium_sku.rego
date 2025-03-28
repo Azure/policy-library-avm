@@ -3,9 +3,7 @@ package Azure_Proactive_Resiliency_Library_v2
 import rego.v1
 
 valid_azurerm_api_managmement_premium_sku(resource) if {
-    allowed_sku_prefixes := ["Premium"]
-    some prefix in allowed_sku_prefixes
-    contains(resource.values.sku_name, prefix)
+    contains(resource.values.sku_name, "Premium")
 }
 
 deny_azurerm_api_managmement_premium_sku contains reason if {
