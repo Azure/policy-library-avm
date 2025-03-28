@@ -4,9 +4,8 @@ import rego.v1
 
 valid_azurerm_web_serverfarms_use_standard_or_premium_tier(resource) if {
     allowed_sku_prefixes := ["P", "I", "S"]
-    substring := allowed_sku_prefixes[_]
-    matches := contains(resource.values.sku_name, substring))
-    count(matches) == 1
+    some prefix in allowed_sku_prefixes
+    contains(resource.values.sku_name, prefix))
 }
 
 deny_azurerm_web_serverfarms_use_standard_or_premium_tier contains reason if {
