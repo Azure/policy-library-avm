@@ -3,9 +3,9 @@
         "Premium": {
             "resource_changes": [
                 {
-                    "address": "azurerm_storage_account.example",
+                    "address": "azurerm_api_management.example",
                     "mode": "managed",
-                    "type": "azurerm_storage_account",
+                    "type": "azurerm_api_management",
                     "name": "example",
                     "provider_name": "registry.terraform.io/hashicorp/azurerm",
                     "change": {
@@ -27,9 +27,9 @@
         "invalid_standard": {
             "resource_changes": [
                 {
-                    "address": "azurerm_storage_account.example",
+                    "address": "azurerm_api_management.example",
                     "mode": "managed",
-                    "type": "azurerm_storage_account",
+                    "type": "azurerm_api_management",
                     "name": "example",
                     "provider_name": "registry.terraform.io/hashicorp/azurerm",
                     "change": {
@@ -51,9 +51,9 @@
         "invalid_empty": {
             "resource_changes": [
                 {
-                    "address": "azurerm_storage_account.example",
+                    "address": "azurerm_api_management.example",
                     "mode": "managed",
-                    "type": "azurerm_storage_account",
+                    "type": "azurerm_api_management",
                     "name": "example",
                     "provider_name": "registry.terraform.io/hashicorp/azurerm",
                     "change": {
