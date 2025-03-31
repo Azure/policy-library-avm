@@ -6,9 +6,9 @@ valid_azurerm_web_serverfarms_migrate_app_service_to_availability_zone_support(r
     resource.values.zone_balancing_enabled == true
 }
 
-deny_azurerm_web_serverfarms_migrate_app_service_to_availability_zone_support contains reason if {
+deny_migrate_service_plan_to_availability_zone_support contains reason if {
     resource := data.utils.resource(input, "azurerm_service_plan")[_]
     not valid_azurerm_web_serverfarms_migrate_app_service_to_availability_zone_support(resource)
 
-    reason := sprintf("Azure-Proactive-Resiliency-Library-v2/migrate-app-service-to-availability-zone-support: '%s' `azurerm_service_plan` must have a `zone_balancing_enabled` attribute set to true: https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Web/serverFarms/#migrate-app-service-to-availability-zone-support", [resource.address])
+    reason := sprintf("Azure-Proactive-Resiliency-Library-v2/migrate_service_plan_to_availability_zone_support: '%s' `azurerm_service_plan` must have a `zone_balancing_enabled` attribute set to true: https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Web/serverFarms/#migrate-app-service-to-availability-zone-support", [resource.address])
 }

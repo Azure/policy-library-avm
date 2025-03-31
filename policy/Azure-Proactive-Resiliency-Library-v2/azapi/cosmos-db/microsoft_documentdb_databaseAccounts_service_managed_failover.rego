@@ -6,10 +6,10 @@ valid_azapi_configure_cosmosdb_account_enable_automatic_failover(resource) if {
     resource.values.body.properties.enableAutomaticFailover == true
 }
 
-deny_azapi_configure_cosmosdb_account_enable_automatic_failover contains reason if {
+deny_configure_cosmosdb_account_enable_automatic_failover contains reason if {
     resource := data.utils.resource(input, "azapi_resource")[_]
     data.utils.is_azure_type(resource.values, "Microsoft.DocumentDB/databaseAccounts")
     not valid_azapi_configure_cosmosdb_account_enable_automatic_failover(resource)
 
-    reason := sprintf("Azure-Proactive-Resiliency-Library-v2/azapi_configure_cosmosdb_account_enable_automatic_failovere: '%s' `azapi_resource` must have automatic failover enabled for accounts with multi-write regions: https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DocumentDB/databaseAccounts/#enable-service-managed-failover-for-multi-region-accounts-with-single-write-region", [resource.address])
+    reason := sprintf("Azure-Proactive-Resiliency-Library-v2/configure_cosmosdb_account_enable_automatic_failover: '%s' `azapi_resource` must have automatic failover enabled for accounts with multi-write regions: https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/DocumentDB/databaseAccounts/#enable-service-managed-failover-for-multi-region-accounts-with-single-write-region", [resource.address])
 }
