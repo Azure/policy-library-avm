@@ -12,5 +12,5 @@ deny_eventhub_namespace_zonal_support contains reason if {
     data.utils.is_azure_type(resource.values, "Microsoft.EventHub/namespaces")
     not valid_azapi_eventhub_namespace_zonal_support(resource)
 
-    reason := sprintf("Azure-Proactive-Resiliency-Library-v2/eventhub_namespace_zonal_support: '%s' `azapi_resource` must be configured to use at least 2 Availability Zones: https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Cache/Redis/#enable-zone-redundancy-for-azure-cache-for-redis", [resource.address])
+    reason := sprintf("Azure-Proactive-Resiliency-Library-v2/eventhub_namespace_zonal_support: '%s' `azapi_resource` must be configured to use at least 2 Availability Zones: https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/EventHub/namespaces/#ensure-zone-redundancy-is-enabled-in-supported-regions", [resource.address])
 }
