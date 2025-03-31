@@ -3,7 +3,7 @@ package Azure_Proactive_Resiliency_Library_v2
 import rego.v1
 
 valid_azurerm_virtual_machine_scaleset_enable_automatic_repair(resource) if {
-    resource.values.automatic_instance_repair.enabled == true
+    resource.values.automatic_instance_repair[_].enabled == true
 }
 
 deny_virtual_machine_scaleset_enable_automatic_repair contains reason if {
