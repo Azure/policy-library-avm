@@ -2,8 +2,9 @@ package Azure_Proactive_Resiliency_Library_v2
 
 import rego.v1
 
+#all valid managed disk sku's end with S.  If a sku is defined then the disk should be a managed disk.
 valid_azapi_virtual_machines_should_use_managed_disks(resource) if {
-    path_exists(resource.values.body.properties.storageProfile.osDisk, managedDisk)
+    endswith(resource.values.body.properties.storageProfile.osDisk.managedDisk.storageAccountType, "S")
 }
 
 deny_virtual_machines_should_use_managed_disks contains reason if {
