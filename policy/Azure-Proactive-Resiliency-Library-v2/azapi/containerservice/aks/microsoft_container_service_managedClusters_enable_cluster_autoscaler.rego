@@ -3,9 +3,9 @@ package Azure_Proactive_Resiliency_Library_v2
 import rego.v1
 
 valid_azapi_aks_enable_cluster_autoscaler(resource) if {
-    pool := resource.values.body.properties.agentPoolProfiles[_]
-    pool_true := resource.values.body.properties.agentPoolProfiles[_].enableAutoScaling == true
-    count(pool) == count(pool_true)
+    every pool in resource.values.body.properties.agentPoolProfiles {
+        pool.enableClusterAutoscaler == true
+    }
 }
 
 deny_aks_enable_cluster_autoscaler contains reason if {
