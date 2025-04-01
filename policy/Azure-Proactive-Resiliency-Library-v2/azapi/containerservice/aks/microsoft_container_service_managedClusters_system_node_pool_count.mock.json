@@ -21,14 +21,6 @@
                           "1"
                         ],
                         "enableAutoScaling": true,
-                        "name": "nodepool1"
-                      },
-                      {
-                        "availabilityZones": [
-                          "2",
-                          "1"
-                        ],
-                        "enableAutoScaling": true,
                         "name": "nodepool2",
                         "mode": "System",
                         "minCount": 3
@@ -63,7 +55,9 @@
                           "1"
                         ],
                         "enableAutoScaling": false,
-                        "name": "nodepool1"
+                        "name": "nodepool1",
+                        "mode": "User",
+                        "minCount": 3
                       },
                       {
                         "availabilityZones": [
@@ -105,7 +99,9 @@
                           "1"
                         ],
                         "enableAutoScaling": true,
-                        "name": "nodepool1"
+                        "name": "nodepool1",
+                        "mode": "User",
+                        "minCount": 3
                       },
                       {
                         "availabilityZones": [
