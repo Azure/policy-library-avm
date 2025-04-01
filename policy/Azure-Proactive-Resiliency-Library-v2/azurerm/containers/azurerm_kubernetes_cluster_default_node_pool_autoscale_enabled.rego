@@ -8,9 +8,9 @@ valid_azurerm_configure_aks_default_node_pool_autoscale_enabled(resource) if {
     }
 }
 
-deny_configure_aks_default_node_pool_autoscale_enabled contains reason if {
+deny_aks_enable_cluster_autoscaler contains reason if {
     resource := data.utils.resource(input, "azurerm_kubernetes_cluster")[_]
     not valid_azurerm_configure_aks_default_node_pool_autoscale_enabled(resource)
 
-    reason := sprintf("Azure-Proactive-Resiliency-Library-v2/configure_aks_default_node_pool_autoscale_enabled: '%s' `azurerm_kubernetes_cluster` must have configured `default_node_pool` to have autoscale enabled: https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/ContainerService/managedClusters/#enable-the-cluster-auto-scaler-on-an-existing-cluster", [resource.address])
+    reason := sprintf("Azure-Proactive-Resiliency-Library-v2/aks_enable_cluster_autoscaler: '%s' `azurerm_kubernetes_cluster` must have configured `default_node_pool` to have autoscale enabled: https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/ContainerService/managedClusters/#enable-the-cluster-auto-scaler-on-an-existing-cluster", [resource.address])
 }
