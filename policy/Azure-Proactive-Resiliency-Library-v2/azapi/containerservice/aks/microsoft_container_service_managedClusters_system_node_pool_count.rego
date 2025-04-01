@@ -5,7 +5,7 @@ import rego.v1
 valid_azapi_aks_system_pool_min_node_count(resource) if {
     every pool in resource.values.body.properties.agentPoolProfiles {
         pool.mode == "System"  
-        count(pool.minCount) >= 2
+        pool.minCount >= 2
     }
 }
 
