@@ -1,0 +1,129 @@
+{
+    "mock": {
+      "default_three": {
+        "resource_changes": [
+          {
+            "address": "azapi_resource.res",
+            "mode": "managed",
+            "type": "azapi_resource",
+            "provider_name": "registry.terraform.io/azure/azapi",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "after": {
+                "body": {
+                  "properties": {
+                    "agentPoolProfiles": [
+                      {
+                        "availabilityZones": [
+                          "2",
+                          "1"
+                        ],
+                        "enableAutoScaling": true,
+                        "name": "nodepool1"
+                      },
+                      {
+                        "availabilityZones": [
+                          "2",
+                          "1"
+                        ],
+                        "enableAutoScaling": true,
+                        "name": "nodepool2",
+                        "mode": "System",
+                        "minCount": 3
+                      }
+                    ]
+                  }
+                },
+                "type": "Microsoft.ContainerService/managedClusters@2024-09-02-preview"
+              }
+            }
+          }
+        ]
+      },
+      "invalid_one": {
+        "resource_changes": [
+          {
+            "address": "azapi_resource.res",
+            "mode": "managed",
+            "type": "azapi_resource",
+            "provider_name": "registry.terraform.io/azure/azapi",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "after": {
+                "body": {
+                  "properties": {
+                    "agentPoolProfiles": [
+                      {
+                        "availabilityZones": [
+                          "2",
+                          "1"
+                        ],
+                        "enableAutoScaling": false,
+                        "name": "nodepool1"
+                      },
+                      {
+                        "availabilityZones": [
+                          "2",
+                          "1"
+                        ],
+                        "enableAutoScaling": false,
+                        "name": "nodepool2",
+                        "mode": "System",
+                        "minCount": 1
+                      }
+                    ]
+                  }
+                },
+                "type": "Microsoft.ContainerService/managedClusters@2024-09-02-preview"
+              }
+            }
+          }
+        ]
+      },
+      "invalid_empty": {
+        "resource_changes": [
+          {
+            "address": "azapi_resource.res",
+            "mode": "managed",
+            "type": "azapi_resource",
+            "provider_name": "registry.terraform.io/azure/azapi",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "after": {
+                "body": {
+                  "properties": {
+                    "agentPoolProfiles": [
+                      {
+                        "availabilityZones": [
+                          "2",
+                          "1"
+                        ],
+                        "enableAutoScaling": true,
+                        "name": "nodepool1"
+                      },
+                      {
+                        "availabilityZones": [
+                          "2",
+                          "1"
+                        ],
+                        "enableAutoScaling": false,
+                        "name": "nodepool2",
+                        "mode": "System"
+                      }
+                    ]
+                  }
+                },
+                "type": "Microsoft.ContainerService/managedClusters@2024-09-02-preview"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
