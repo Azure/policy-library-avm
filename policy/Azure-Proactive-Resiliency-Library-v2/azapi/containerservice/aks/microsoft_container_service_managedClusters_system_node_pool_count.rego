@@ -3,7 +3,7 @@ package Azure_Proactive_Resiliency_Library_v2
 import rego.v1
 
 valid_azapi_aks_system_pool_min_node_count(resource) if {
-    every pool in resource.values.body.properties.agentPoolProfiles {
+    some pool in resource.values.body.properties.agentPoolProfiles {
         pool.mode == "System"  
         pool.minCount >= 2
     }
