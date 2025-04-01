@@ -4,7 +4,8 @@ import rego.v1
 
 valid_azapi_aks_enable_cluster_autoscaler(resource) if {
     pool := resource.values.body.properties.agentPoolProfiles[_]
-    pool.enableAutoScaling == true
+    pool_true := pool[_].enableAutoScaling == true
+    count(pool) == count(pool_true)
 }
 
 deny_aks_enable_cluster_autoscaler contains reason if {
