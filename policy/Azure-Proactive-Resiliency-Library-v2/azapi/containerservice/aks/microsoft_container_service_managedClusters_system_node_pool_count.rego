@@ -3,10 +3,20 @@ package Azure_Proactive_Resiliency_Library_v2
 import rego.v1
 
 valid_azapi_aks_system_pool_min_node_count(resource) if {
-    some pool in resource.values.body.properties.agentPoolProfiles {
-        pool.mode == "System"  
-        pool.minCount >= 2
-    }
+    pools_mode_system := [ name | 
+        some n in resource.values.body.properties.agentPoolProfiles
+        n.mode == "System"; 
+        name:= n.name
+    ]
+
+    valid_pools := [name |
+        some n in resource.values.body.properties.agentPoolProfiles
+        n.mode == "System"; 
+        n.minCount >= 2
+        name:= n.name
+    ]
+
+    count(pools_mode_system) == count(valid_pools)
 }
 
 deny_aks_system_pool_min_node_count contains reason if {
