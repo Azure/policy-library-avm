@@ -3,15 +3,20 @@ package Azure_Proactive_Resiliency_Library_v2
 import rego.v1
 
 valid_azapi_aks_user_pool_min_node_count(resource) if {
-    valid_user_pools := every pool in resource.values.body.properties.agentPoolProfiles {
-        pool.mode == "User"  
-        pool.minCount >= 2
+    valid_pools[resource] {
+        pools := resource.values.body.properties.agentPoolProfiles[_] 
+        pools.mode == "User"
+        pools.minCount >= 2
     }
-    total_user_pools := every pool in resource.values.body.properties.agentPoolProfiles {
-        pool.mode == "User"  
+
+    user_pools[resource] {
+        pools := resource.values.body.properties.agentPoolProfiles[_] 
+        pools.mode == "User"
     }
-    count(valid_user_pools) == (total_user_pools)
+
+    count(valid_pools) == count(user_pools)
 }
+
 
 deny_aks_user_pool_min_node_count contains reason if {
     resource := data.utils.resource(input, "azapi_resource")[_]
