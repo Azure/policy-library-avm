@@ -3,7 +3,7 @@ package Azure_Proactive_Resiliency_Library_v2
 import rego.v1
 
 valid_azurerm_postgresql_flexible_server_custom_maintenance_window_enabled(resource) if {
-    resource.values.mmaintenance_window[_].day_of_week >= 0
+    resource.values.maintenance_window[_].day_of_week >= 0
 }
 
 deny_postgresql_flexible_server_custom_maintenance_window_enabled contains reason if {
