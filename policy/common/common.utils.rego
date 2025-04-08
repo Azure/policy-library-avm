@@ -58,11 +58,12 @@ resource_configuration(_input) := output if {
         walk(configuration, [path, value])
         value.resources == value.resources
         module_prefix := concat("", [sprintf("module.%s.", [path[i+1]]) | some i; path[i] == "module_calls"])
+        res := value.resources[_]
         resource := {
-            "address": sprintf("%s%s", [module_prefix, value.resources[_].address]),
-            "mode": value.resources[_].mode,
-            "type": value.resources[_].type,
-            "expressions": value.resources[_].expressions,
+            "address": sprintf("%s%s", [module_prefix, res.address]),
+            "mode": res.mode,
+            "type": res.type,
+            "expressions": res.expressions,
         }
         address := resource.address
     }
@@ -107,4 +108,21 @@ is_create_or_update(change_actions) if {
 
 is_resource_create_or_update(resource) if {
 	is_create_or_update(resource.change.actions)
+}
+
+rc(_input) := output if {
+    configuration := _configuration(_input)
+    output :=  [
+        resource |
+        walk(configuration, [path, value])
+        value.resources == value.resources
+        module_prefix := concat("", [sprintf("module.%s.", [path[i+1]]) | some i; path[i] == "module_calls"])
+        res := value.resources[_]
+        resource := {
+            "address": sprintf("%s%s", [module_prefix, res.address]),
+            "mode": res.mode,
+            "type": res.type,
+            "expressions": res.expressions,
+        }
+    ]
 }
