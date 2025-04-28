@@ -4,7 +4,7 @@ import rego.v1
 
 valid_azurerm_aks_system_pool_min_node_count(resource) if {
     pool := resource.values.default_node_pool[_]
-    pool.node_count >= 2
+    pool.node_count >= 2 || (pool.auto_scaling_enabled == true && pool.min_count >= 2)
 }
 
 deny_aks_system_pool_min_node_count contains reason if {
