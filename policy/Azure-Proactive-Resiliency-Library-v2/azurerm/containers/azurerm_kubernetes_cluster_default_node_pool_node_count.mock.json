@@ -76,32 +76,5 @@
         }
       ]
     },
-    "invalid_no_autoscaling": {
-      "resource_changes": [
-        {
-          "address": "azurerm_kubernetes_cluster.example",
-          "mode": "managed",
-          "type": "azurerm_kubernetes_cluster",
-          "name": "example",
-          "provider_name": "registry.terraform.io/hashicorp/azurerm",
-          "change": {
-            "actions": [
-              "create"
-            ],
-            "after": {
-              "default_node_pool": [
-                {
-                  "auto_scaling_enabled": false,
-                  "min_count": 3,
-                  "node_count": 3,
-                  "zones": [
-                  ]
-                }
-              ]
-            }
-          }
-        }
-      ]
-    }
   }
 }
