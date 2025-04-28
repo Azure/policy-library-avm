@@ -1,0 +1,62 @@
+{
+  "mock": {
+    "default": {
+      "resource_changes": [
+        {
+          "address": "azurerm_kubernetes_cluster_node_pool.example",
+          "mode": "managed",
+          "type": "azurerm_kubernetes_cluster_node_pool",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "auto_scaling_enabled": true,
+              "min_count": 3
+            }
+          }
+        }
+      ]
+    },
+    "invalid_not_defined": {
+      "resource_changes": [
+        {
+          "address": "azurerm_kubernetes_cluster_node_pool.example",
+          "mode": "managed",
+          "type": "azurerm_kubernetes_cluster_node_pool",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+            }
+          }
+        }
+      ]
+    },
+    "invalid_lt_two": {
+      "resource_changes": [
+        {
+          "address": "azurerm_kubernetes_cluster_node_pool.example",
+          "mode": "managed",
+          "type": "azurerm_kubernetes_cluster_node_pool",
+          "name": "example",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "auto_scaling_enabled": true,
+              "min_count": 1
+            }
+          }
+        }
+      ]
+    }
+  }
+}
