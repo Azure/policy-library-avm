@@ -1,0 +1,72 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_firewall.network",
+                    "mode": "managed",
+                    "type": "azurerm_firewall",
+                    "name": "network",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "before": null,
+                        "after": {
+                            "resource_group_name": "example-resources",
+                            "zones": [
+                                "1",
+                                "2",
+                                "3"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_no_zones": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_firewall.network",
+                    "mode": "managed",
+                    "type": "azurerm_firewall",
+                    "name": "network",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "before": null,
+                        "after": {
+                            "resource_group_name": "example-resources"
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_not_enough_zones": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_firewall.network",
+                    "mode": "managed",
+                    "type": "azurerm_firewall",
+                    "name": "network",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "before": null,
+                        "after": {
+                            "resource_group_name": "example-resources",
+                            "zones": [
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

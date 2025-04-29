@@ -6,6 +6,7 @@ valid_azapi_mission_critical_virtual_machine_should_use_premium_or_ultra_disks(r
     startswith(resource.values.body.properties.storageProfile.osDisk.managedDisk.storageAccountType, "Premium")
 }
 
+#currently OS disks aren't allowed to be ultra disks.  This is a placeholder for future use if we opt to add data disks to this rule.
 valid_azapi_mission_critical_virtual_machine_should_use_premium_or_ultra_disks(resource) if {
     startswith(resource.values.body.properties.storageProfile.osDisk.managedDisk.storageAccountType, "Ultra")
 }
