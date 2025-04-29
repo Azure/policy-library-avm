@@ -3,7 +3,15 @@ package Azure_Proactive_Resiliency_Library_v2
 import rego.v1
 
 valid_azapi_configure_cosmosdb_account_enable_automatic_failover(resource) if {
-    resource.values.body.properties.enableAutomaticFailover == true
+  count(resource.values.body.properties.locations) <= 1
+}
+
+valid_azapi_configure_cosmosdb_account_enable_automatic_failover(resource) if {
+  resource.values.body.properties.enableAutomaticFailover == true
+}
+
+valid_azapi_configure_cosmosdb_account_enable_automatic_failover(resource) if {
+  resource.values.body.properties.enableMultipleWriteLocations == true
 }
 
 deny_configure_cosmosdb_account_enable_automatic_failover contains reason if {

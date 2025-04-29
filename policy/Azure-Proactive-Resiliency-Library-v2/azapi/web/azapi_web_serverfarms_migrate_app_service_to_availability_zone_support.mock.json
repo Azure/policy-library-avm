@@ -26,6 +26,34 @@
                 }
             ]
         },
+        "valid_non_isolated_non_premium": {
+            "resource_changes": [
+                {
+                    "address": "azapi_resource.appservice",
+                    "mode": "managed",
+                    "type": "azapi_resource",
+                    "name": "appservice",
+                    "provider_name": "registry.terraform.io/azure/azapi",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "body": {
+                                "sku": {
+                                    "name": "nonpremium",
+                                },
+                                "properties": {
+                                    "zoneRedundant": false
+                                }
+                            },
+                            "name": "example-web-serverfarms",
+                            "type": "Microsoft.Web/serverfarms@2024-04-01"
+                        }
+                    }
+                }
+            ]
+        },
         "invalid_zb_disabled": {
             "resource_changes": [
                 {
