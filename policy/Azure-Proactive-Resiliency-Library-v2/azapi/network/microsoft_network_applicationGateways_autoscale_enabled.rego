@@ -3,7 +3,7 @@ package Azure_Proactive_Resiliency_Library_v2
 import rego.v1
 
 valid_azapi_ensure_autoscale_feature_has_been_enabled(resource) if {
-    resource.values.body.autoscaleConfiguration.minCapacity >= 0
+    resource.values.autoscale_configuration[0].min_capacity > 1
 }
 
 deny_application_gateway_ensure_autoscale_feature_has_been_enabled contains reason if {

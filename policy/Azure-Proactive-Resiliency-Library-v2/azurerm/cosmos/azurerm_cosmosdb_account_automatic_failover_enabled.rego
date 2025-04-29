@@ -6,6 +6,14 @@ valid_azurerm_configure_cosmosdb_account_automatic_failover_enabled(resource) if
     resource.values.automatic_failover_enabled == true
 }
 
+valid_azurerm_configure_cosmosdb_account_automatic_failover_enabled(resource) if {
+    resource.values.multiple_write_locations_enabled == true
+}
+
+valid_azurerm_configure_cosmosdb_account_automatic_failover_enabled(resource) if {
+    count(resource.values.geo_location) <= 1
+}
+
 deny_configure_cosmosdb_account_enable_automatic_failover contains reason if {
     resource := data.utils.resource(input, "azurerm_cosmosdb_account")[_]
     not valid_azurerm_configure_cosmosdb_account_automatic_failover_enabled(resource)

@@ -5,7 +5,7 @@ import rego.v1
 valid_azurerm_aks_sku_standard_or_premium(resource) if {
     valid_sku_types := {"Premium", "Standard"}
     some sku in valid_sku_types
-    contains(resource.values.sku_tier, sku)
+    resource.values.sku_tier == sku
 }
 
 deny_aks_sku_standard_or_premium contains reason if {
