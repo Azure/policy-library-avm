@@ -7,7 +7,7 @@ valid_azapi_postgres_flexible_server_custom_maintenance_window_enabled(resource)
 }
 
 deny_postgresql_flexible_server_custom_maintenance_window_enabled contains reason if {
-    resource := data.utils.resource(input, "azapi_resource")[_]
+    resource := data.utils.resource(input, "azapi_update_resource")[_]
     data.utils.is_azure_type(resource.values, "Microsoft.DBforPostgreSQL/flexibleServers")
     not valid_azapi_postgres_flexible_server_custom_maintenance_window_enabled(resource)
 
