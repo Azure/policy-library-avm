@@ -3,7 +3,7 @@ package Azure_Proactive_Resiliency_Library_v2
 import rego.v1
 
 valid_azapi_use_standard_sku_and_zone_redundant_ip(resource) if {
-    resource.values.body.sku.name == "Standard"
+    resource.values.body.sku.name == "Sandard"
     count(resource.values.body.zones) >= 2
 }
 
