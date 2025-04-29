@@ -3,7 +3,12 @@ package Azure_Proactive_Resiliency_Library_v2
 import rego.v1
 
 valid_azapi_virtual_machine_scaleset_disable_force_strictly_even_zone_balancing(resource) if {
-    resource.values.body.properties.zoneBalance == false
+    # Omitted
+    not resource.values.body.properties.zoneBalance == resource.values.body.properties.zoneBalance
+}
+valid_azapi_virtual_machine_scaleset_disable_force_strictly_even_zone_balancing(resource) if {
+  # false or null
+  resource.values.body.properties.zoneBalance != true
 }
 
 deny_virtual_machine_scaleset_disable_force_strictly_even_zone_balancing contains reason if {

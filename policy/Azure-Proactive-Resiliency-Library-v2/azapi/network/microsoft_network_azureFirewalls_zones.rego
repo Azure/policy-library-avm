@@ -3,7 +3,6 @@ package Azure_Proactive_Resiliency_Library_v2
 import rego.v1
 
 valid_azapi_deploy_azure_firewall_across_multiple_availability_zones(resource) if {
-    resource.values.body.zones == resource.values.body.zones
     count(resource.values.body.zones) >= 2
 }
 

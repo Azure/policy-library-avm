@@ -3,9 +3,13 @@ package Azure_Proactive_Resiliency_Library_v2
 import rego.v1
 
 valid_azapi_web_serverfarms_migrate_app_service_to_availability_zone_support(resource) if {
-    resource.values.body.properties.zoneRedundant == true
+  not startswith(lower(resource.values.body.sku.name), "i")
+  not startswith(lower(resource.values.body.sku.name), "p")
 }
 
+valid_azapi_web_serverfarms_migrate_app_service_to_availability_zone_support(resource) if {
+  resource.values.body.properties.zoneRedundant == true
+}
 
 deny_migrate_service_plan_to_availability_zone_support contains reason if {
     resource := data.utils.resource(input, "azapi_resource")[_]

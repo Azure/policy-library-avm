@@ -3,7 +3,6 @@ package Azure_Proactive_Resiliency_Library_v2
 import rego.v1
 
 valid_azurerm_redis_cache_enable_zone_redundancy(resource) if {
-    resource.values.zones == resource.values.zones
     count(resource.values.zones) >= 2
 }
 
