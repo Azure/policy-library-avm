@@ -1,0 +1,89 @@
+{
+    "mock": {
+        "3zones": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_api_management.example",
+                    "mode": "managed",
+                    "type": "azurerm_api_management",
+                    "name": "example",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "sku_name": "Premium_3",
+                            "zones": [
+                                "1",
+                                "2",
+                                "3"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "2zones": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_api_management.example",
+                    "mode": "managed",
+                    "type": "azurerm_api_management",
+                    "name": "example",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "sku_name": "Standard_2",
+                            "zones": [
+                                "1",
+                                "2"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_one_zone": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_api_management.example",
+                    "mode": "managed",
+                    "type": "azurerm_api_management",
+                    "name": "example",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "zones": [
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_empty": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_api_management.example",
+                    "mode": "managed",
+                    "type": "azurerm_api_management",
+                    "name": "example",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {}
+                    }
+                }
+            ]
+        }
+    }
+}
