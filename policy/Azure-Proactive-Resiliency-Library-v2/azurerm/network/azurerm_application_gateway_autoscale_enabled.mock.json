@@ -1,0 +1,73 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_application_gateway.network",
+                    "mode": "managed",
+                    "type": "azurerm_application_gateway",
+                    "name": "network",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "before": null,
+                        "after": {
+                            "autoscale_configuration": [
+                                {
+                                    "max_capacity": 2,
+                                    "min_capacity": 1
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "min_only": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_application_gateway.network",
+                    "mode": "managed",
+                    "type": "azurerm_application_gateway",
+                    "name": "network",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "before": null,
+                        "after": {
+                            "autoscale_configuration": [
+                                {
+                                    "min_capacity": 1
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_no_definition": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_application_gateway.network",
+                    "mode": "managed",
+                    "type": "azurerm_application_gateway",
+                    "name": "network",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "before": null,
+                        "after": {
+                            "authentication_certificate": []
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

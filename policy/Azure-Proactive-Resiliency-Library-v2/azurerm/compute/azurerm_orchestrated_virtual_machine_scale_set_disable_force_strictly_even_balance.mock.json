@@ -1,0 +1,54 @@
+{
+    "mock": {
+      "default": {
+        "resource_changes": [
+          {
+            "address": "azurerm_orchestrated_virtual_machine_scale_set.example",
+            "mode": "managed",
+            "type": "azurerm_orchestrated_virtual_machine_scale_set",
+            "name": "example",
+            "provider_name": "registry.terraform.io/hashicorp/azurerm",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "after": {
+                "zone_balance": false,
+                "automatic_instance_repair": [
+                    {
+                      "enabled": true,
+                      "grace_period": "PT30M"
+                    }
+                  ]
+              }
+            }
+          }
+        ]
+     },
+      "invalid_true": {
+        "resource_changes": [
+          {
+            "address": "azurerm_orchestrated_virtual_machine_scale_set.example",
+            "mode": "managed",
+            "type": "azurerm_orchestrated_virtual_machine_scale_set",
+            "name": "example",
+            "provider_name": "registry.terraform.io/hashicorp/azurerm",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "after": {
+                "zone_balance": true,
+                "automatic_instance_repair": [
+                    {
+                      "enabled": false,
+                      "grace_period": "PT30M"
+                    }
+                  ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  }

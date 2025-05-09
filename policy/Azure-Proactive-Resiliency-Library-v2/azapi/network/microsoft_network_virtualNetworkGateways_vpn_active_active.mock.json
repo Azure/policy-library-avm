@@ -1,6 +1,6 @@
 {
   "mock": {
-    "invalid_standard_lrs": {
+    "vpngw1az": {
       "resource_changes": [
         {
           "address": "azapi_resource.res",
@@ -12,26 +12,20 @@
             "actions": [
               "create"
             ],
-            "before": null,
             "after": {
               "body": {
                 "properties": {
-                  "storageProfile": {
-                    "osDisk": {
-                      "managedDisk": {
-                        "storageAccountType": "Standard_LRS"
-                      }
-                    }
-                  }
+                  "activeActive": true,
+                  "gatewayType": "Vpn"
                 }
               },
-              "type": "Microsoft.Compute/virtualMachines@2024-07-01"
+              "type": "Microsoft.Network/virtualNetworkGateways@2024-05-01"
             }
           }
         }
       ]
     },
-    "premium_lrs":  {
+    "valid_expressRoute": {
       "resource_changes": [
         {
           "address": "azapi_resource.res",
@@ -43,26 +37,19 @@
             "actions": [
               "create"
             ],
-            "before": null,
             "after": {
               "body": {
                 "properties": {
-                  "storageProfile": {
-                    "osDisk": {
-                      "managedDisk": {
-                        "storageAccountType": "Premium_LRS"
-                      }
-                    }
-                  }
+                  "gatewayType": "ExpressRoute"
                 }
               },
-              "type": "Microsoft.Compute/virtualMachines@2024-07-01"
+              "type": "Microsoft.Network/virtualNetworkGateways@2024-05-01"
             }
           }
         }
       ]
     },
-    "premium_zrs":  {
+    "valid_localGateway": {
       "resource_changes": [
         {
           "address": "azapi_resource.res",
@@ -74,26 +61,19 @@
             "actions": [
               "create"
             ],
-            "before": null,
             "after": {
               "body": {
                 "properties": {
-                  "storageProfile": {
-                    "osDisk": {
-                      "managedDisk": {
-                        "storageAccountType": "Premium_ZRS"
-                      }
-                    }
-                  }
+                  "gatewayType": "LocalGateway"
                 }
               },
-              "type": "Microsoft.Compute/virtualMachines@2024-07-01"
+              "type": "Microsoft.Network/virtualNetworkGateways@2024-05-01"
             }
           }
         }
       ]
     },
-    "ultra_lrs":  {
+    "invalid_vpn_active_active_false": {
       "resource_changes": [
         {
           "address": "azapi_resource.res",
@@ -105,20 +85,38 @@
             "actions": [
               "create"
             ],
-            "before": null,
             "after": {
               "body": {
                 "properties": {
-                  "storageProfile": {
-                    "osDisk": {
-                      "managedDisk": {
-                        "storageAccountType": "UltraSSD_LRS"
-                      }
-                    }
-                  }
+                  "activeActive": false,
+                  "gatewayType": "Vpn"
                 }
               },
-              "type": "Microsoft.Compute/virtualMachines@2024-07-01"
+              "type": "Microsoft.Network/virtualNetworkGateways@2024-05-01"
+            }
+          }
+        }
+      ]
+    },
+    "invalid_vpn_active_active_undefined": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "res",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "body": {
+                "properties": {
+                  "gatewayType": "Vpn"
+                }
+              },
+              "type": "Microsoft.Network/virtualNetworkGateways@2024-05-01"
             }
           }
         }

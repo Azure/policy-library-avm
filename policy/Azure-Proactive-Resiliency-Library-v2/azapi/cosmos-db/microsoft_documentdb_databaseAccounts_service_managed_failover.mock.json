@@ -1,0 +1,78 @@
+{
+    "mock": {
+      "default": {
+        "resource_changes": [
+          {
+            "address": "azapi_resource.res",
+            "mode": "managed",
+            "type": "azapi_resource",
+            "name": "res",
+            "provider_name": "registry.terraform.io/azure/azapi",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "body": {
+                  "properties": {
+                    "enableAutomaticFailover": true
+                  }
+                },
+                "type": "Microsoft.DocumentDB/databaseAccounts@2024-12-01-preview"
+              }
+            }
+          }
+        ]
+      },
+      "invalid_false": {
+        "resource_changes": [
+          {
+            "address": "azapi_resource.res",
+            "mode": "managed",
+            "type": "azapi_resource",
+            "name": "res",
+            "provider_name": "registry.terraform.io/azure/azapi",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "body": {
+                  "properties": {
+                    "enableAutomaticFailover": false
+                  }
+                },
+                "type": "Microsoft.DocumentDB/databaseAccounts@2024-12-01-preview"
+              }
+            }
+          }
+        ]
+      },
+      "invalid_undefined": {
+        "resource_changes": [
+          {
+            "address": "azapi_resource.res",
+            "mode": "managed",
+            "type": "azapi_resource",
+            "name": "res",
+            "provider_name": "registry.terraform.io/azure/azapi",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "before": null,
+              "after": {
+                "body": {
+                  "properties": {
+                  }
+                },
+                "type": "Microsoft.DocumentDB/databaseAccounts@2024-12-01-preview"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }

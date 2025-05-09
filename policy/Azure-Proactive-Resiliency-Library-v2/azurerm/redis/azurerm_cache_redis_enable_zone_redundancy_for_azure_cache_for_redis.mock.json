@@ -1,0 +1,424 @@
+{
+    "mock": {
+        "default": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_cache_redis.example",
+                    "mode": "managed",
+                    "type": "azurerm_redis_cache",
+                    "name": "example",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "capacity": 2,
+                            "family": "P",
+                            "minimum_tls_version": "1.2",
+                            "redis_version": "6",
+                            "sku_name": "Premium",
+                            "zones": [
+                                "1",
+                                "2",
+                                "3"
+                            ]
+                        },
+                        "after_unknown": {
+                            "hostname": true,
+                            "id": true,
+                            "identity": [
+                                {
+                                    "principal_id": true,
+                                    "tenant_id": true
+                                }
+                            ],
+                            "location": true,
+                            "name": true,
+                            "patch_schedule": [],
+                            "port": true,
+                            "primary_access_key": true,
+                            "primary_connection_string": true,
+                            "private_static_ip_address": true,
+                            "redis_configuration": [
+                                {
+                                    "maxclients": true,
+                                    "maxfragmentationmemory_reserved": true
+                                }
+                            ],
+                            "replicas_per_master": true,
+                            "replicas_per_primary": true,
+                            "resource_group_name": true,
+                            "secondary_access_key": true,
+                            "secondary_connection_string": true,
+                            "ssl_port": true,
+                            "tags": {},
+                            "zones": [
+                                false,
+                                false,
+                                false
+                            ]
+                        },
+                        "before_sensitive": false,
+                        "after_sensitive": {
+                            "identity": [
+                                {}
+                            ],
+                            "patch_schedule": [],
+                            "primary_access_key": true,
+                            "primary_connection_string": true,
+                            "redis_configuration": [
+                                {
+                                    "aof_storage_connection_string_0": true,
+                                    "aof_storage_connection_string_1": true,
+                                    "rdb_storage_connection_string": true
+                                }
+                            ],
+                            "secondary_access_key": true,
+                            "secondary_connection_string": true,
+                            "tags": {},
+                            "zones": [
+                                false,
+                                false,
+                                false
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_null_zones": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_cache_redis.example",
+                    "mode": "managed",
+                    "type": "azurerm_redis_cache",
+                    "name": "example",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "capacity": 2,
+                            "family": "P",
+                            "minimum_tls_version": "1.2",
+                            "redis_version": "6",
+                            "sku_name": "Premium",
+                            "zones": null
+                        },
+                        "after_unknown": {
+                            "hostname": true,
+                            "id": true,
+                            "identity": [
+                                {
+                                    "principal_id": true,
+                                    "tenant_id": true
+                                }
+                            ],
+                            "location": true,
+                            "name": true,
+                            "patch_schedule": [],
+                            "port": true,
+                            "primary_access_key": true,
+                            "primary_connection_string": true,
+                            "private_static_ip_address": true,
+                            "redis_configuration": [
+                                {
+                                    "maxclients": true,
+                                    "maxfragmentationmemory_reserved": true
+                                }
+                            ],
+                            "replicas_per_master": true,
+                            "replicas_per_primary": true,
+                            "resource_group_name": true,
+                            "secondary_access_key": true,
+                            "secondary_connection_string": true,
+                            "ssl_port": true,
+                            "tags": {},
+                            "zones": [
+                                false,
+                                false,
+                                false
+                            ]
+                        },
+                        "before_sensitive": false,
+                        "after_sensitive": {
+                            "identity": [
+                                {}
+                            ],
+                            "patch_schedule": [],
+                            "primary_access_key": true,
+                            "primary_connection_string": true,
+                            "redis_configuration": [
+                                {
+                                    "aof_storage_connection_string_0": true,
+                                    "aof_storage_connection_string_1": true,
+                                    "rdb_storage_connection_string": true
+                                }
+                            ],
+                            "secondary_access_key": true,
+                            "secondary_connection_string": true,
+                            "tags": {},
+                            "zones": [
+                                false,
+                                false,
+                                false
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_no_zones": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_cache_redis.example",
+                    "mode": "managed",
+                    "type": "azurerm_redis_cache",
+                    "name": "example",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "capacity": 2,
+                            "family": "P",
+                            "minimum_tls_version": "1.2",
+                            "redis_version": "6",
+                            "sku_name": "Premium"
+                        },
+                        "after_unknown": {
+                            "hostname": true,
+                            "id": true,
+                            "identity": [
+                                {
+                                    "principal_id": true,
+                                    "tenant_id": true
+                                }
+                            ],
+                            "location": true,
+                            "name": true,
+                            "patch_schedule": [],
+                            "port": true,
+                            "primary_access_key": true,
+                            "primary_connection_string": true,
+                            "private_static_ip_address": true,
+                            "redis_configuration": [
+                                {
+                                    "maxclients": true,
+                                    "maxfragmentationmemory_reserved": true
+                                }
+                            ],
+                            "replicas_per_master": true,
+                            "replicas_per_primary": true,
+                            "resource_group_name": true,
+                            "secondary_access_key": true,
+                            "secondary_connection_string": true,
+                            "ssl_port": true,
+                            "tags": {},
+                            "zones": [
+                                false,
+                                false,
+                                false
+                            ]
+                        },
+                        "before_sensitive": false,
+                        "after_sensitive": {
+                            "identity": [
+                                {}
+                            ],
+                            "patch_schedule": [],
+                            "primary_access_key": true,
+                            "primary_connection_string": true,
+                            "redis_configuration": [
+                                {
+                                    "aof_storage_connection_string_0": true,
+                                    "aof_storage_connection_string_1": true,
+                                    "rdb_storage_connection_string": true
+                                }
+                            ],
+                            "secondary_access_key": true,
+                            "secondary_connection_string": true,
+                            "tags": {},
+                            "zones": [
+                                false,
+                                false,
+                                false
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_empty_zones": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_cache_redis.example",
+                    "mode": "managed",
+                    "type": "azurerm_redis_cache",
+                    "name": "example",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "capacity": 2,
+                            "family": "P",
+                            "minimum_tls_version": "1.2",
+                            "redis_version": "6",
+                            "sku_name": "Premium",
+                            "zones": []
+                        },
+                        "after_unknown": {
+                            "hostname": true,
+                            "id": true,
+                            "identity": [
+                                {
+                                    "principal_id": true,
+                                    "tenant_id": true
+                                }
+                            ],
+                            "location": true,
+                            "name": true,
+                            "patch_schedule": [],
+                            "port": true,
+                            "primary_access_key": true,
+                            "primary_connection_string": true,
+                            "private_static_ip_address": true,
+                            "redis_configuration": [
+                                {
+                                    "maxclients": true,
+                                    "maxfragmentationmemory_reserved": true
+                                }
+                            ],
+                            "replicas_per_master": true,
+                            "replicas_per_primary": true,
+                            "resource_group_name": true,
+                            "secondary_access_key": true,
+                            "secondary_connection_string": true,
+                            "ssl_port": true,
+                            "tags": {},
+                            "zones": [
+                                false,
+                                false,
+                                false
+                            ]
+                        },
+                        "before_sensitive": false,
+                        "after_sensitive": {
+                            "identity": [
+                                {}
+                            ],
+                            "patch_schedule": [],
+                            "primary_access_key": true,
+                            "primary_connection_string": true,
+                            "redis_configuration": [
+                                {
+                                    "aof_storage_connection_string_0": true,
+                                    "aof_storage_connection_string_1": true,
+                                    "rdb_storage_connection_string": true
+                                }
+                            ],
+                            "secondary_access_key": true,
+                            "secondary_connection_string": true,
+                            "tags": {},
+                            "zones": [
+                                false,
+                                false,
+                                false
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "invalid_single_zone": {
+            "resource_changes": [
+                {
+                    "address": "azurerm_cache_redis.example",
+                    "mode": "managed",
+                    "type": "azurerm_redis_cache",
+                    "name": "example",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "change": {
+                        "actions": [
+                            "create"
+                        ],
+                        "after": {
+                            "capacity": 2,
+                            "family": "P",
+                            "minimum_tls_version": "1.2",
+                            "redis_version": "6",
+                            "sku_name": "Premium",
+                            "zones": [
+                                "1"
+                            ]
+                        },
+                        "after_unknown": {
+                            "hostname": true,
+                            "id": true,
+                            "identity": [
+                                {
+                                    "principal_id": true,
+                                    "tenant_id": true
+                                }
+                            ],
+                            "location": true,
+                            "name": true,
+                            "patch_schedule": [],
+                            "port": true,
+                            "primary_access_key": true,
+                            "primary_connection_string": true,
+                            "private_static_ip_address": true,
+                            "redis_configuration": [
+                                {
+                                    "maxclients": true,
+                                    "maxfragmentationmemory_reserved": true
+                                }
+                            ],
+                            "replicas_per_master": true,
+                            "replicas_per_primary": true,
+                            "resource_group_name": true,
+                            "secondary_access_key": true,
+                            "secondary_connection_string": true,
+                            "ssl_port": true,
+                            "tags": {},
+                            "zones": [
+                                false,
+                                false,
+                                false
+                            ]
+                        },
+                        "before_sensitive": false,
+                        "after_sensitive": {
+                            "identity": [
+                                {}
+                            ],
+                            "patch_schedule": [],
+                            "primary_access_key": true,
+                            "primary_connection_string": true,
+                            "redis_configuration": [
+                                {
+                                    "aof_storage_connection_string_0": true,
+                                    "aof_storage_connection_string_1": true,
+                                    "rdb_storage_connection_string": true
+                                }
+                            ],
+                            "secondary_access_key": true,
+                            "secondary_connection_string": true,
+                            "tags": {},
+                            "zones": [
+                                false,
+                                false,
+                                false
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
