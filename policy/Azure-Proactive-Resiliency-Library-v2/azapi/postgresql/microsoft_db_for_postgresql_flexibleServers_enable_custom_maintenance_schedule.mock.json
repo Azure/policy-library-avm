@@ -3,9 +3,9 @@
     "default": {
       "resource_changes": [
         {
-          "address": "azapi_resource.res",
+          "address": "azapi_update_resource.res",
           "mode": "managed",
-          "type": "azapi_resource",
+          "type": "azapi_update_resource",
           "name": "res",
           "provider_name": "registry.terraform.io/azure/azapi",
           "change": {
@@ -30,9 +30,9 @@
     "invalid_maintenance_disabled": {
       "resource_changes": [
         {
-          "address": "azapi_resource.res",
+          "address": "azapi_update_resource.res",
           "mode": "managed",
-          "type": "azapi_resource",
+          "type": "azapi_update_resource",
           "name": "res",
           "provider_name": "registry.terraform.io/azure/azapi",
           "change": {
@@ -57,9 +57,9 @@
     "invalid_maintenance_omitted": {
       "resource_changes": [
         {
-          "address": "azapi_resource.res",
+          "address": "azapi_update_resource.res",
           "mode": "managed",
-          "type": "azapi_resource",
+          "type": "azapi_update_resource",
           "name": "res",
           "provider_name": "registry.terraform.io/azure/azapi",
           "change": {

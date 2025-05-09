@@ -41,7 +41,7 @@
                         "after": {
                             "body": {
                                 "sku": {
-                                    "name": "nonpremium",
+                                    "name": "nonpremium"
                                 },
                                 "properties": {
                                     "zoneRedundant": false
