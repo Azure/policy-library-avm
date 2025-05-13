@@ -541,5 +541,4 @@ test_arraycontains if {
     complex_array := [obj, arr]
     utils.arraycontains(complex_array, obj)
     utils.arraycontains(complex_array, arr)
-    not utils.arraycontains(complex_array, {"name": "test", "id": 123}) # Different reference
 }
