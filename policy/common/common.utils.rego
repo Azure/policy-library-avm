@@ -2,6 +2,12 @@ package utils
 
 import rego.v1
 
+arraycontains(arr, element) := contains if {
+    some item in arr
+    item == element
+    contains := true
+} else := false
+
 is_azure_type(resource, azure_type) if {
 	regex.match(sprintf("^%s@", [azure_type]), resource.type)
 }

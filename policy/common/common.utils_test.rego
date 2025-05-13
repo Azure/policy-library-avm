@@ -510,3 +510,36 @@ test_resources_in_configuration_combined if {
     cosmosdb.address == "module.mod1.module.nested_mod.azurerm_cosmosdb_account.nested_level"
     cosmosdb.expressions.offer_type.constant_value == "Standard"
 }
+
+test_arraycontains if {
+    # Test with strings
+    utils.arraycontains(["a", "b", "c"], "b")
+    not utils.arraycontains(["a", "b", "c"], "d")
+
+    # Test with numbers
+    utils.arraycontains([1, 2, 3], 2)
+    not utils.arraycontains([1, 2, 3], 4)
+
+    # Test with booleans
+    utils.arraycontains([true, false], true)
+    not utils.arraycontains([true, false], null)
+
+    # Test with empty array
+    not utils.arraycontains([], "anything")
+
+    # Test with mixed type array
+    mixed_array := [1, "a", true, {"key": "value"}]
+    utils.arraycontains(mixed_array, "a")
+    utils.arraycontains(mixed_array, true)
+    utils.arraycontains(mixed_array, 1)
+    utils.arraycontains(mixed_array, {"key": "value"})
+    not utils.arraycontains(mixed_array, "b")
+
+    # Test with complex objects
+    obj := {"name": "test", "id": 123}
+    arr := [1, 2, 3]
+    complex_array := [obj, arr]
+    utils.arraycontains(complex_array, obj)
+    utils.arraycontains(complex_array, arr)
+    not utils.arraycontains(complex_array, {"name": "test", "id": 123}) # Different reference
+}
