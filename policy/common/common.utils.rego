@@ -14,7 +14,7 @@ is_azure_type(resource, azure_type) if {
 
 is_azure_type(azure_type_array, resource) if {
    t := azure_type_array[_]
-   regex.match(sprintf("^%s@", [azure_type]), resource.type)
+   regex.match(sprintf("^%s@", [t]), resource.type)
 }
 
 _get_change_after_unknown(r) := output if {
