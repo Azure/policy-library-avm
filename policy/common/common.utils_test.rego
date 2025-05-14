@@ -510,3 +510,65 @@ test_resources_in_configuration_combined if {
     cosmosdb.address == "module.mod1.module.nested_mod.azurerm_cosmosdb_account.nested_level"
     cosmosdb.expressions.offer_type.constant_value == "Standard"
 }
+
+test_arraycontains if {
+    # Test with strings
+    utils.arraycontains(["a", "b", "c"], "b")
+    not utils.arraycontains(["a", "b", "c"], "d")
+
+    # Test with numbers
+    utils.arraycontains([1, 2, 3], 2)
+    not utils.arraycontains([1, 2, 3], 4)
+
+    # Test with booleans
+    utils.arraycontains([true, false], true)
+    not utils.arraycontains([true, false], null)
+
+    # Test with empty array
+    not utils.arraycontains([], "anything")
+
+    # Test with mixed type array
+    mixed_array := [1, "a", true, {"key": "value"}]
+    utils.arraycontains(mixed_array, "a")
+    utils.arraycontains(mixed_array, true)
+    utils.arraycontains(mixed_array, 1)
+    utils.arraycontains(mixed_array, {"key": "value"})
+    not utils.arraycontains(mixed_array, "b")
+
+    # Test with complex objects
+    obj := {"name": "test", "id": 123}
+    arr := [1, 2, 3]
+    complex_array := [obj, arr]
+    utils.arraycontains(complex_array, obj)
+    utils.arraycontains(complex_array, arr)
+}
+
+test_is_azure_type_array if {
+    # Test case: resource type matches one type in the array
+    resource := {"type": "Microsoft.DocumentDB/databaseAccounts@2024-12-01-preview"}
+    type_array := ["Microsoft.Network/virtualNetworks", "Microsoft.DocumentDB/databaseAccounts", "Microsoft.Storage/storageAccounts"]
+    utils.is_azure_type(type_array, resource)
+
+    # Test case: resource type matches a different type in the array
+    storage_resource := {"type": "Microsoft.Storage/storageAccounts@2022-09-01"}
+    utils.is_azure_type(type_array, storage_resource)
+
+    # Test case: resource type doesn't match any types in the array
+    unmatched_resource := {"type": "Microsoft.Compute/virtualMachines@2023-03-01"}
+    not utils.is_azure_type(type_array, unmatched_resource)
+
+    # Test case: empty array should not match any resource
+    empty_array := []
+    not utils.is_azure_type(empty_array, resource)
+
+    # Test case: array with only non-matching types
+    non_matching_array := ["Microsoft.Network/virtualNetworks", "Microsoft.KeyVault/vaults"]
+    not utils.is_azure_type(non_matching_array, resource)
+
+    # Test case: single item array with matching type
+    single_matching_array := ["Microsoft.DocumentDB/databaseAccounts"]
+    utils.is_azure_type(single_matching_array, resource)
+
+    single_non_matching_array := ["Microsoft.Network/virtualNetworks"]
+    not utils.is_azure_type(single_non_matching_array, resource)
+}
