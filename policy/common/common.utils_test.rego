@@ -542,3 +542,33 @@ test_arraycontains if {
     utils.arraycontains(complex_array, obj)
     utils.arraycontains(complex_array, arr)
 }
+
+test_is_azure_type_array if {
+    # Test case: resource type matches one type in the array
+    resource := {"type": "Microsoft.DocumentDB/databaseAccounts@2024-12-01-preview"}
+    type_array := ["Microsoft.Network/virtualNetworks", "Microsoft.DocumentDB/databaseAccounts", "Microsoft.Storage/storageAccounts"]
+    utils.is_azure_type(type_array, resource)
+
+    # Test case: resource type matches a different type in the array
+    storage_resource := {"type": "Microsoft.Storage/storageAccounts@2022-09-01"}
+    utils.is_azure_type(type_array, storage_resource)
+
+    # Test case: resource type doesn't match any types in the array
+    unmatched_resource := {"type": "Microsoft.Compute/virtualMachines@2023-03-01"}
+    not utils.is_azure_type(type_array, unmatched_resource)
+
+    # Test case: empty array should not match any resource
+    empty_array := []
+    not utils.is_azure_type(empty_array, resource)
+
+    # Test case: array with only non-matching types
+    non_matching_array := ["Microsoft.Network/virtualNetworks", "Microsoft.KeyVault/vaults"]
+    not utils.is_azure_type(non_matching_array, resource)
+
+    # Test case: single item array with matching type
+    single_matching_array := ["Microsoft.DocumentDB/databaseAccounts"]
+    utils.is_azure_type(single_matching_array, resource)
+
+    single_non_matching_array := ["Microsoft.Network/virtualNetworks"]
+    not utils.is_azure_type(single_non_matching_array, resource)
+}
