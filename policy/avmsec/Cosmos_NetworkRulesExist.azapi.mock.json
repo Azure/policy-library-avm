@@ -20,6 +20,176 @@
 					}
 				}
 			}]
+		},
+		"invalid_empty_ipRangerFilter": {
+			"resource_changes": [{
+				"address": "azapi_resource.res",
+				"mode": "managed",
+				"type": "azapi_resource",
+				"change": {
+					"actions": [
+						"create"
+					],
+					"after": {
+						"type": "Microsoft.DocumentDB/databaseAccounts@2024-11-15",
+						"body": {
+							"properties": {
+								"publicNetworkAccess": "Enabled",
+								"isVirtualNetworkFilterEnabled": false,
+								"ipRangeFilter": ""
+							}
+						}
+					}
+				}
+			}]
+		},
+		"invalidPublicNetworkAccessOmitted": {
+			"resource_changes": [{
+				"address": "azapi_resource.res",
+				"mode": "managed",
+				"type": "azapi_resource",
+				"change": {
+					"actions": [
+						"create"
+					],
+					"after": {
+						"type": "Microsoft.DocumentDB/databaseAccounts@2024-11-15",
+						"body": {
+							"properties": {
+								"isVirtualNetworkFilterEnabled": false,
+								"ipRangeFilter": ""
+							}
+						}
+					}
+				}
+			}]
+		},
+		"invalidIsVirtualNetworkFilterEnabledOmitted": {
+			"resource_changes": [{
+				"address": "azapi_resource.res",
+				"mode": "managed",
+				"type": "azapi_resource",
+				"change": {
+					"actions": [
+						"create"
+					],
+					"after": {
+						"type": "Microsoft.DocumentDB/databaseAccounts@2024-11-15",
+						"body": {
+							"properties": {
+								"publicNetworkAccess": "Enabled"
+							}
+						}
+					}
+				}
+			}]
+		},
+		"ipRules": {
+			"resource_changes": [{
+				"address": "azapi_resource.res",
+				"mode": "managed",
+				"type": "azapi_resource",
+				"change": {
+					"actions": [
+						"create"
+					],
+					"after": {
+						"type": "Microsoft.DocumentDB/databaseAccounts@2024-11-15",
+						"body": {
+							"properties": {
+								"publicNetworkAccess": "Enabled",
+								"isVirtualNetworkFilterEnabled": false,
+								"ipRules": [
+									{
+										"ipAddressOrRange": "0.0.0.0/0"
+									}
+								]
+							}
+						}
+					}
+				}
+			}]
+		},
+		"ipRangeFilter": {
+			"resource_changes": [{
+				"address": "azapi_resource.res",
+				"mode": "managed",
+				"type": "azapi_resource",
+				"change": {
+					"actions": [
+						"create"
+					],
+					"after": {
+						"type": "Microsoft.DocumentDB/databaseAccounts@2024-11-15",
+						"body": {
+							"properties": {
+								"publicNetworkAccess": "Enabled",
+								"isVirtualNetworkFilterEnabled": false,
+								"ipRangeFilter": "0.0.0.0/0"
+							}
+						}
+					}
+				}
+			}]
+		},
+		"publicNetworkAccessDisabled": {
+			"resource_changes": [{
+				"address": "azapi_resource.res",
+				"mode": "managed",
+				"type": "azapi_resource",
+				"change": {
+					"actions": [
+						"create"
+					],
+					"after": {
+						"type": "Microsoft.DocumentDB/databaseAccounts@2024-11-15",
+						"body": {
+							"properties": {
+								"publicNetworkAccess": "Disabled",
+							}
+						}
+					}
+				}
+			}]
+		},
+		"publicNetworkAccessOmitted": {
+			"resource_changes": [{
+				"address": "azapi_resource.res",
+				"mode": "managed",
+				"type": "azapi_resource",
+				"change": {
+					"actions": [
+						"create"
+					],
+					"after": {
+						"type": "Microsoft.DocumentDB/databaseAccounts@2024-11-15",
+						"body": {
+							"properties": {
+							}
+						}
+					}
+				}
+			}]
+		},
+		"isVirtualNetworkFilterEnabled": {
+			"resource_changes": [{
+				"address": "azapi_resource.res",
+				"mode": "managed",
+				"type": "azapi_resource",
+				"change": {
+					"actions": [
+						"create"
+					],
+					"after": {
+						"type": "Microsoft.DocumentDB/databaseAccounts@2024-11-15",
+						"body": {
+							"properties": {
+								"isVirtualNetworkFilterEnabled": true
+							}
+						}
+					}
+				}
+			}]
 		}
 	}
 }
