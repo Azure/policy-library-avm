@@ -1,0 +1,25 @@
+{
+	"mock": {
+		"invalid_no_ip_rule": {
+			"resource_changes": [{
+				"address": "azapi_resource.res",
+				"mode": "managed",
+				"type": "azapi_resource",
+				"change": {
+					"actions": [
+						"create"
+					],
+					"after": {
+						"type": "Microsoft.DocumentDB/databaseAccounts@2024-11-15",
+						"body": {
+							"properties": {
+								"publicNetworkAccess": "Enabled",
+								"isVirtualNetworkFilterEnabled": false,
+							}
+						}
+					}
+				}
+			}]
+		}
+	}
+}
