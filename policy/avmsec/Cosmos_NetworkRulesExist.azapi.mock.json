@@ -14,7 +14,7 @@
 						"body": {
 							"properties": {
 								"publicNetworkAccess": "Enabled",
-								"isVirtualNetworkFilterEnabled": false,
+								"isVirtualNetworkFilterEnabled": false
 							}
 						}
 					}
