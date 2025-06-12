@@ -2,11 +2,10 @@ package avmsec
 
 import rego.v1
 
-#azure_cosmos_db_accounts_should_have_firewall_rules https://github.com/Azure/azure-policy/blob/63d321daccad14c094a0eaaec9c035da2db72c3e/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_NetworkRulesExist_Audit.json
-deny_AVM_SEC_AZPOLICY_BUILTIN_1 if {
+
+deny_AVM_SEC_AZPOLICY_BUILTIN_1 contains reason if {
 	res := data.utils.resource(input, "azapi_resource")[_]
 	AVM_SEC_AZPOLICY_BUILTIN_1_cosmos_db_accounts_do_not_have_firewall_rules(res)
-
 	reason := sprintf("avmsec/AVM_SEC_AZPOLICY_BUILTIN_1: Firewall rules should be defined on your Azure Cosmos DB accounts to prevent traffic from unauthorized sources. Accounts that have at least one IP rule defined with the virtual network filter enabled are deemed compliant. Accounts disabling public access are also deemed compliant: https://github.com/Azure/policy-library-avm/blob/main/policy/avmsec/Cosmos_NetworkRulesExist.azapi.rego", [res.address])
 }
 
