@@ -11,7 +11,7 @@ deny_AVM_SEC_AZPOLICY_BUILTIN_1 if {
 }
 
 AVM_SEC_AZPOLICY_BUILTIN_1_cosmos_db_accounts_do_not_have_firewall_rules(r) if {
-	is_azure_type(r.values, "Microsoft.DocumentDB/databaseAccounts")
+	data.utils.is_azure_type(r.values, "Microsoft.DocumentDB/databaseAccounts")
 	AVM_SEC_AZPOLICY_BUILTIN_1_publicNetworkAccessEnabledOrOmitted(r)
 
 	AVM_SEC_AZPOLICY_BUILTIN_1_isVritualNetworkFilteredDisabledOrOmitted(r)
