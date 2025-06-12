@@ -165,6 +165,7 @@
 						"type": "Microsoft.DocumentDB/databaseAccounts@2024-11-15",
 						"body": {
 							"properties": {
+								"isVirtualNetworkFilterEnabled": true
 							}
 						}
 					}
