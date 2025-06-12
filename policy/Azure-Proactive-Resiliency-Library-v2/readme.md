@@ -66,8 +66,8 @@ The following APRL checks have been implemented. Use the name's below when reque
 
 * `Microsoft.Network/loadBalancers` or `azurerm_lb`
 
-    - [`use_nat_gateway_instead_of_outbound_rules_for_production_load_lalancer`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/loadBalancers/#use-nat-gateway-instead-of-outbound-rules-for-production-workloads)
-    - [`use_resilient_load_lalancer_sku`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/loadBalancers/#use-standard-load-balancer-sku)
+    - [`use_nat_gateway_instead_of_outbound_rules_for_production_load_balancer`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/loadBalancers/#use-nat-gateway-instead-of-outbound-rules-for-production-workloads)
+    - [`use_resilient_load_balancer_sku`](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/Network/loadBalancers/#use-standard-load-balancer-sku)
 
 * `Microsoft.Network/publicIPAddresses` or `azurerm_public_ip`
 

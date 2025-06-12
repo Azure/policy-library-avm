@@ -56,7 +56,7 @@ package Azure_Proactive_Resiliency_Library_v2
 import rego.v1
 
 exception contains rules if {
-  rules = ["use_nat_gateway_instead_of_outbound_rules_for_production_load_lalancer", "storage_accounts_are_zone_or_region_redundant"]
+  rules = ["use_nat_gateway_instead_of_outbound_rules_for_production_load_balancer", "storage_accounts_are_zone_or_region_redundant"]
 }
 ```
 
