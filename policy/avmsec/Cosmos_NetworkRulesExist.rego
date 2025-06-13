@@ -3,7 +3,7 @@ package avmsec
 import rego.v1
 
 #azure_cosmos_db_accounts_should_have_firewall_rules https://github.com/Azure/azure-policy/blob/63d321daccad14c094a0eaaec9c035da2db72c3e/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_NetworkRulesExist_Audit.json
-deny_AVM_SEC_AZPOLICY_BUILTIN_1 if {
+deny_AVM_SEC_AZPOLICY_BUILTIN_1 contains reason if {
 	res := data.utils.resource(input, "azurerm_cosmosdb_account")[_]
 	AVM_SEC_AZPOLICY_BUILTIN_1_azurerm_cosmos_db_accounts_do_not_have_firewall_rules(res)
 
@@ -52,10 +52,14 @@ AVM_SEC_AZPOLICY_BUILTIN_1_azurerm_with_private_endpoint_connection(r) if {
 	private_endpoint.private_service_connection[0].private_connection_resource_id == cosmosdb_account_id
 }
 
+AVM_SEC_AZPOLICY_BUILTIN_1_azurerm_with_private_endpoint_connection(r) if {
+	private_endpoint_config := data.utils.resource_configuration(input)[_]
+	private_endpoint_config.type == "azurerm_private_endpoint"
+
+	data.utils.arraycontains([ sprintf("%s%s", [private_endpoint_config.module_prefix, ref]) | some ref in private_endpoint_config.expressions.private_service_connection[_].private_connection_resource_id.references], sprintf("%s.%s", [r.address, "id"]))
+}
+
 AVM_SEC_AZPOLICY_BUILTIN_1_azurerm_no_firewall_rules(r) if {
-	AVM_SEC_AZPOLICY_BUILTIN_1_azurerm_no_ip_rules(r)
-
 	AVM_SEC_AZPOLICY_BUILTIN_1_azurerm_no_ip_range_filter(r)
-
 	AVM_SEC_AZPOLICY_BUILTIN_1_azurerm_no_private_endpoint_connection(r)
 }

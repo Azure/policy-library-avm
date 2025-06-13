@@ -72,6 +72,7 @@ resource_configuration(_input) := output if {
         res := value.resources[_]
         resource := {
             "address": sprintf("%s%s", [module_prefix, res.address]),
+            "module_prefix": module_prefix,
             "mode": res.mode,
             "type": res.type,
             "expressions": res.expressions,
