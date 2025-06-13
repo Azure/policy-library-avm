@@ -1,0 +1,453 @@
+{
+  "mock": {
+    "invalid_no_ip_rule": {
+      "resource_changes": [
+        {
+          "address": "azurerm_cosmosdb_account.this",
+          "mode": "managed",
+          "type": "azurerm_cosmosdb_account",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "public_network_access_enabled": true,
+              "is_virtual_network_filter_enabled": false
+            }
+          }
+        }
+      ]
+    },
+    "invalid_empty_ipRangerFilter": {
+      "resource_changes": [
+        {
+          "address": "azurerm_cosmosdb_account.this",
+          "mode": "managed",
+          "type": "azurerm_cosmosdb_account",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "public_network_access_enabled": true,
+              "is_virtual_network_filter_enabled": false,
+              "ip_range_filter": []
+            }
+          }
+        }
+      ]
+    },
+    "invalidPublicNetworkAccessOmitted": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.res",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "isVirtualNetworkFilterEnabled": false,
+              "ipRangeFilter": ""
+            }
+          }
+        }
+      ]
+    },
+    "invalidIsVirtualNetworkFilterEnabledOmitted": {
+      "resource_changes": [
+        {
+          "address": "azurerm_cosmosdb_account.this",
+          "mode": "managed",
+          "type": "azurerm_cosmosdb_account",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "public_network_access_enabled": true
+            }
+          }
+        }
+      ]
+    },
+    "ip_range_filter": {
+      "resource_changes": [
+        {
+          "address": "azurerm_cosmosdb_account.this",
+          "mode": "managed",
+          "type": "azurerm_cosmosdb_account",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "public_network_access_enabled": true,
+              "is_virtual_network_filter_enabled": false,
+              "ip_range_filter": [
+                "0.0.0.0/0"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "publicNetworkAccessDisabled": {
+      "invalid_empty_ipRangerFilter": {
+        "resource_changes": [
+          {
+            "address": "azurerm_cosmosdb_account.this",
+            "mode": "managed",
+            "type": "azurerm_cosmosdb_account",
+            "change": {
+              "actions": [
+                "create"
+              ],
+              "after": {
+                "public_network_access_enabled": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    "isVirtualNetworkFilterEnabled": {
+      "resource_changes": [
+        {
+          "address": "azurerm_cosmosdb_account.this",
+          "mode": "managed",
+          "type": "azurerm_cosmosdb_account",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {
+              "is_virtual_network_filter_enabled": true
+            }
+          }
+        }
+      ]
+    },
+    "privateEndpoint_rootModule": {
+      "resource_changes": [
+        {
+          "address": "azurerm_cosmosdb_account.db",
+          "mode": "managed",
+          "type": "azurerm_cosmosdb_account",
+          "name": "db",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "before": null,
+            "after": {
+              "access_key_metadata_writes_enabled": true,
+              "analytical_storage_enabled": false,
+              "automatic_failover_enabled": true,
+              "burst_capacity_enabled": false,
+              "capabilities": [
+                {
+                  "name": "EnableAggregationPipeline"
+                },
+                {
+                  "name": "EnableMongo"
+                },
+                {
+                  "name": "MongoDBv3.4"
+                },
+                {
+                  "name": "mongoEnableDocLevelTTL"
+                }
+              ],
+              "consistency_policy": [
+                {
+                  "consistency_level": "BoundedStaleness",
+                  "max_interval_in_seconds": 300,
+                  "max_staleness_prefix": 100000
+                }
+              ],
+              "cors_rule": [],
+              "default_identity_type": "FirstPartyIdentity",
+              "free_tier_enabled": false,
+              "geo_location": [
+                {
+                  "failover_priority": 0,
+                  "location": "westus",
+                  "zone_redundant": false
+                },
+                {
+                  "failover_priority": 1,
+                  "location": "eastus",
+                  "zone_redundant": false
+                }
+              ],
+              "identity": [],
+              "ip_range_filter": null,
+              "is_virtual_network_filter_enabled": false,
+              "key_vault_key_id": null,
+              "kind": "MongoDB",
+              "local_authentication_disabled": false,
+              "location": "spaincentral",
+              "managed_hsm_key_id": null,
+              "minimal_tls_version": "Tls12",
+              "multiple_write_locations_enabled": false,
+              "name": "tfex-cosmos-db",
+              "network_acl_bypass_for_azure_services": false,
+              "network_acl_bypass_ids": null,
+              "offer_type": "Standard",
+              "partition_merge_enabled": false,
+              "public_network_access_enabled": true,
+              "resource_group_name": "zjhe",
+              "restore": [],
+              "tags": null,
+              "timeouts": null,
+              "virtual_network_rule": []
+            },
+            "after_unknown": {
+              "analytical_storage": true,
+              "backup": true,
+              "capabilities": [
+                {},
+                {},
+                {},
+                {}
+              ],
+              "capacity": true,
+              "consistency_policy": [
+                {}
+              ],
+              "cors_rule": [],
+              "create_mode": true,
+              "endpoint": true,
+              "geo_location": [
+                {
+                  "id": true
+                },
+                {
+                  "id": true
+                }
+              ],
+              "id": true,
+              "identity": [],
+              "mongo_server_version": true,
+              "primary_key": true,
+              "primary_mongodb_connection_string": true,
+              "primary_readonly_key": true,
+              "primary_readonly_mongodb_connection_string": true,
+              "primary_readonly_sql_connection_string": true,
+              "primary_sql_connection_string": true,
+              "read_endpoints": true,
+              "restore": [],
+              "secondary_key": true,
+              "secondary_mongodb_connection_string": true,
+              "secondary_readonly_key": true,
+              "secondary_readonly_mongodb_connection_string": true,
+              "secondary_readonly_sql_connection_string": true,
+              "secondary_sql_connection_string": true,
+              "virtual_network_rule": [],
+              "write_endpoints": true
+            },
+            "before_sensitive": false,
+            "after_sensitive": {
+              "analytical_storage": [],
+              "backup": [],
+              "capabilities": [
+                {},
+                {},
+                {},
+                {}
+              ],
+              "capacity": [],
+              "consistency_policy": [
+                {}
+              ],
+              "cors_rule": [],
+              "geo_location": [
+                {},
+                {}
+              ],
+              "identity": [],
+              "primary_key": true,
+              "primary_mongodb_connection_string": true,
+              "primary_readonly_key": true,
+              "primary_readonly_mongodb_connection_string": true,
+              "primary_readonly_sql_connection_string": true,
+              "primary_sql_connection_string": true,
+              "read_endpoints": [],
+              "restore": [],
+              "secondary_key": true,
+              "secondary_mongodb_connection_string": true,
+              "secondary_readonly_key": true,
+              "secondary_readonly_mongodb_connection_string": true,
+              "secondary_readonly_sql_connection_string": true,
+              "secondary_sql_connection_string": true,
+              "virtual_network_rule": [],
+              "write_endpoints": []
+            }
+          }
+        }
+      ],
+      "configuration": {
+        "root_module": {
+          "resources": [
+            {
+              "address": "azurerm_cosmosdb_account.db",
+              "mode": "managed",
+              "type": "azurerm_cosmosdb_account",
+              "name": "db",
+              "provider_config_key": "azurerm",
+              "expressions": {
+                "automatic_failover_enabled": {
+                  "constant_value": true
+                },
+                "capabilities": [
+                  {
+                    "name": {
+                      "constant_value": "EnableAggregationPipeline"
+                    }
+                  },
+                  {
+                    "name": {
+                      "constant_value": "mongoEnableDocLevelTTL"
+                    }
+                  },
+                  {
+                    "name": {
+                      "constant_value": "MongoDBv3.4"
+                    }
+                  },
+                  {
+                    "name": {
+                      "constant_value": "EnableMongo"
+                    }
+                  }
+                ],
+                "consistency_policy": [
+                  {
+                    "consistency_level": {
+                      "constant_value": "BoundedStaleness"
+                    },
+                    "max_interval_in_seconds": {
+                      "constant_value": 300
+                    },
+                    "max_staleness_prefix": {
+                      "constant_value": 100000
+                    }
+                  }
+                ],
+                "geo_location": [
+                  {
+                    "failover_priority": {
+                      "constant_value": 1
+                    },
+                    "location": {
+                      "constant_value": "eastus"
+                    }
+                  },
+                  {
+                    "failover_priority": {
+                      "constant_value": 0
+                    },
+                    "location": {
+                      "constant_value": "westus"
+                    }
+                  }
+                ],
+                "kind": {
+                  "constant_value": "MongoDB"
+                },
+                "location": {
+                  "references": [
+                    "azurerm_resource_group.example.location",
+                    "azurerm_resource_group.example"
+                  ]
+                },
+                "name": {
+                  "constant_value": "tfex-cosmos-db"
+                },
+                "offer_type": {
+                  "constant_value": "Standard"
+                },
+                "resource_group_name": {
+                  "references": [
+                    "azurerm_resource_group.example.name",
+                    "azurerm_resource_group.example"
+                  ]
+                }
+              },
+              "schema_version": 1
+            },
+            {
+              "address": "azurerm_private_endpoint.this_managed_dns_zone_groups",
+              "mode": "managed",
+              "type": "azurerm_private_endpoint",
+              "name": "this_managed_dns_zone_groups",
+              "provider_config_key": "azurerm",
+              "expressions": {
+                "private_service_connection": [
+                  {
+                    "private_connection_resource_id": {
+                      "references": [
+                        "azurerm_cosmosdb_account.db.id",
+                        "azurerm_cosmosdb_account.db"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "privateEndpoint_nestedModule": {
+      "resource_changes": [
+        {
+          "address": "module.cosmos.azurerm_cosmosdb_account.this",
+          "module_address": "module.cosmos",
+          "mode": "managed",
+          "type": "azurerm_cosmosdb_account",
+          "name": "this",
+          "change": {
+            "actions": [
+              "create"
+            ],
+            "after": {}
+          }
+        }
+      ],
+      "configuration": {
+        "root_module": {
+          "module_calls": {
+            "cosmos": {
+              "module": {
+                "resources": [
+                  {
+                    "address": "azurerm_private_endpoint.this_managed_dns_zone_groups",
+                    "mode": "managed",
+                    "type": "azurerm_private_endpoint",
+                    "name": "this_managed_dns_zone_groups",
+                    "expressions": {
+                      "private_service_connection": [
+                        {
+                          "private_connection_resource_id": {
+                            "references": [
+                              "azurerm_cosmosdb_account.this.id",
+                              "azurerm_cosmosdb_account.this"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
