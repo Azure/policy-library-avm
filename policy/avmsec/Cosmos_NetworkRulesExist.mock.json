@@ -40,16 +40,16 @@
     "invalidPublicNetworkAccessOmitted": {
       "resource_changes": [
         {
-          "address": "azapi_resource.res",
+          "address": "azurerm_cosmosdb_account.this",
           "mode": "managed",
-          "type": "azapi_resource",
+          "type": "azurerm_cosmosdb_account",
           "change": {
             "actions": [
               "create"
             ],
             "after": {
-              "isVirtualNetworkFilterEnabled": false,
-              "ipRangeFilter": ""
+              "is_virtual_network_filter_enabled": false,
+              "ip_range_filter": []
             }
           }
         }
