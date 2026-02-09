@@ -15,8 +15,8 @@
                         "after": {
                             "body": {
                                 "sku": {
-                                    "tier": "standard"
-                                }                                
+                                    "name": "S1"
+                                }
                             },
                             "name": "example-web-serverfarms",
                             "type": "Microsoft.Web/serverfarms@2024-04-01"
@@ -40,8 +40,8 @@
                         "after": {
                             "body": {
                                 "sku": {
-                                    "tier": "premium"
-                                }                                
+                                    "name": "P1v3"
+                                }
                             },
                             "name": "example-web-serverfarms",
                             "type": "Microsoft.Web/serverfarms@2024-04-01"
@@ -65,8 +65,8 @@
                         "after": {
                             "body": {
                                 "sku": {
-                                    "tier": "isolatedv2"
-                                }                                
+                                    "name": "I1v2"
+                                }
                             },
                             "name": "example-web-serverfarms",
                             "type": "Microsoft.Web/serverfarms@2024-04-01"
@@ -90,8 +90,8 @@
                         "after": {
                             "body": {
                                 "sku": {
-                                    "tier": "basic"
-                                }                                
+                                    "name": "B1"
+                                }
                             },
                             "name": "example-web-serverfarms",
                             "type": "Microsoft.Web/serverfarms@2024-04-01"
