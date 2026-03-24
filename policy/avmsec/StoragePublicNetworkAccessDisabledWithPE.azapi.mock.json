@@ -1,0 +1,357 @@
+{
+  "mock": {
+    "invalid_rootModule_pe_public_access": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.storage",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "storage",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": ["create"],
+            "after": {
+              "type": "Microsoft.Storage/storageAccounts@2023-05-01",
+              "body": {
+                "properties": {
+                  "publicNetworkAccess": "Enabled"
+                }
+              }
+            }
+          }
+        },
+        {
+          "address": "azapi_resource.pe",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "pe",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": ["create"],
+            "after": {
+              "type": "Microsoft.Network/privateEndpoints@2024-05-01",
+              "body": {
+                "properties": {
+                  "privateLinkServiceConnections": [
+                    {
+                      "properties": {
+                        "privateLinkServiceId": "/subscriptions/xxxxx/resourceGroups/xxxxx/providers/Microsoft.Storage/storageAccounts/xxxxx"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ],
+      "configuration": {
+        "root_module": {
+          "resources": [
+            {
+              "address": "azapi_resource.storage",
+              "mode": "managed",
+              "type": "azapi_resource",
+              "name": "storage",
+              "provider_config_key": "azapi",
+              "expressions": {}
+            },
+            {
+              "address": "azapi_resource.pe",
+              "mode": "managed",
+              "type": "azapi_resource",
+              "name": "pe",
+              "provider_config_key": "azapi",
+              "expressions": {
+                "body": {
+                  "references": [
+                    "azapi_resource.storage.output.id",
+                    "azapi_resource.storage"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "invalid_nestedModule_pe_public_access": {
+      "resource_changes": [
+        {
+          "address": "module.storage.azapi_resource.this",
+          "module_address": "module.storage",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "this",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": ["create"],
+            "after": {
+              "type": "Microsoft.Storage/storageAccounts@2023-05-01",
+              "body": {
+                "properties": {
+                  "publicNetworkAccess": "Enabled"
+                }
+              }
+            }
+          }
+        },
+        {
+          "address": "module.storage.azapi_resource.pe",
+          "module_address": "module.storage",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "pe",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": ["create"],
+            "after": {
+              "type": "Microsoft.Network/privateEndpoints@2024-05-01",
+              "body": {
+                "properties": {
+                  "privateLinkServiceConnections": [
+                    {
+                      "properties": {
+                        "privateLinkServiceId": "/subscriptions/xxxxx/resourceGroups/xxxxx/providers/Microsoft.Storage/storageAccounts/xxxxx"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ],
+      "configuration": {
+        "root_module": {
+          "module_calls": {
+            "storage": {
+              "module": {
+                "resources": [
+                  {
+                    "address": "azapi_resource.this",
+                    "mode": "managed",
+                    "type": "azapi_resource",
+                    "name": "this",
+                    "provider_config_key": "azapi",
+                    "expressions": {}
+                  },
+                  {
+                    "address": "azapi_resource.pe",
+                    "mode": "managed",
+                    "type": "azapi_resource",
+                    "name": "pe",
+                    "provider_config_key": "azapi",
+                    "expressions": {
+                      "body": {
+                        "references": [
+                          "azapi_resource.this.output.id",
+                          "azapi_resource.this"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "invalid_state_pe_public_access": {
+      "values": {
+        "root_module": {
+          "child_modules": [
+            {
+              "resources": [
+                {
+                  "address": "module.storage.azapi_resource.this",
+                  "mode": "managed",
+                  "type": "azapi_resource",
+                  "name": "this",
+                  "provider_name": "registry.terraform.io/azure/azapi",
+                  "values": {
+                    "id": "/subscriptions/xxxxx/resourceGroups/xxxxx/providers/Microsoft.Storage/storageAccounts/xxxxx",
+                    "type": "Microsoft.Storage/storageAccounts@2023-05-01",
+                    "body": {
+                      "properties": {
+                        "publicNetworkAccess": "Enabled"
+                      }
+                    }
+                  }
+                },
+                {
+                  "address": "module.storage.azapi_resource.pe",
+                  "mode": "managed",
+                  "type": "azapi_resource",
+                  "name": "pe",
+                  "provider_name": "registry.terraform.io/azure/azapi",
+                  "values": {
+                    "type": "Microsoft.Network/privateEndpoints@2024-05-01",
+                    "body": {
+                      "properties": {
+                        "privateLinkServiceConnections": [
+                          {
+                            "properties": {
+                              "privateLinkServiceId": "/subscriptions/xxxxx/resourceGroups/xxxxx/providers/Microsoft.Storage/storageAccounts/xxxxx"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "pe_public_access_disabled": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.storage",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "storage",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": ["create"],
+            "after": {
+              "type": "Microsoft.Storage/storageAccounts@2023-05-01",
+              "body": {
+                "properties": {
+                  "publicNetworkAccess": "Disabled"
+                }
+              }
+            }
+          }
+        },
+        {
+          "address": "azapi_resource.pe",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "pe",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": ["create"],
+            "after": {
+              "type": "Microsoft.Network/privateEndpoints@2024-05-01",
+              "body": {
+                "properties": {
+                  "privateLinkServiceConnections": [
+                    {
+                      "properties": {
+                        "privateLinkServiceId": "/subscriptions/xxxxx/resourceGroups/xxxxx/providers/Microsoft.Storage/storageAccounts/xxxxx"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ],
+      "configuration": {
+        "root_module": {
+          "resources": [
+            {
+              "address": "azapi_resource.storage",
+              "mode": "managed",
+              "type": "azapi_resource",
+              "name": "storage",
+              "provider_config_key": "azapi",
+              "expressions": {}
+            },
+            {
+              "address": "azapi_resource.pe",
+              "mode": "managed",
+              "type": "azapi_resource",
+              "name": "pe",
+              "provider_config_key": "azapi",
+              "expressions": {
+                "body": {
+                  "references": [
+                    "azapi_resource.storage.output.id",
+                    "azapi_resource.storage"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "no_pe_public_access_enabled": {
+      "resource_changes": [
+        {
+          "address": "azapi_resource.storage",
+          "mode": "managed",
+          "type": "azapi_resource",
+          "name": "storage",
+          "provider_name": "registry.terraform.io/azure/azapi",
+          "change": {
+            "actions": ["create"],
+            "after": {
+              "type": "Microsoft.Storage/storageAccounts@2023-05-01",
+              "body": {
+                "properties": {
+                  "publicNetworkAccess": "Enabled"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "valid_state_pe_public_access_disabled": {
+      "values": {
+        "root_module": {
+          "child_modules": [
+            {
+              "resources": [
+                {
+                  "address": "module.storage.azapi_resource.this",
+                  "mode": "managed",
+                  "type": "azapi_resource",
+                  "name": "this",
+                  "provider_name": "registry.terraform.io/azure/azapi",
+                  "values": {
+                    "id": "/subscriptions/xxxxx/resourceGroups/xxxxx/providers/Microsoft.Storage/storageAccounts/xxxxx",
+                    "type": "Microsoft.Storage/storageAccounts@2023-05-01",
+                    "body": {
+                      "properties": {
+                        "publicNetworkAccess": "Disabled"
+                      }
+                    }
+                  }
+                },
+                {
+                  "address": "module.storage.azapi_resource.pe",
+                  "mode": "managed",
+                  "type": "azapi_resource",
+                  "name": "pe",
+                  "provider_name": "registry.terraform.io/azure/azapi",
+                  "values": {
+                    "type": "Microsoft.Network/privateEndpoints@2024-05-01",
+                    "body": {
+                      "properties": {
+                        "privateLinkServiceConnections": [
+                          {
+                            "properties": {
+                              "privateLinkServiceId": "/subscriptions/xxxxx/resourceGroups/xxxxx/providers/Microsoft.Storage/storageAccounts/xxxxx"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}
