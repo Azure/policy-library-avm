@@ -13,6 +13,7 @@ high_severity_rules := [
 	"AVM_SEC_223",
 	"AVM_SEC_178",
 	"AVM_SEC_AZPOLICY_BUILTIN_1",
+	"AVM_SEC_STORAGE_PE_PUBLIC_ACCESS",
 ]
 
 medium_severity_rules := [

@@ -27,6 +27,7 @@ According to [Checkov general policies for Azure](https://docs.prismacloud.io/en
 | Backend of the API management system does not utilize HTTPS | AVM_SEC_215 | HIGH |
 | Event Hub Namespace not using TLS 1.2 or greater | AVM_SEC_223 | HIGH |
 | Linux VM Without SSH Key | AVM_SEC_178 | HIGH |
+| Storage account with private endpoint should disable public network access | AVM_SEC_STORAGE_PE_PUBLIC_ACCESS | HIGH |
 | Storage for critical data are not encrypted with Customer Managed Key | AVM_SEC_2_1 | HIGH |
 | AKS Secrets Store Without Auto-Rotation | AVM_SEC_172 | MEDIUM |
 | API Management Without Minimum TLS 1.2 | AVM_SEC_173 | MEDIUM |
