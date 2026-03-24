@@ -1,0 +1,286 @@
+{
+  "mock": {
+    "invalid_rootModule_pe_public_access": {
+      "resource_changes": [
+        {
+          "address": "azurerm_storage_account.this",
+          "mode": "managed",
+          "type": "azurerm_storage_account",
+          "name": "this",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": ["create"],
+            "after": {
+              "public_network_access_enabled": true
+            }
+          }
+        },
+        {
+          "address": "azurerm_private_endpoint.pe",
+          "mode": "managed",
+          "type": "azurerm_private_endpoint",
+          "name": "pe",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": ["create"],
+            "after": {}
+          }
+        }
+      ],
+      "configuration": {
+        "root_module": {
+          "resources": [
+            {
+              "address": "azurerm_storage_account.this",
+              "mode": "managed",
+              "type": "azurerm_storage_account",
+              "name": "this",
+              "provider_config_key": "azurerm",
+              "expressions": {}
+            },
+            {
+              "address": "azurerm_private_endpoint.pe",
+              "mode": "managed",
+              "type": "azurerm_private_endpoint",
+              "name": "pe",
+              "provider_config_key": "azurerm",
+              "expressions": {
+                "private_service_connection": [
+                  {
+                    "private_connection_resource_id": {
+                      "references": [
+                        "azurerm_storage_account.this.id",
+                        "azurerm_storage_account.this"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "invalid_nestedModule_pe_public_access": {
+      "resource_changes": [
+        {
+          "address": "module.storage.azurerm_storage_account.this",
+          "module_address": "module.storage",
+          "mode": "managed",
+          "type": "azurerm_storage_account",
+          "name": "this",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": ["create"],
+            "after": {
+              "public_network_access_enabled": true
+            }
+          }
+        },
+        {
+          "address": "module.storage.azurerm_private_endpoint.pe",
+          "module_address": "module.storage",
+          "mode": "managed",
+          "type": "azurerm_private_endpoint",
+          "name": "pe",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": ["create"],
+            "after": {}
+          }
+        }
+      ],
+      "configuration": {
+        "root_module": {
+          "module_calls": {
+            "storage": {
+              "module": {
+                "resources": [
+                  {
+                    "address": "azurerm_storage_account.this",
+                    "mode": "managed",
+                    "type": "azurerm_storage_account",
+                    "name": "this",
+                    "provider_config_key": "azurerm",
+                    "expressions": {}
+                  },
+                  {
+                    "address": "azurerm_private_endpoint.pe",
+                    "mode": "managed",
+                    "type": "azurerm_private_endpoint",
+                    "name": "pe",
+                    "provider_config_key": "azurerm",
+                    "expressions": {
+                      "private_service_connection": [
+                        {
+                          "private_connection_resource_id": {
+                            "references": [
+                              "azurerm_storage_account.this.id",
+                              "azurerm_storage_account.this"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "invalid_state_pe_public_access": {
+      "values": {
+        "root_module": {
+          "child_modules": [
+            {
+              "resources": [
+                {
+                  "address": "module.storage.azurerm_storage_account.this",
+                  "mode": "managed",
+                  "type": "azurerm_storage_account",
+                  "name": "this",
+                  "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                  "values": {
+                    "id": "/subscriptions/xxxxx/resourceGroups/xxxxx/providers/Microsoft.Storage/storageAccounts/xxxxx",
+                    "public_network_access_enabled": true
+                  }
+                },
+                {
+                  "address": "module.storage.azurerm_private_endpoint.pe",
+                  "mode": "managed",
+                  "type": "azurerm_private_endpoint",
+                  "name": "pe",
+                  "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                  "values": {
+                    "private_service_connection": [
+                      {
+                        "private_connection_resource_id": "/subscriptions/xxxxx/resourceGroups/xxxxx/providers/Microsoft.Storage/storageAccounts/xxxxx"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "pe_public_access_disabled": {
+      "resource_changes": [
+        {
+          "address": "azurerm_storage_account.this",
+          "mode": "managed",
+          "type": "azurerm_storage_account",
+          "name": "this",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": ["create"],
+            "after": {
+              "public_network_access_enabled": false
+            }
+          }
+        },
+        {
+          "address": "azurerm_private_endpoint.pe",
+          "mode": "managed",
+          "type": "azurerm_private_endpoint",
+          "name": "pe",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": ["create"],
+            "after": {}
+          }
+        }
+      ],
+      "configuration": {
+        "root_module": {
+          "resources": [
+            {
+              "address": "azurerm_storage_account.this",
+              "mode": "managed",
+              "type": "azurerm_storage_account",
+              "name": "this",
+              "provider_config_key": "azurerm",
+              "expressions": {}
+            },
+            {
+              "address": "azurerm_private_endpoint.pe",
+              "mode": "managed",
+              "type": "azurerm_private_endpoint",
+              "name": "pe",
+              "provider_config_key": "azurerm",
+              "expressions": {
+                "private_service_connection": [
+                  {
+                    "private_connection_resource_id": {
+                      "references": [
+                        "azurerm_storage_account.this.id",
+                        "azurerm_storage_account.this"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "no_pe_public_access_enabled": {
+      "resource_changes": [
+        {
+          "address": "azurerm_storage_account.this",
+          "mode": "managed",
+          "type": "azurerm_storage_account",
+          "name": "this",
+          "provider_name": "registry.terraform.io/hashicorp/azurerm",
+          "change": {
+            "actions": ["create"],
+            "after": {
+              "public_network_access_enabled": true
+            }
+          }
+        }
+      ]
+    },
+    "valid_state_pe_public_access_disabled": {
+      "values": {
+        "root_module": {
+          "child_modules": [
+            {
+              "resources": [
+                {
+                  "address": "module.storage.azurerm_storage_account.this",
+                  "mode": "managed",
+                  "type": "azurerm_storage_account",
+                  "name": "this",
+                  "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                  "values": {
+                    "id": "/subscriptions/xxxxx/resourceGroups/xxxxx/providers/Microsoft.Storage/storageAccounts/xxxxx",
+                    "public_network_access_enabled": false
+                  }
+                },
+                {
+                  "address": "module.storage.azurerm_private_endpoint.pe",
+                  "mode": "managed",
+                  "type": "azurerm_private_endpoint",
+                  "name": "pe",
+                  "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                  "values": {
+                    "private_service_connection": [
+                      {
+                        "private_connection_resource_id": "/subscriptions/xxxxx/resourceGroups/xxxxx/providers/Microsoft.Storage/storageAccounts/xxxxx"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}
